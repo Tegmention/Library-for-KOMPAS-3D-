@@ -1,2 +1,2 @@
-# Library-for-KOMPAS-3D-
+# Plugin-KOMPAS-3D
 Разработка библиотеки "Музыкальная колонка" для САПР "KOMPAS-3D V16"
