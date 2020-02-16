@@ -28,239 +28,329 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.CaseLength_TextBox = new System.Windows.Forms.TextBox();
+            this.CaseHeight_TextBox = new System.Windows.Forms.TextBox();
+            this.CaseWidth_TextBox = new System.Windows.Forms.TextBox();
+            this.SpeakerHeight_TextBox = new System.Windows.Forms.TextBox();
+            this.SpeakerLength_TextBox = new System.Windows.Forms.TextBox();
+            this.SpeakerWidth_TextBox = new System.Windows.Forms.TextBox();
+            this.RelayDiameter_TextBox = new System.Windows.Forms.TextBox();
+            this.CaseHeight_label = new System.Windows.Forms.Label();
+            this.CaseLength_Label = new System.Windows.Forms.Label();
+            this.CaseWidth_Label = new System.Windows.Forms.Label();
+            this.SpeakerHeight_Label = new System.Windows.Forms.Label();
+            this.SpeakerLength_Label = new System.Windows.Forms.Label();
+            this.SpeakerWidth_Label = new System.Windows.Forms.Label();
+            this.RelayDiameter_Label = new System.Windows.Forms.Label();
+            this.caseDimensions_groupBox = new System.Windows.Forms.GroupBox();
+            this.BoundaryValueW_Label = new System.Windows.Forms.Label();
+            this.BoundaryValueL_Label = new System.Windows.Forms.Label();
+            this.speakerDimensions_groupBox = new System.Windows.Forms.GroupBox();
+            this.BoundaryValueLS_Label = new System.Windows.Forms.Label();
+            this.BoundaryValueWS_Label = new System.Windows.Forms.Label();
+            this.BoundaryValueHS_Label = new System.Windows.Forms.Label();
+            this.releDimensions_groupBox = new System.Windows.Forms.GroupBox();
+            this.BoundaryValueD_Label = new System.Windows.Forms.Label();
+            this.BuildModel_Button = new System.Windows.Forms.Button();
+            this.BoundaryValueH_Label = new System.Windows.Forms.Label();
+            this.DeleteParameters_Button = new System.Windows.Forms.Button();
+            this.caseDimensions_groupBox.SuspendLayout();
+            this.speakerDimensions_groupBox.SuspendLayout();
+            this.releDimensions_groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // CaseLength_TextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(57, 53);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(106, 20);
-            this.textBox1.TabIndex = 0;
+            this.CaseLength_TextBox.Location = new System.Drawing.Point(78, 53);
+            this.CaseLength_TextBox.Name = "CaseLength_TextBox";
+            this.CaseLength_TextBox.Size = new System.Drawing.Size(93, 20);
+            this.CaseLength_TextBox.TabIndex = 1;
             // 
-            // textBox2
+            // CaseHeight_TextBox
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(57, 27);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(106, 20);
-            this.textBox2.TabIndex = 1;
+            this.CaseHeight_TextBox.Location = new System.Drawing.Point(78, 27);
+            this.CaseHeight_TextBox.Name = "CaseHeight_TextBox";
+            this.CaseHeight_TextBox.Size = new System.Drawing.Size(93, 20);
+            this.CaseHeight_TextBox.TabIndex = 0;
             // 
-            // textBox3
+            // CaseWidth_TextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(57, 79);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(106, 20);
-            this.textBox3.TabIndex = 2;
+            this.CaseWidth_TextBox.Location = new System.Drawing.Point(78, 79);
+            this.CaseWidth_TextBox.Name = "CaseWidth_TextBox";
+            this.CaseWidth_TextBox.Size = new System.Drawing.Size(93, 20);
+            this.CaseWidth_TextBox.TabIndex = 2;
             // 
-            // textBox4
+            // SpeakerHeight_TextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(57, 27);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(106, 20);
-            this.textBox4.TabIndex = 3;
+            this.SpeakerHeight_TextBox.Location = new System.Drawing.Point(78, 27);
+            this.SpeakerHeight_TextBox.Name = "SpeakerHeight_TextBox";
+            this.SpeakerHeight_TextBox.Size = new System.Drawing.Size(93, 20);
+            this.SpeakerHeight_TextBox.TabIndex = 3;
             // 
-            // textBox5
+            // SpeakerLength_TextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(57, 53);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(106, 20);
-            this.textBox5.TabIndex = 4;
+            this.SpeakerLength_TextBox.Location = new System.Drawing.Point(78, 53);
+            this.SpeakerLength_TextBox.Name = "SpeakerLength_TextBox";
+            this.SpeakerLength_TextBox.Size = new System.Drawing.Size(93, 20);
+            this.SpeakerLength_TextBox.TabIndex = 4;
             // 
-            // textBox6
+            // SpeakerWidth_TextBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(57, 79);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(106, 20);
-            this.textBox6.TabIndex = 5;
+            this.SpeakerWidth_TextBox.Location = new System.Drawing.Point(78, 79);
+            this.SpeakerWidth_TextBox.Name = "SpeakerWidth_TextBox";
+            this.SpeakerWidth_TextBox.Size = new System.Drawing.Size(93, 20);
+            this.SpeakerWidth_TextBox.TabIndex = 5;
             // 
-            // textBox7
+            // RelayDiameter_TextBox
             // 
-            this.textBox7.Location = new System.Drawing.Point(64, 27);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(106, 20);
-            this.textBox7.TabIndex = 6;
+            this.RelayDiameter_TextBox.Location = new System.Drawing.Point(78, 27);
+            this.RelayDiameter_TextBox.Name = "RelayDiameter_TextBox";
+            this.RelayDiameter_TextBox.Size = new System.Drawing.Size(93, 20);
+            this.RelayDiameter_TextBox.TabIndex = 6;
             // 
-            // label1
+            // CaseHeight_label
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Высота:";
+            this.CaseHeight_label.AutoSize = true;
+            this.CaseHeight_label.Location = new System.Drawing.Point(3, 30);
+            this.CaseHeight_label.Name = "CaseHeight_label";
+            this.CaseHeight_label.Size = new System.Drawing.Size(65, 13);
+            this.CaseHeight_label.TabIndex = 7;
+            this.CaseHeight_label.Text = "Высота (H):";
             // 
-            // label2
+            // CaseLength_Label
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 56);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Длинна:";
+            this.CaseLength_Label.AutoSize = true;
+            this.CaseLength_Label.Location = new System.Drawing.Point(3, 56);
+            this.CaseLength_Label.Name = "CaseLength_Label";
+            this.CaseLength_Label.Size = new System.Drawing.Size(64, 13);
+            this.CaseLength_Label.TabIndex = 8;
+            this.CaseLength_Label.Text = "Длинна (L):";
             // 
-            // label3
+            // CaseWidth_Label
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 82);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 13);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Ширина:";
+            this.CaseWidth_Label.AutoSize = true;
+            this.CaseWidth_Label.Location = new System.Drawing.Point(3, 82);
+            this.CaseWidth_Label.Name = "CaseWidth_Label";
+            this.CaseWidth_Label.Size = new System.Drawing.Size(69, 13);
+            this.CaseWidth_Label.TabIndex = 9;
+            this.CaseWidth_Label.Text = "Ширина (W):";
             // 
-            // label4
+            // SpeakerHeight_Label
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 30);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Высота:";
+            this.SpeakerHeight_Label.AutoSize = true;
+            this.SpeakerHeight_Label.Location = new System.Drawing.Point(3, 30);
+            this.SpeakerHeight_Label.Name = "SpeakerHeight_Label";
+            this.SpeakerHeight_Label.Size = new System.Drawing.Size(72, 13);
+            this.SpeakerHeight_Label.TabIndex = 10;
+            this.SpeakerHeight_Label.Text = "Высота (HS):";
             // 
-            // label5
+            // SpeakerLength_Label
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 56);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 13);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Длинна:";
+            this.SpeakerLength_Label.AutoSize = true;
+            this.SpeakerLength_Label.Location = new System.Drawing.Point(3, 56);
+            this.SpeakerLength_Label.Name = "SpeakerLength_Label";
+            this.SpeakerLength_Label.Size = new System.Drawing.Size(71, 13);
+            this.SpeakerLength_Label.TabIndex = 11;
+            this.SpeakerLength_Label.Text = "Длинна (LS):";
             // 
-            // label6
+            // SpeakerWidth_Label
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 82);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 13);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Ширина:";
+            this.SpeakerWidth_Label.AutoSize = true;
+            this.SpeakerWidth_Label.Location = new System.Drawing.Point(3, 82);
+            this.SpeakerWidth_Label.Name = "SpeakerWidth_Label";
+            this.SpeakerWidth_Label.Size = new System.Drawing.Size(76, 13);
+            this.SpeakerWidth_Label.TabIndex = 12;
+            this.SpeakerWidth_Label.Text = "Ширина (WS):";
             // 
-            // label7
+            // RelayDiameter_Label
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 30);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 13);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Диаметр:";
+            this.RelayDiameter_Label.AutoSize = true;
+            this.RelayDiameter_Label.Location = new System.Drawing.Point(6, 30);
+            this.RelayDiameter_Label.Name = "RelayDiameter_Label";
+            this.RelayDiameter_Label.Size = new System.Drawing.Size(73, 13);
+            this.RelayDiameter_Label.TabIndex = 13;
+            this.RelayDiameter_Label.Text = "Диаметр (D):";
             // 
-            // groupBox1
+            // caseDimensions_groupBox
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(9, 9);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(175, 109);
-            this.groupBox1.TabIndex = 14;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Габариты корпуса";
+            this.caseDimensions_groupBox.Controls.Add(this.CaseHeight_TextBox);
+            this.caseDimensions_groupBox.Controls.Add(this.CaseHeight_label);
+            this.caseDimensions_groupBox.Controls.Add(this.CaseLength_TextBox);
+            this.caseDimensions_groupBox.Controls.Add(this.CaseLength_Label);
+            this.caseDimensions_groupBox.Controls.Add(this.BoundaryValueW_Label);
+            this.caseDimensions_groupBox.Controls.Add(this.CaseWidth_TextBox);
+            this.caseDimensions_groupBox.Controls.Add(this.BoundaryValueL_Label);
+            this.caseDimensions_groupBox.Controls.Add(this.CaseWidth_Label);
+            this.caseDimensions_groupBox.Location = new System.Drawing.Point(9, 9);
+            this.caseDimensions_groupBox.Name = "caseDimensions_groupBox";
+            this.caseDimensions_groupBox.Size = new System.Drawing.Size(322, 109);
+            this.caseDimensions_groupBox.TabIndex = 14;
+            this.caseDimensions_groupBox.TabStop = false;
+            this.caseDimensions_groupBox.Text = "Габариты корпуса";
             // 
-            // groupBox2
+            // BoundaryValueW_Label
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.textBox5);
-            this.groupBox2.Controls.Add(this.textBox6);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(190, 9);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(176, 109);
-            this.groupBox2.TabIndex = 15;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Габариты динамика";
+            this.BoundaryValueW_Label.AutoSize = true;
+            this.BoundaryValueW_Label.Location = new System.Drawing.Point(177, 82);
+            this.BoundaryValueW_Label.Name = "BoundaryValueW_Label";
+            this.BoundaryValueW_Label.Size = new System.Drawing.Size(100, 13);
+            this.BoundaryValueW_Label.TabIndex = 20;
+            this.BoundaryValueW_Label.Text = "(от 150 до 200) мм";
             // 
-            // groupBox3
+            // BoundaryValueL_Label
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.textBox7);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Location = new System.Drawing.Point(372, 9);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(176, 58);
-            this.groupBox3.TabIndex = 16;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Габариты реле регулировки ";
+            this.BoundaryValueL_Label.AutoSize = true;
+            this.BoundaryValueL_Label.Location = new System.Drawing.Point(177, 56);
+            this.BoundaryValueL_Label.Name = "BoundaryValueL_Label";
+            this.BoundaryValueL_Label.Size = new System.Drawing.Size(100, 13);
+            this.BoundaryValueL_Label.TabIndex = 19;
+            this.BoundaryValueL_Label.Text = "(от 200 до 300) мм";
             // 
-            // button1
+            // speakerDimensions_groupBox
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(476, 95);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(72, 23);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Построить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.speakerDimensions_groupBox.Controls.Add(this.BoundaryValueLS_Label);
+            this.speakerDimensions_groupBox.Controls.Add(this.BoundaryValueWS_Label);
+            this.speakerDimensions_groupBox.Controls.Add(this.BoundaryValueHS_Label);
+            this.speakerDimensions_groupBox.Controls.Add(this.SpeakerHeight_TextBox);
+            this.speakerDimensions_groupBox.Controls.Add(this.SpeakerLength_TextBox);
+            this.speakerDimensions_groupBox.Controls.Add(this.SpeakerWidth_TextBox);
+            this.speakerDimensions_groupBox.Controls.Add(this.SpeakerWidth_Label);
+            this.speakerDimensions_groupBox.Controls.Add(this.SpeakerHeight_Label);
+            this.speakerDimensions_groupBox.Controls.Add(this.SpeakerLength_Label);
+            this.speakerDimensions_groupBox.Location = new System.Drawing.Point(9, 124);
+            this.speakerDimensions_groupBox.Name = "speakerDimensions_groupBox";
+            this.speakerDimensions_groupBox.Size = new System.Drawing.Size(322, 109);
+            this.speakerDimensions_groupBox.TabIndex = 15;
+            this.speakerDimensions_groupBox.TabStop = false;
+            this.speakerDimensions_groupBox.Text = "Габариты динамика";
+            // 
+            // BoundaryValueLS_Label
+            // 
+            this.BoundaryValueLS_Label.AutoSize = true;
+            this.BoundaryValueLS_Label.Location = new System.Drawing.Point(177, 56);
+            this.BoundaryValueLS_Label.Name = "BoundaryValueLS_Label";
+            this.BoundaryValueLS_Label.Size = new System.Drawing.Size(116, 13);
+            this.BoundaryValueLS_Label.TabIndex = 20;
+            this.BoundaryValueLS_Label.Text = "Введите параметр : L";
+            // 
+            // BoundaryValueWS_Label
+            // 
+            this.BoundaryValueWS_Label.AutoSize = true;
+            this.BoundaryValueWS_Label.Location = new System.Drawing.Point(177, 82);
+            this.BoundaryValueWS_Label.Name = "BoundaryValueWS_Label";
+            this.BoundaryValueWS_Label.Size = new System.Drawing.Size(82, 13);
+            this.BoundaryValueWS_Label.TabIndex = 23;
+            this.BoundaryValueWS_Label.Text = "(от 5 до 20) мм";
+            // 
+            // BoundaryValueHS_Label
+            // 
+            this.BoundaryValueHS_Label.AutoSize = true;
+            this.BoundaryValueHS_Label.Location = new System.Drawing.Point(177, 30);
+            this.BoundaryValueHS_Label.Name = "BoundaryValueHS_Label";
+            this.BoundaryValueHS_Label.Size = new System.Drawing.Size(140, 13);
+            this.BoundaryValueHS_Label.TabIndex = 19;
+            this.BoundaryValueHS_Label.Text = "Введите параметры : H, D";
+            // 
+            // releDimensions_groupBox
+            // 
+            this.releDimensions_groupBox.Controls.Add(this.BoundaryValueD_Label);
+            this.releDimensions_groupBox.Controls.Add(this.RelayDiameter_TextBox);
+            this.releDimensions_groupBox.Controls.Add(this.RelayDiameter_Label);
+            this.releDimensions_groupBox.Location = new System.Drawing.Point(9, 239);
+            this.releDimensions_groupBox.Name = "releDimensions_groupBox";
+            this.releDimensions_groupBox.Size = new System.Drawing.Size(322, 58);
+            this.releDimensions_groupBox.TabIndex = 16;
+            this.releDimensions_groupBox.TabStop = false;
+            this.releDimensions_groupBox.Text = "Габариты реле регулировки ";
+            // 
+            // BoundaryValueD_Label
+            // 
+            this.BoundaryValueD_Label.AutoSize = true;
+            this.BoundaryValueD_Label.Location = new System.Drawing.Point(177, 30);
+            this.BoundaryValueD_Label.Name = "BoundaryValueD_Label";
+            this.BoundaryValueD_Label.Size = new System.Drawing.Size(88, 13);
+            this.BoundaryValueD_Label.TabIndex = 24;
+            this.BoundaryValueD_Label.Text = "(от 10 до 30) мм";
+            // 
+            // BuildModel_Button
+            // 
+            this.BuildModel_Button.Location = new System.Drawing.Point(259, 303);
+            this.BuildModel_Button.Name = "BuildModel_Button";
+            this.BuildModel_Button.Size = new System.Drawing.Size(72, 23);
+            this.BuildModel_Button.TabIndex = 7;
+            this.BuildModel_Button.Text = "Построить";
+            this.BuildModel_Button.UseVisualStyleBackColor = true;
+            // 
+            // BoundaryValueH_Label
+            // 
+            this.BoundaryValueH_Label.AutoSize = true;
+            this.BoundaryValueH_Label.Location = new System.Drawing.Point(186, 39);
+            this.BoundaryValueH_Label.Name = "BoundaryValueH_Label";
+            this.BoundaryValueH_Label.Size = new System.Drawing.Size(100, 13);
+            this.BoundaryValueH_Label.TabIndex = 18;
+            this.BoundaryValueH_Label.Text = "(от 100 до 500) мм";
+            // 
+            // DeleteParameters_Button
+            // 
+            this.DeleteParameters_Button.Location = new System.Drawing.Point(178, 303);
+            this.DeleteParameters_Button.Name = "DeleteParameters_Button";
+            this.DeleteParameters_Button.Size = new System.Drawing.Size(75, 23);
+            this.DeleteParameters_Button.TabIndex = 8;
+            this.DeleteParameters_Button.Text = "Сбросить";
+            this.DeleteParameters_Button.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(557, 155);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(340, 335);
+            this.Controls.Add(this.DeleteParameters_Button);
+            this.Controls.Add(this.BoundaryValueH_Label);
+            this.Controls.Add(this.BuildModel_Button);
+            this.Controls.Add(this.releDimensions_groupBox);
+            this.Controls.Add(this.speakerDimensions_groupBox);
+            this.Controls.Add(this.caseDimensions_groupBox);
             this.Name = "Form1";
             this.Text = "Параметры модели";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.caseDimensions_groupBox.ResumeLayout(false);
+            this.caseDimensions_groupBox.PerformLayout();
+            this.speakerDimensions_groupBox.ResumeLayout(false);
+            this.speakerDimensions_groupBox.PerformLayout();
+            this.releDimensions_groupBox.ResumeLayout(false);
+            this.releDimensions_groupBox.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox CaseLength_TextBox;
+        private System.Windows.Forms.TextBox CaseHeight_TextBox;
+        private System.Windows.Forms.TextBox CaseWidth_TextBox;
+        private System.Windows.Forms.TextBox SpeakerHeight_TextBox;
+        private System.Windows.Forms.TextBox SpeakerLength_TextBox;
+        private System.Windows.Forms.TextBox SpeakerWidth_TextBox;
+        private System.Windows.Forms.TextBox RelayDiameter_TextBox;
+        private System.Windows.Forms.Label CaseHeight_label;
+        private System.Windows.Forms.Label CaseLength_Label;
+        private System.Windows.Forms.Label CaseWidth_Label;
+        private System.Windows.Forms.Label SpeakerHeight_Label;
+        private System.Windows.Forms.Label SpeakerLength_Label;
+        private System.Windows.Forms.Label SpeakerWidth_Label;
+        private System.Windows.Forms.Label RelayDiameter_Label;
+        private System.Windows.Forms.GroupBox caseDimensions_groupBox;
+        private System.Windows.Forms.GroupBox speakerDimensions_groupBox;
+        private System.Windows.Forms.GroupBox releDimensions_groupBox;
+        private System.Windows.Forms.Button BuildModel_Button;
+        private System.Windows.Forms.Label BoundaryValueH_Label;
+        private System.Windows.Forms.Label BoundaryValueL_Label;
+        private System.Windows.Forms.Label BoundaryValueW_Label;
+        private System.Windows.Forms.Label BoundaryValueWS_Label;
+        private System.Windows.Forms.Label BoundaryValueD_Label;
+        private System.Windows.Forms.Label BoundaryValueLS_Label;
+        private System.Windows.Forms.Label BoundaryValueHS_Label;
+        private System.Windows.Forms.Button DeleteParameters_Button;
     }
 }
 
