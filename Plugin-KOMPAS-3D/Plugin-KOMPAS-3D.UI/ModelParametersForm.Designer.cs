@@ -61,6 +61,7 @@
             // 
             // CaseLengthTextBox
             // 
+            this.CaseLengthTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.CaseLengthTextBox.Location = new System.Drawing.Point(78, 53);
             this.CaseLengthTextBox.Name = "CaseLengthTextBox";
             this.CaseLengthTextBox.Size = new System.Drawing.Size(93, 20);
@@ -68,6 +69,7 @@
             // 
             // CaseHeightTextBox
             // 
+            this.CaseHeightTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.CaseHeightTextBox.Location = new System.Drawing.Point(78, 27);
             this.CaseHeightTextBox.Name = "CaseHeightTextBox";
             this.CaseHeightTextBox.Size = new System.Drawing.Size(93, 20);
@@ -75,6 +77,7 @@
             // 
             // CaseWidthTextBox
             // 
+            this.CaseWidthTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.CaseWidthTextBox.Location = new System.Drawing.Point(78, 79);
             this.CaseWidthTextBox.Name = "CaseWidthTextBox";
             this.CaseWidthTextBox.Size = new System.Drawing.Size(93, 20);
@@ -82,6 +85,7 @@
             // 
             // SpeakerHeightTextBox
             // 
+            this.SpeakerHeightTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerHeightTextBox.Location = new System.Drawing.Point(78, 27);
             this.SpeakerHeightTextBox.Name = "SpeakerHeightTextBox";
             this.SpeakerHeightTextBox.Size = new System.Drawing.Size(93, 20);
@@ -89,6 +93,7 @@
             // 
             // SpeakerLengthTextBox
             // 
+            this.SpeakerLengthTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerLengthTextBox.Location = new System.Drawing.Point(78, 53);
             this.SpeakerLengthTextBox.Name = "SpeakerLengthTextBox";
             this.SpeakerLengthTextBox.Size = new System.Drawing.Size(93, 20);
@@ -96,6 +101,7 @@
             // 
             // SpeakerWidthTextBox
             // 
+            this.SpeakerWidthTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerWidthTextBox.Location = new System.Drawing.Point(78, 79);
             this.SpeakerWidthTextBox.Name = "SpeakerWidthTextBox";
             this.SpeakerWidthTextBox.Size = new System.Drawing.Size(93, 20);
@@ -103,6 +109,7 @@
             // 
             // RelayDiameterTextBox
             // 
+            this.RelayDiameterTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.RelayDiameterTextBox.Location = new System.Drawing.Point(78, 27);
             this.RelayDiameterTextBox.Name = "RelayDiameterTextBox";
             this.RelayDiameterTextBox.Size = new System.Drawing.Size(93, 20);
@@ -173,6 +180,7 @@
             // 
             // СaseDimensionsGroupBox
             // 
+            this.СaseDimensionsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.СaseDimensionsGroupBox.Controls.Add(this.CaseHeightTextBox);
             this.СaseDimensionsGroupBox.Controls.Add(this.CaseHeightlLabel);
             this.СaseDimensionsGroupBox.Controls.Add(this.CaseLengthTextBox);
@@ -190,6 +198,7 @@
             // 
             // BoundaryValueWLabel
             // 
+            this.BoundaryValueWLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.BoundaryValueWLabel.AutoSize = true;
             this.BoundaryValueWLabel.Location = new System.Drawing.Point(177, 82);
             this.BoundaryValueWLabel.Name = "BoundaryValueWLabel";
@@ -199,6 +208,7 @@
             // 
             // BoundaryValueLLabel
             // 
+            this.BoundaryValueLLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.BoundaryValueLLabel.AutoSize = true;
             this.BoundaryValueLLabel.Location = new System.Drawing.Point(177, 56);
             this.BoundaryValueLLabel.Name = "BoundaryValueLLabel";
@@ -208,6 +218,7 @@
             // 
             // SpeakerDimensionsGroupBox
             // 
+            this.SpeakerDimensionsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerDimensionsGroupBox.Controls.Add(this.BoundaryValueLSLabel);
             this.SpeakerDimensionsGroupBox.Controls.Add(this.BoundaryValueWSLabel);
             this.SpeakerDimensionsGroupBox.Controls.Add(this.BoundaryValueHSLabel);
@@ -226,6 +237,7 @@
             // 
             // BoundaryValueLSLabel
             // 
+            this.BoundaryValueLSLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.BoundaryValueLSLabel.AutoSize = true;
             this.BoundaryValueLSLabel.Location = new System.Drawing.Point(177, 56);
             this.BoundaryValueLSLabel.Name = "BoundaryValueLSLabel";
@@ -235,6 +247,7 @@
             // 
             // BoundaryValueWSLabel
             // 
+            this.BoundaryValueWSLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.BoundaryValueWSLabel.AutoSize = true;
             this.BoundaryValueWSLabel.Location = new System.Drawing.Point(177, 82);
             this.BoundaryValueWSLabel.Name = "BoundaryValueWSLabel";
@@ -244,6 +257,7 @@
             // 
             // BoundaryValueHSLabel
             // 
+            this.BoundaryValueHSLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.BoundaryValueHSLabel.AutoSize = true;
             this.BoundaryValueHSLabel.Location = new System.Drawing.Point(177, 30);
             this.BoundaryValueHSLabel.Name = "BoundaryValueHSLabel";
@@ -253,6 +267,7 @@
             // 
             // ReleDimensionsGroupBox
             // 
+            this.ReleDimensionsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ReleDimensionsGroupBox.Controls.Add(this.BoundaryValueDLabel);
             this.ReleDimensionsGroupBox.Controls.Add(this.RelayDiameterTextBox);
             this.ReleDimensionsGroupBox.Controls.Add(this.RelayDiameterLabel);
@@ -265,6 +280,7 @@
             // 
             // BoundaryValueDLabel
             // 
+            this.BoundaryValueDLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.BoundaryValueDLabel.AutoSize = true;
             this.BoundaryValueDLabel.Location = new System.Drawing.Point(177, 30);
             this.BoundaryValueDLabel.Name = "BoundaryValueDLabel";
@@ -274,6 +290,7 @@
             // 
             // BuildModelButton
             // 
+            this.BuildModelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BuildModelButton.Location = new System.Drawing.Point(259, 303);
             this.BuildModelButton.Name = "BuildModelButton";
             this.BuildModelButton.Size = new System.Drawing.Size(72, 23);
@@ -283,6 +300,7 @@
             // 
             // BoundaryValueHLabel
             // 
+            this.BoundaryValueHLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.BoundaryValueHLabel.AutoSize = true;
             this.BoundaryValueHLabel.Location = new System.Drawing.Point(186, 39);
             this.BoundaryValueHLabel.Name = "BoundaryValueHLabel";
@@ -292,6 +310,7 @@
             // 
             // DeleteParametersButton
             // 
+            this.DeleteParametersButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.DeleteParametersButton.Location = new System.Drawing.Point(178, 303);
             this.DeleteParametersButton.Name = "DeleteParametersButton";
             this.DeleteParametersButton.Size = new System.Drawing.Size(75, 23);
@@ -299,7 +318,7 @@
             this.DeleteParametersButton.Text = "Сбросить";
             this.DeleteParametersButton.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // ModelParametersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -310,7 +329,9 @@
             this.Controls.Add(this.ReleDimensionsGroupBox);
             this.Controls.Add(this.SpeakerDimensionsGroupBox);
             this.Controls.Add(this.СaseDimensionsGroupBox);
-            this.Name = "Form1";
+            this.MaximumSize = new System.Drawing.Size(500, 374);
+            this.MinimumSize = new System.Drawing.Size(356, 374);
+            this.Name = "ModelParametersForm";
             this.Text = "Параметры модели";
             this.СaseDimensionsGroupBox.ResumeLayout(false);
             this.СaseDimensionsGroupBox.PerformLayout();
