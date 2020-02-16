@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Plugin_KOMPAS_3D.UI
 {
-    public partial class Form1 : Form
+    public partial class ModelParametersForm : Form
     {
-        public Form1()
+        public ModelParametersForm()
         {
             InitializeComponent();
         }

@@ -16,7 +16,7 @@ namespace Plugin_KOMPAS_3D.UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new ModelParametersForm());
         }
     }
 }

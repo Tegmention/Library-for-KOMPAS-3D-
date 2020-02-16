@@ -1,6 +1,6 @@
 ﻿namespace Plugin_KOMPAS_3D.UI
 {
-    partial class Form1
+    partial class ModelParametersForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
