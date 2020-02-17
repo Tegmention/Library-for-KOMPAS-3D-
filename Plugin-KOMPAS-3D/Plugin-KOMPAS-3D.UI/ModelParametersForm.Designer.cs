@@ -317,6 +317,7 @@
             this.DeleteParametersButton.TabIndex = 8;
             this.DeleteParametersButton.Text = "Сбросить";
             this.DeleteParametersButton.UseVisualStyleBackColor = true;
+            this.DeleteParametersButton.Click += new System.EventHandler(this.DeleteParametersButton_Click);
             // 
             // ModelParametersForm
             // 
