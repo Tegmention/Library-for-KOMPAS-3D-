@@ -66,6 +66,7 @@
             this.CaseLengthTextBox.Name = "CaseLengthTextBox";
             this.CaseLengthTextBox.Size = new System.Drawing.Size(93, 20);
             this.CaseLengthTextBox.TabIndex = 1;
+            this.CaseLengthTextBox.TextChanged += new System.EventHandler(this.CaseLengthTextBox_TextChanged);
             // 
             // CaseHeightTextBox
             // 
@@ -74,6 +75,7 @@
             this.CaseHeightTextBox.Name = "CaseHeightTextBox";
             this.CaseHeightTextBox.Size = new System.Drawing.Size(93, 20);
             this.CaseHeightTextBox.TabIndex = 0;
+            this.CaseHeightTextBox.TextChanged += new System.EventHandler(this.CaseHeightTextBox_TextChanged);
             // 
             // CaseWidthTextBox
             // 
@@ -86,6 +88,7 @@
             // SpeakerHeightTextBox
             // 
             this.SpeakerHeightTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SpeakerHeightTextBox.Enabled = false;
             this.SpeakerHeightTextBox.Location = new System.Drawing.Point(78, 27);
             this.SpeakerHeightTextBox.Name = "SpeakerHeightTextBox";
             this.SpeakerHeightTextBox.Size = new System.Drawing.Size(93, 20);
@@ -94,6 +97,7 @@
             // SpeakerLengthTextBox
             // 
             this.SpeakerLengthTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SpeakerLengthTextBox.Enabled = false;
             this.SpeakerLengthTextBox.Location = new System.Drawing.Point(78, 53);
             this.SpeakerLengthTextBox.Name = "SpeakerLengthTextBox";
             this.SpeakerLengthTextBox.Size = new System.Drawing.Size(93, 20);
@@ -114,6 +118,7 @@
             this.RelayDiameterTextBox.Name = "RelayDiameterTextBox";
             this.RelayDiameterTextBox.Size = new System.Drawing.Size(93, 20);
             this.RelayDiameterTextBox.TabIndex = 6;
+            this.RelayDiameterTextBox.TextChanged += new System.EventHandler(this.RelayDiameterTextBox_TextChanged);
             // 
             // CaseHeightlLabel
             // 
@@ -286,7 +291,7 @@
             this.BoundaryValueDLabel.Name = "BoundaryValueDLabel";
             this.BoundaryValueDLabel.Size = new System.Drawing.Size(88, 13);
             this.BoundaryValueDLabel.TabIndex = 24;
-            this.BoundaryValueDLabel.Text = "(от 10 до 30) мм";
+            this.BoundaryValueDLabel.Text = "(от 10 до 20) мм";
             // 
             // BuildModelButton
             // 
