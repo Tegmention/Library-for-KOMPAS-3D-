@@ -2,18 +2,24 @@
 using System.Windows.Forms;
 
 namespace Plugin_KOMPAS_3D.UI
-{
+{   /// <summary>
+    /// 
+    /// </summary>
     public partial class ModelParametersForm : Form
     {
         /// <summary>
-        /// 
+        /// Иницилизация формы
         /// </summary>
         public ModelParametersForm()
         {
             InitializeComponent();
         }
+
         /// <summary>
-        /// 
+        /// Очистка всех параметров модели
+        /// введенных пользователем 
+        /// блокировка ввода параметров высоты и длинны динамика
+        /// отображение необходиости ввода параметров H,D и L
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -25,8 +31,10 @@ namespace Plugin_KOMPAS_3D.UI
             SpeakerHeightTextBox.Enabled = false;
             SpeakerLengthTextBox.Enabled = false;
         }
+
         /// <summary>
-        /// 
+        /// Обход элементов формы с присвоением 
+        /// TextBox.Text = "" и рекурсивным заходом в GroupBox
         /// </summary>
         /// <param name="parent"></param>
         private void CleanAllTextBoxesIn(Control parent)
@@ -40,12 +48,23 @@ namespace Plugin_KOMPAS_3D.UI
             }
         }
 
+        /// <summary>
+        /// Вызов функции отображения 
+        /// граничных параметров высоты динамика
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CaseHeightTextBox_TextChanged(object sender, EventArgs e)
         {
             DisplayBoundaryValuesHS();
         }
+
         /// <summary>
-        /// 
+        /// Отображение диапозона параметров длинны динамика 
+        /// и разблокировка возможности ввода длинны динамика
+        /// если введена длинна корпуса
+        /// иначе блокировка ввода длинны динамика 
+        /// и отображение необходимости ввода параметра L
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -60,6 +79,7 @@ namespace Plugin_KOMPAS_3D.UI
                     SpeakerLengthTextBox.Enabled = true;
                 }
             }
+            //Если значения L не являются числом
             else
             {
                 SpeakerLengthTextBox.Enabled = false;
@@ -67,8 +87,11 @@ namespace Plugin_KOMPAS_3D.UI
                 BoundaryValueLSLabel.Text = "Введите параметр : L";
             }
         }
+
         /// <summary>
-        /// 
+        /// Вызов функции отображения 
+        /// граничных параметров высоты динамика
+        /// при изменении параметра диаметра реле регулировки
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -76,11 +99,16 @@ namespace Plugin_KOMPAS_3D.UI
         {
             DisplayBoundaryValuesHS();
         }
+
         /// <summary>
-        /// 
+        /// Расчет максимального значения 
+        /// высоты динамика в зависимости 
+        /// от значений высоты корпуса и диаметра реле
+        /// регулировки
+        /// !!!Не хранить параметры в форме!!!
         /// </summary>
-        /// <param name="H"></param>
-        /// <param name="D"></param>
+        /// <param name="H">Высота корпуса</param>
+        /// <param name="D">Диаметр реле регулировки</param>
         /// <returns></returns>
         private double CalculationMaximumValuesHS(double H, double D)
         {
@@ -95,10 +123,14 @@ namespace Plugin_KOMPAS_3D.UI
             }
             return result;
         }
+
         /// <summary>
-        /// 
+        /// Расчет максимального значения 
+        /// длинны динамика в зависимости от 
+        /// длинны корпуса
+        /// !!!Не хранить параметры в форме!!!
         /// </summary>
-        /// <param name="L"></param>
+        /// <param name="L">Длинна корпуса</param>
         /// <returns></returns>
         private double CalculationMaximumValuesLS(double L)
         {
@@ -113,8 +145,12 @@ namespace Plugin_KOMPAS_3D.UI
             }
             return result;
         }
+
         /// <summary>
-        /// 
+        /// Отображение диапозона параметров высоты динамика
+        /// если введены высота корпуса и диаметр реле регулировки
+        /// иначе блокировка ввода высоты динамика 
+        /// и отображение необходимости ввода параметров H и D
         /// </summary>
         private void DisplayBoundaryValuesHS()
         {
@@ -128,11 +164,12 @@ namespace Plugin_KOMPAS_3D.UI
                         SpeakerHeightTextBox.Enabled = true;
                     }
                 }
+                //Если значение H или D не является числом
                 else
                 {
-                SpeakerHeightTextBox.Enabled = false;
-                SpeakerHeightTextBox.Text = "";
-                BoundaryValueHSLabel.Text = "Введите параметры : H, D";
+                    SpeakerHeightTextBox.Enabled = false;
+                    SpeakerHeightTextBox.Text = "";
+                    BoundaryValueHSLabel.Text = "Введите параметры : H, D";
                 }
         }
     }
