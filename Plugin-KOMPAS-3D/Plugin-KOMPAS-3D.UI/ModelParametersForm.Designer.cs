@@ -89,10 +89,10 @@
             // 
             this.SpeakerHeightTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerHeightTextBox.Enabled = false;
-            this.SpeakerHeightTextBox.Location = new System.Drawing.Point(78, 27);
+            this.SpeakerHeightTextBox.Location = new System.Drawing.Point(78, 79);
             this.SpeakerHeightTextBox.Name = "SpeakerHeightTextBox";
             this.SpeakerHeightTextBox.Size = new System.Drawing.Size(93, 20);
-            this.SpeakerHeightTextBox.TabIndex = 3;
+            this.SpeakerHeightTextBox.TabIndex = 6;
             // 
             // SpeakerLengthTextBox
             // 
@@ -101,15 +101,15 @@
             this.SpeakerLengthTextBox.Location = new System.Drawing.Point(78, 53);
             this.SpeakerLengthTextBox.Name = "SpeakerLengthTextBox";
             this.SpeakerLengthTextBox.Size = new System.Drawing.Size(93, 20);
-            this.SpeakerLengthTextBox.TabIndex = 4;
+            this.SpeakerLengthTextBox.TabIndex = 5;
             // 
             // SpeakerWidthTextBox
             // 
             this.SpeakerWidthTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.SpeakerWidthTextBox.Location = new System.Drawing.Point(78, 79);
+            this.SpeakerWidthTextBox.Location = new System.Drawing.Point(78, 27);
             this.SpeakerWidthTextBox.Name = "SpeakerWidthTextBox";
             this.SpeakerWidthTextBox.Size = new System.Drawing.Size(93, 20);
-            this.SpeakerWidthTextBox.TabIndex = 5;
+            this.SpeakerWidthTextBox.TabIndex = 4;
             // 
             // RelayDiameterTextBox
             // 
@@ -117,7 +117,7 @@
             this.RelayDiameterTextBox.Location = new System.Drawing.Point(78, 27);
             this.RelayDiameterTextBox.Name = "RelayDiameterTextBox";
             this.RelayDiameterTextBox.Size = new System.Drawing.Size(93, 20);
-            this.RelayDiameterTextBox.TabIndex = 6;
+            this.RelayDiameterTextBox.TabIndex = 3;
             this.RelayDiameterTextBox.TextChanged += new System.EventHandler(this.RelayDiameterTextBox_TextChanged);
             // 
             // CaseHeightlLabel
@@ -150,7 +150,7 @@
             // SpeakerHeightLabel
             // 
             this.SpeakerHeightLabel.AutoSize = true;
-            this.SpeakerHeightLabel.Location = new System.Drawing.Point(3, 30);
+            this.SpeakerHeightLabel.Location = new System.Drawing.Point(3, 82);
             this.SpeakerHeightLabel.Name = "SpeakerHeightLabel";
             this.SpeakerHeightLabel.Size = new System.Drawing.Size(72, 13);
             this.SpeakerHeightLabel.TabIndex = 10;
@@ -168,7 +168,7 @@
             // SpeakerWidthLabel
             // 
             this.SpeakerWidthLabel.AutoSize = true;
-            this.SpeakerWidthLabel.Location = new System.Drawing.Point(3, 82);
+            this.SpeakerWidthLabel.Location = new System.Drawing.Point(3, 30);
             this.SpeakerWidthLabel.Name = "SpeakerWidthLabel";
             this.SpeakerWidthLabel.Size = new System.Drawing.Size(76, 13);
             this.SpeakerWidthLabel.TabIndex = 12;
@@ -229,9 +229,9 @@
             this.SpeakerDimensionsGroupBox.Controls.Add(this.BoundaryValueHSLabel);
             this.SpeakerDimensionsGroupBox.Controls.Add(this.SpeakerLengthTextBox);
             this.SpeakerDimensionsGroupBox.Controls.Add(this.SpeakerWidthTextBox);
-            this.SpeakerDimensionsGroupBox.Controls.Add(this.SpeakerHeightTextBox);
             this.SpeakerDimensionsGroupBox.Controls.Add(this.SpeakerWidthLabel);
             this.SpeakerDimensionsGroupBox.Controls.Add(this.SpeakerLengthLabel);
+            this.SpeakerDimensionsGroupBox.Controls.Add(this.SpeakerHeightTextBox);
             this.SpeakerDimensionsGroupBox.Controls.Add(this.SpeakerHeightLabel);
             this.SpeakerDimensionsGroupBox.Location = new System.Drawing.Point(9, 188);
             this.SpeakerDimensionsGroupBox.Name = "SpeakerDimensionsGroupBox";
@@ -254,7 +254,7 @@
             // 
             this.BoundaryValueWSLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.BoundaryValueWSLabel.AutoSize = true;
-            this.BoundaryValueWSLabel.Location = new System.Drawing.Point(177, 82);
+            this.BoundaryValueWSLabel.Location = new System.Drawing.Point(177, 30);
             this.BoundaryValueWSLabel.Name = "BoundaryValueWSLabel";
             this.BoundaryValueWSLabel.Size = new System.Drawing.Size(82, 13);
             this.BoundaryValueWSLabel.TabIndex = 23;
@@ -264,7 +264,7 @@
             // 
             this.BoundaryValueHSLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.BoundaryValueHSLabel.AutoSize = true;
-            this.BoundaryValueHSLabel.Location = new System.Drawing.Point(176, 30);
+            this.BoundaryValueHSLabel.Location = new System.Drawing.Point(177, 82);
             this.BoundaryValueHSLabel.Name = "BoundaryValueHSLabel";
             this.BoundaryValueHSLabel.Size = new System.Drawing.Size(140, 13);
             this.BoundaryValueHSLabel.TabIndex = 19;
@@ -329,6 +329,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(340, 335);
+            this.ControlBox = false;
             this.Controls.Add(this.DeleteParametersButton);
             this.Controls.Add(this.BoundaryValueHLabel);
             this.Controls.Add(this.BuildModelButton);
