@@ -227,13 +227,13 @@
             this.SpeakerDimensionsGroupBox.Controls.Add(this.BoundaryValueLSLabel);
             this.SpeakerDimensionsGroupBox.Controls.Add(this.BoundaryValueWSLabel);
             this.SpeakerDimensionsGroupBox.Controls.Add(this.BoundaryValueHSLabel);
-            this.SpeakerDimensionsGroupBox.Controls.Add(this.SpeakerHeightTextBox);
             this.SpeakerDimensionsGroupBox.Controls.Add(this.SpeakerLengthTextBox);
             this.SpeakerDimensionsGroupBox.Controls.Add(this.SpeakerWidthTextBox);
+            this.SpeakerDimensionsGroupBox.Controls.Add(this.SpeakerHeightTextBox);
             this.SpeakerDimensionsGroupBox.Controls.Add(this.SpeakerWidthLabel);
-            this.SpeakerDimensionsGroupBox.Controls.Add(this.SpeakerHeightLabel);
             this.SpeakerDimensionsGroupBox.Controls.Add(this.SpeakerLengthLabel);
-            this.SpeakerDimensionsGroupBox.Location = new System.Drawing.Point(9, 124);
+            this.SpeakerDimensionsGroupBox.Controls.Add(this.SpeakerHeightLabel);
+            this.SpeakerDimensionsGroupBox.Location = new System.Drawing.Point(9, 188);
             this.SpeakerDimensionsGroupBox.Name = "SpeakerDimensionsGroupBox";
             this.SpeakerDimensionsGroupBox.Size = new System.Drawing.Size(322, 109);
             this.SpeakerDimensionsGroupBox.TabIndex = 15;
@@ -264,7 +264,7 @@
             // 
             this.BoundaryValueHSLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.BoundaryValueHSLabel.AutoSize = true;
-            this.BoundaryValueHSLabel.Location = new System.Drawing.Point(177, 30);
+            this.BoundaryValueHSLabel.Location = new System.Drawing.Point(176, 30);
             this.BoundaryValueHSLabel.Name = "BoundaryValueHSLabel";
             this.BoundaryValueHSLabel.Size = new System.Drawing.Size(140, 13);
             this.BoundaryValueHSLabel.TabIndex = 19;
@@ -276,7 +276,7 @@
             this.ReleDimensionsGroupBox.Controls.Add(this.BoundaryValueDLabel);
             this.ReleDimensionsGroupBox.Controls.Add(this.RelayDiameterTextBox);
             this.ReleDimensionsGroupBox.Controls.Add(this.RelayDiameterLabel);
-            this.ReleDimensionsGroupBox.Location = new System.Drawing.Point(9, 239);
+            this.ReleDimensionsGroupBox.Location = new System.Drawing.Point(9, 124);
             this.ReleDimensionsGroupBox.Name = "ReleDimensionsGroupBox";
             this.ReleDimensionsGroupBox.Size = new System.Drawing.Size(322, 58);
             this.ReleDimensionsGroupBox.TabIndex = 16;
@@ -332,13 +332,14 @@
             this.Controls.Add(this.DeleteParametersButton);
             this.Controls.Add(this.BoundaryValueHLabel);
             this.Controls.Add(this.BuildModelButton);
-            this.Controls.Add(this.ReleDimensionsGroupBox);
             this.Controls.Add(this.SpeakerDimensionsGroupBox);
+            this.Controls.Add(this.ReleDimensionsGroupBox);
             this.Controls.Add(this.СaseDimensionsGroupBox);
             this.MaximumSize = new System.Drawing.Size(500, 374);
             this.MinimumSize = new System.Drawing.Size(356, 374);
             this.Name = "ModelParametersForm";
             this.Text = "Параметры модели";
+            this.Load += new System.EventHandler(this.ModelParametersForm_Load);
             this.СaseDimensionsGroupBox.ResumeLayout(false);
             this.СaseDimensionsGroupBox.PerformLayout();
             this.SpeakerDimensionsGroupBox.ResumeLayout(false);

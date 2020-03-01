@@ -172,5 +172,10 @@ namespace Plugin_KOMPAS_3D.UI
                     BoundaryValueHSLabel.Text = "Введите параметры : H, D";
                 }
         }
+
+        private void ModelParametersForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
