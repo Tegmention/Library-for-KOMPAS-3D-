@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace Plugin_KOMPAS_3D.UI
 {   /// <summary>
@@ -7,14 +8,27 @@ namespace Plugin_KOMPAS_3D.UI
     /// </summary>
     public partial class ModelParametersForm : Form
     {
+        private Dictionary<TextBox, string> _elements = new Dictionary<TextBox, string>();
         /// <summary>
         /// Иницилизация формы
         /// </summary>
         public ModelParametersForm()
         {
             InitializeComponent();
+            _elements.Add(SpeakerHeightTextBox,"SH");
         }
 
+        private void AllTextBoxesIn(Control parent)
+        {
+            foreach (Control c in parent.Controls)
+            {
+                if (c.GetType() == typeof(TextBox))
+                    c.Text = "";
+                if (c.GetType() == typeof(GroupBox))
+                    AllTextBoxesIn(c);
+            }
+        }
+        ///Ловить ошибки можно через try или catch
         /// <summary>
         /// Очистка всех параметров модели
         /// введенных пользователем 
@@ -75,7 +89,7 @@ namespace Plugin_KOMPAS_3D.UI
             {
                 if (L > 0)
                 {
-                    BoundaryValueLSLabel.Text = "(от 150 до " + CalculationMaximumValuesLS(L) + ") мм";
+                    BoundaryValueLSLabel.Text = "(от 150 до) мм";
                     SpeakerLengthTextBox.Enabled = true;
                 }
             }
@@ -97,53 +111,8 @@ namespace Plugin_KOMPAS_3D.UI
         /// <param name="e"></param>
         private void RelayDiameterTextBox_TextChanged(object sender, EventArgs e)
         {
-            DisplayBoundaryValuesHS();
-        }
-
-        /// <summary>
-        /// Расчет максимального значения 
-        /// высоты динамика в зависимости 
-        /// от значений высоты корпуса и диаметра реле
-        /// регулировки
-        /// !!!Не хранить параметры в форме!!!
-        /// </summary>
-        /// <param name="H">Высота корпуса</param>
-        /// <param name="D">Диаметр реле регулировки</param>
-        /// <returns></returns>
-        private double CalculationMaximumValuesHS(double H, double D)
-        {
-            double result = H - 5 - (D + 10);
-            if (result >575)
-            {
-                result = 575;
-            }
-            if (result < 65)
-            {
-                result = 65;
-            }
-            return result;
-        }
-
-        /// <summary>
-        /// Расчет максимального значения 
-        /// длинны динамика в зависимости от 
-        /// длинны корпуса
-        /// !!!Не хранить параметры в форме!!!
-        /// </summary>
-        /// <param name="L">Длинна корпуса</param>
-        /// <returns></returns>
-        private double CalculationMaximumValuesLS(double L)
-        {
-            double result = L - 5;
-            if (result > 295)
-            {
-                result = 295;
-            }
-            if (result < 195)
-            {
-                result = 195;
-            }
-            return result;
+            //DisplayBoundaryValuesHS();
+            _elements.Add((TextBox)sender, "D");
         }
 
         /// <summary>
@@ -160,7 +129,7 @@ namespace Plugin_KOMPAS_3D.UI
                 {
                     if (H>0 && D>0)
                     {
-                        BoundaryValueHSLabel.Text = "(от 60 до "+ CalculationMaximumValuesHS(H,D)+") мм";
+                        BoundaryValueHSLabel.Text = "(от 60 до ) мм";
                         SpeakerHeightTextBox.Enabled = true;
                     }
                 }
@@ -176,6 +145,12 @@ namespace Plugin_KOMPAS_3D.UI
         private void ModelParametersForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void SpeakerHeightTextBox_Leave(object sender, EventArgs e)
+        {
+            var textbox = (TextBox)sender;
+            SpeakerHeightTextBox.Text = textbox.Name;
         }
     }
 }

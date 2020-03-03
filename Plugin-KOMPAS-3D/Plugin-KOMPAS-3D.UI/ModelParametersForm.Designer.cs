@@ -66,6 +66,7 @@
             this.CaseLengthTextBox.Name = "CaseLengthTextBox";
             this.CaseLengthTextBox.Size = new System.Drawing.Size(93, 20);
             this.CaseLengthTextBox.TabIndex = 1;
+            this.CaseLengthTextBox.Text = "200";
             this.CaseLengthTextBox.TextChanged += new System.EventHandler(this.CaseLengthTextBox_TextChanged);
             // 
             // CaseHeightTextBox
@@ -75,6 +76,7 @@
             this.CaseHeightTextBox.Name = "CaseHeightTextBox";
             this.CaseHeightTextBox.Size = new System.Drawing.Size(93, 20);
             this.CaseHeightTextBox.TabIndex = 0;
+            this.CaseHeightTextBox.Text = "100";
             this.CaseHeightTextBox.TextChanged += new System.EventHandler(this.CaseHeightTextBox_TextChanged);
             // 
             // CaseWidthTextBox
@@ -84,24 +86,26 @@
             this.CaseWidthTextBox.Name = "CaseWidthTextBox";
             this.CaseWidthTextBox.Size = new System.Drawing.Size(93, 20);
             this.CaseWidthTextBox.TabIndex = 2;
+            this.CaseWidthTextBox.Text = "150";
             // 
             // SpeakerHeightTextBox
             // 
             this.SpeakerHeightTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.SpeakerHeightTextBox.Enabled = false;
             this.SpeakerHeightTextBox.Location = new System.Drawing.Point(78, 79);
             this.SpeakerHeightTextBox.Name = "SpeakerHeightTextBox";
             this.SpeakerHeightTextBox.Size = new System.Drawing.Size(93, 20);
             this.SpeakerHeightTextBox.TabIndex = 6;
+            this.SpeakerHeightTextBox.Text = "60";
+            this.SpeakerHeightTextBox.Leave += new System.EventHandler(this.SpeakerHeightTextBox_Leave);
             // 
             // SpeakerLengthTextBox
             // 
             this.SpeakerLengthTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.SpeakerLengthTextBox.Enabled = false;
             this.SpeakerLengthTextBox.Location = new System.Drawing.Point(78, 53);
             this.SpeakerLengthTextBox.Name = "SpeakerLengthTextBox";
             this.SpeakerLengthTextBox.Size = new System.Drawing.Size(93, 20);
             this.SpeakerLengthTextBox.TabIndex = 5;
+            this.SpeakerLengthTextBox.Text = "150";
             // 
             // SpeakerWidthTextBox
             // 
@@ -110,6 +114,7 @@
             this.SpeakerWidthTextBox.Name = "SpeakerWidthTextBox";
             this.SpeakerWidthTextBox.Size = new System.Drawing.Size(93, 20);
             this.SpeakerWidthTextBox.TabIndex = 4;
+            this.SpeakerWidthTextBox.Text = "5";
             // 
             // RelayDiameterTextBox
             // 
@@ -118,6 +123,7 @@
             this.RelayDiameterTextBox.Name = "RelayDiameterTextBox";
             this.RelayDiameterTextBox.Size = new System.Drawing.Size(93, 20);
             this.RelayDiameterTextBox.TabIndex = 3;
+            this.RelayDiameterTextBox.Text = "10";
             this.RelayDiameterTextBox.TextChanged += new System.EventHandler(this.RelayDiameterTextBox_TextChanged);
             // 
             // CaseHeightlLabel
@@ -246,9 +252,9 @@
             this.BoundaryValueLSLabel.AutoSize = true;
             this.BoundaryValueLSLabel.Location = new System.Drawing.Point(177, 56);
             this.BoundaryValueLSLabel.Name = "BoundaryValueLSLabel";
-            this.BoundaryValueLSLabel.Size = new System.Drawing.Size(116, 13);
+            this.BoundaryValueLSLabel.Size = new System.Drawing.Size(100, 13);
             this.BoundaryValueLSLabel.TabIndex = 20;
-            this.BoundaryValueLSLabel.Text = "Введите параметр : L";
+            this.BoundaryValueLSLabel.Text = "(от 150 до 195) мм";
             // 
             // BoundaryValueWSLabel
             // 
@@ -266,9 +272,9 @@
             this.BoundaryValueHSLabel.AutoSize = true;
             this.BoundaryValueHSLabel.Location = new System.Drawing.Point(177, 82);
             this.BoundaryValueHSLabel.Name = "BoundaryValueHSLabel";
-            this.BoundaryValueHSLabel.Size = new System.Drawing.Size(140, 13);
+            this.BoundaryValueHSLabel.Size = new System.Drawing.Size(88, 13);
             this.BoundaryValueHSLabel.TabIndex = 19;
-            this.BoundaryValueHSLabel.Text = "Введите параметры : H, D";
+            this.BoundaryValueHSLabel.Text = "(от 60 до 75) мм";
             // 
             // ReleDimensionsGroupBox
             // 
@@ -329,7 +335,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(340, 335);
-            this.ControlBox = false;
             this.Controls.Add(this.DeleteParametersButton);
             this.Controls.Add(this.BoundaryValueHLabel);
             this.Controls.Add(this.BuildModelButton);
@@ -339,6 +344,7 @@
             this.MaximumSize = new System.Drawing.Size(500, 374);
             this.MinimumSize = new System.Drawing.Size(356, 374);
             this.Name = "ModelParametersForm";
+            this.ShowIcon = false;
             this.Text = "Параметры модели";
             this.Load += new System.EventHandler(this.ModelParametersForm_Load);
             this.СaseDimensionsGroupBox.ResumeLayout(false);

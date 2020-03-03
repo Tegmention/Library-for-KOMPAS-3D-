@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 namespace Parameters
 {
-    class Parameters
+    /// <summary>
+    /// Хранит словарь параметров модели
+    /// </summary>
+    public class Parameters
     {
         /// <summary>
         /// Хранит словарь параметров модели
         /// </summary>
         private Dictionary<string, Parameter<double>> _modelParameters;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public Dictionary<string, Parameter<double>> ModelParameters { get; set; }
 
         /// <summary>
         /// Метод высчитывает максимальное значение параметра
@@ -30,7 +28,7 @@ namespace Parameters
             _modelParameters["HS"].MaxValue = _modelParameters["H"].Value - 5
                 - (_modelParameters["D"].Value + 10);
         }
-
+        ///Сделать общее перечисление, чтобы хранить одни и те же названия
         /// <summary>
         /// Метод высчитывает максимальное значение параметра 
         /// длинна динамика(LS)
@@ -47,14 +45,21 @@ namespace Parameters
         /// </summary>
         public Parameters()
         {
-            double[] massMin = {100,200,150,60,10,5,150};
-            double[] massMax = {500,300,200,500,30,20,195};
-            double[] massValue ={100,200,150,75,10,5,150};
-            string[] massName = {"H","L","W","HS","D","WS","LS"};
-            foreach (int i in massValue)
+            var values = new List<(double min, double max, string name)>
             {
-                _modelParameters[massName[i]] = new Parameter<double>(massMin[i],
-                    massMax[i], massValue[i], massName[i]);
+                (100, 500, "H"),
+                (200, 300, "L"),
+                (150, 200, "W"),
+                (60, 75, "HS"),
+                (10, 20, "D"),
+                (5, 20, "WS"),
+                (150, 195, "LS")
+            };
+
+            foreach (var value in values)
+            {
+                _modelParameters[value.name] = 
+                    new Parameter<double>(value.min, value.max, value.min, value.name);
             }
         }   
     }

@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace Parameters
 {
+    /// <summary>
+    /// Хранит данные одного параметра модели
+    /// Хранит название, текущее значение
+    /// и граничные значения параметра модели
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class Parameter<T> where T : IComparable<T>
     {
         /// <summary>
@@ -32,11 +38,6 @@ namespace Parameters
         /// Устанавливает и возвращает максимальное значение параметра
         /// </summary>
         public T MaxValue { get; set; }// 2 теста
-
-        /// <summary>
-        /// Устанавливает и возвращает минимальное значение параметра
-        /// </summary>
-        public T MinValue { get; set; } // 2 теста
 
         /// <summary>
         /// Устанавливает и возвращает текущее значение параметра
@@ -66,7 +67,7 @@ namespace Parameters
         /// <summary>
         /// Устанавливает и возвращает название параметра
         /// </summary>
-        public string Name { get; set; }// 2 теста
+        //public string Name { get; set; }// 2 теста
 
         /// <summary>
         /// Коструктор класса Parameter
@@ -77,10 +78,10 @@ namespace Parameters
         /// <param name="name">Название параметра</param>
         public Parameter(T minValue, T maxValue, T value, string name)
         {
-            MinValue = minValue;
-            MaxValue = maxValue;
+            _minValue = minValue;
+            _maxValue = maxValue;
             Value = value;
-            Name = name;
+            _name = name;
         }
     }
 }
