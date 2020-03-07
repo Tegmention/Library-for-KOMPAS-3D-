@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using Parameters;
 using System.Drawing;
+using Builder;
 
 
 namespace Plugin_KOMPAS_3D.UI
@@ -157,6 +158,11 @@ namespace Plugin_KOMPAS_3D.UI
                     = string.Concat(_modelParameters.Parameters[_elements[textBox]].MaxValue);
                 textBox.BackColor = Color.LightGreen;
             }
+        }
+
+        private void BuildModelButton_Click(object sender, EventArgs e)
+        {
+            Manager manager = new Manager(_modelParameters);
         }
     }
 }

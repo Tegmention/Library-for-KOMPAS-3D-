@@ -80,10 +80,25 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Builder\Builder.csproj">
+      <Project>{cc61ec6f-4c35-4611-8186-9561f8fd7f96}</Project>
+      <Name>Builder</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Parameters\Parameters.csproj">
       <Project>{f327fb29-0da7-4184-9d7f-fa8d13ebfa92}</Project>
       <Name>Parameters</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Kompas6API5">
+      <Guid>{0422828C-F174-495E-AC5D-D31014DBBE87}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

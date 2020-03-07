@@ -325,6 +325,7 @@
             this.BuildModelButton.TabIndex = 7;
             this.BuildModelButton.Text = "Построить";
             this.BuildModelButton.UseVisualStyleBackColor = true;
+            this.BuildModelButton.Click += new System.EventHandler(this.BuildModelButton_Click);
             // 
             // BoundaryValueHLabel
             // 
