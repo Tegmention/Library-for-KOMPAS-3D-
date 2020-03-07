@@ -62,69 +62,86 @@
             // CaseLengthTextBox
             // 
             this.CaseLengthTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.CaseLengthTextBox.BackColor = System.Drawing.Color.LightGreen;
             this.CaseLengthTextBox.Location = new System.Drawing.Point(78, 53);
             this.CaseLengthTextBox.Name = "CaseLengthTextBox";
             this.CaseLengthTextBox.Size = new System.Drawing.Size(93, 20);
             this.CaseLengthTextBox.TabIndex = 1;
             this.CaseLengthTextBox.Text = "200";
-            this.CaseLengthTextBox.TextChanged += new System.EventHandler(this.CaseLengthTextBox_TextChanged);
+            this.CaseLengthTextBox.TextChanged += new System.EventHandler(this.Parameter_TextChanged);
+            this.CaseLengthTextBox.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
             // CaseHeightTextBox
             // 
             this.CaseHeightTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.CaseHeightTextBox.BackColor = System.Drawing.Color.LightGreen;
             this.CaseHeightTextBox.Location = new System.Drawing.Point(78, 27);
             this.CaseHeightTextBox.Name = "CaseHeightTextBox";
             this.CaseHeightTextBox.Size = new System.Drawing.Size(93, 20);
             this.CaseHeightTextBox.TabIndex = 0;
             this.CaseHeightTextBox.Text = "100";
-            this.CaseHeightTextBox.TextChanged += new System.EventHandler(this.CaseHeightTextBox_TextChanged);
+            this.CaseHeightTextBox.TextChanged += new System.EventHandler(this.Parameter_TextChanged);
+            this.CaseHeightTextBox.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
             // CaseWidthTextBox
             // 
             this.CaseWidthTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.CaseWidthTextBox.BackColor = System.Drawing.Color.LightGreen;
             this.CaseWidthTextBox.Location = new System.Drawing.Point(78, 79);
             this.CaseWidthTextBox.Name = "CaseWidthTextBox";
             this.CaseWidthTextBox.Size = new System.Drawing.Size(93, 20);
             this.CaseWidthTextBox.TabIndex = 2;
             this.CaseWidthTextBox.Text = "150";
+            this.CaseWidthTextBox.TextChanged += new System.EventHandler(this.Parameter_TextChanged);
+            this.CaseWidthTextBox.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
             // SpeakerHeightTextBox
             // 
             this.SpeakerHeightTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SpeakerHeightTextBox.BackColor = System.Drawing.Color.LightGreen;
             this.SpeakerHeightTextBox.Location = new System.Drawing.Point(78, 79);
             this.SpeakerHeightTextBox.Name = "SpeakerHeightTextBox";
             this.SpeakerHeightTextBox.Size = new System.Drawing.Size(93, 20);
             this.SpeakerHeightTextBox.TabIndex = 6;
             this.SpeakerHeightTextBox.Text = "60";
-            this.SpeakerHeightTextBox.Leave += new System.EventHandler(this.SpeakerHeightTextBox_Leave);
+            this.SpeakerHeightTextBox.TextChanged += new System.EventHandler(this.Parameter_TextChanged);
+            this.SpeakerHeightTextBox.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
             // SpeakerLengthTextBox
             // 
             this.SpeakerLengthTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SpeakerLengthTextBox.BackColor = System.Drawing.Color.LightGreen;
             this.SpeakerLengthTextBox.Location = new System.Drawing.Point(78, 53);
             this.SpeakerLengthTextBox.Name = "SpeakerLengthTextBox";
             this.SpeakerLengthTextBox.Size = new System.Drawing.Size(93, 20);
             this.SpeakerLengthTextBox.TabIndex = 5;
             this.SpeakerLengthTextBox.Text = "150";
+            this.SpeakerLengthTextBox.TextChanged += new System.EventHandler(this.Parameter_TextChanged);
+            this.SpeakerLengthTextBox.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
             // SpeakerWidthTextBox
             // 
             this.SpeakerWidthTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SpeakerWidthTextBox.BackColor = System.Drawing.Color.LightGreen;
             this.SpeakerWidthTextBox.Location = new System.Drawing.Point(78, 27);
             this.SpeakerWidthTextBox.Name = "SpeakerWidthTextBox";
             this.SpeakerWidthTextBox.Size = new System.Drawing.Size(93, 20);
             this.SpeakerWidthTextBox.TabIndex = 4;
             this.SpeakerWidthTextBox.Text = "5";
+            this.SpeakerWidthTextBox.TextChanged += new System.EventHandler(this.Parameter_TextChanged);
+            this.SpeakerWidthTextBox.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
             // RelayDiameterTextBox
             // 
             this.RelayDiameterTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.RelayDiameterTextBox.BackColor = System.Drawing.Color.LightGreen;
             this.RelayDiameterTextBox.Location = new System.Drawing.Point(78, 27);
             this.RelayDiameterTextBox.Name = "RelayDiameterTextBox";
             this.RelayDiameterTextBox.Size = new System.Drawing.Size(93, 20);
             this.RelayDiameterTextBox.TabIndex = 3;
             this.RelayDiameterTextBox.Text = "10";
-            this.RelayDiameterTextBox.TextChanged += new System.EventHandler(this.RelayDiameterTextBox_TextChanged);
+            this.RelayDiameterTextBox.TextChanged += new System.EventHandler(this.Parameter_TextChanged);
+            this.RelayDiameterTextBox.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
             // CaseHeightlLabel
             // 
@@ -328,7 +345,7 @@
             this.DeleteParametersButton.TabIndex = 8;
             this.DeleteParametersButton.Text = "Сбросить";
             this.DeleteParametersButton.UseVisualStyleBackColor = true;
-            this.DeleteParametersButton.Click += new System.EventHandler(this.DeleteParametersButton_Click);
+            this.DeleteParametersButton.Click += new System.EventHandler(this.ReturnInitialValueButton_Click);
             // 
             // ModelParametersForm
             // 
@@ -346,7 +363,6 @@
             this.Name = "ModelParametersForm";
             this.ShowIcon = false;
             this.Text = "Параметры модели";
-            this.Load += new System.EventHandler(this.ModelParametersForm_Load);
             this.СaseDimensionsGroupBox.ResumeLayout(false);
             this.СaseDimensionsGroupBox.PerformLayout();
             this.SpeakerDimensionsGroupBox.ResumeLayout(false);

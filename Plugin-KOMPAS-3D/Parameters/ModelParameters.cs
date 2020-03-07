@@ -9,12 +9,12 @@ namespace Parameters
     /// <summary>
     /// Хранит словарь параметров модели
     /// </summary>
-    public class Parameters
+    public class ModelParameters
     {
         /// <summary>
         /// Хранит словарь параметров модели
         /// </summary>
-        private Dictionary<string, Parameter<double>> _modelParameters;
+        private Dictionary<string, Parameter<double>> _parameters = new Dictionary<string, Parameter<double>>();
 
         /// <summary>
         /// Метод высчитывает максимальное значение параметра
@@ -25,9 +25,11 @@ namespace Parameters
         /// </summary>
         public void CalculateMaxHeightDinamic()
         {
-            _modelParameters["HS"].MaxValue = _modelParameters["H"].Value - 5
-                - (_modelParameters["D"].Value + 10);
+            Parameters[ParametersName.HS.ToString()].MaxValue = 
+                Parameters[ParametersName.H.ToString()].Value - 5
+                - (Parameters[ParametersName.D.ToString()].Value + 10);
         }
+
         ///Сделать общее перечисление, чтобы хранить одни и те же названия
         /// <summary>
         /// Метод высчитывает максимальное значение параметра 
@@ -37,29 +39,37 @@ namespace Parameters
         /// </summary>
         public void CalculateMaxLenghtDinamic()
         {
-            _modelParameters["LS"].MaxValue = _modelParameters["L"].Value - 5;
+            Parameters[ParametersName.LS.ToString()].MaxValue = 
+                Parameters[ParametersName.L.ToString()].Value - 5;
         }
+
+        /// <summary>
+        /// Устанавливает и возвращает словарь параметров модели
+        /// </summary>
+        public Dictionary<string, Parameter<double>> Parameters { get; set; }
 
         /// <summary>
         /// Конструктор класса Parameters
         /// </summary>
-        public Parameters()
+        public ModelParameters()
         {
+            Parameters = new Dictionary<string, Parameter<double>>();
             var values = new List<(double min, double max, string name)>
             {
-                (100, 500, "H"),
-                (200, 300, "L"),
-                (150, 200, "W"),
-                (60, 75, "HS"),
-                (10, 20, "D"),
-                (5, 20, "WS"),
-                (150, 195, "LS")
+                (100, 500, ParametersName.H.ToString()),
+                (200, 300, ParametersName.L.ToString()),
+                (150, 200, ParametersName.W.ToString()),
+                (60, 75, ParametersName.HS.ToString()),
+                (10, 20, ParametersName.D.ToString()),
+                (5, 20, ParametersName.WS.ToString()),
+                (150, 195, ParametersName.LS.ToString())
             };
 
             foreach (var value in values)
             {
-                _modelParameters[value.name] = 
+                var parameter = 
                     new Parameter<double>(value.min, value.max, value.min, value.name);
+                Parameters.Add(value.name,parameter);
             }
         }   
     }

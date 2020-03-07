@@ -1,156 +1,162 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using Parameters;
+using System.Drawing;
+
 
 namespace Plugin_KOMPAS_3D.UI
 {   /// <summary>
-    /// 
+    /// Форма для ввода пользователем параметров модели
     /// </summary>
     public partial class ModelParametersForm : Form
     {
-        private Dictionary<TextBox, string> _elements = new Dictionary<TextBox, string>();
         /// <summary>
-        /// Иницилизация формы
+        /// Словарь хранить названия элементов управления
+        /// в соответствии 
+        /// </summary>
+        private Dictionary<TextBox, string> _elements = new Dictionary<TextBox, string>();
+
+        /// <summary>
+        /// Поле хранит параметры модели
+        /// </summary>
+        private ModelParameters _modelParameters = new ModelParameters();
+
+        /// <summary>
+        /// Иницилизация формы и создание списка элементов TextBox
         /// </summary>
         public ModelParametersForm()
         {
+            //Инициализация формы
             InitializeComponent();
-            _elements.Add(SpeakerHeightTextBox,"SH");
-        }
 
-        private void AllTextBoxesIn(Control parent)
-        {
-            foreach (Control c in parent.Controls)
+            //Создание списка элементов TextBox
+            var elements = new List<(TextBox element, string name)>
             {
-                if (c.GetType() == typeof(TextBox))
-                    c.Text = "";
-                if (c.GetType() == typeof(GroupBox))
-                    AllTextBoxesIn(c);
-            }
-        }
-        ///Ловить ошибки можно через try или catch
-        /// <summary>
-        /// Очистка всех параметров модели
-        /// введенных пользователем 
-        /// блокировка ввода параметров высоты и длинны динамика
-        /// отображение необходиости ввода параметров H,D и L
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void DeleteParametersButton_Click(object sender, EventArgs e)
-        {
-            CleanAllTextBoxesIn(this);
-            BoundaryValueHSLabel.Text = "Введите параметры : H, D";
-            BoundaryValueLSLabel.Text = "Введите параметр : L";
-            SpeakerHeightTextBox.Enabled = false;
-            SpeakerLengthTextBox.Enabled = false;
-        }
+                (CaseHeightTextBox,ParametersName.H.ToString()),
+                (CaseLengthTextBox,ParametersName.L.ToString()),
+                (CaseWidthTextBox,ParametersName.W.ToString()),
+                (RelayDiameterTextBox,ParametersName.D.ToString()),
+                (SpeakerWidthTextBox,ParametersName.WS.ToString()),
+                (SpeakerLengthTextBox,ParametersName.LS.ToString()),
+                (SpeakerHeightTextBox,ParametersName.HS.ToString())
+            };
 
-        /// <summary>
-        /// Обход элементов формы с присвоением 
-        /// TextBox.Text = "" и рекурсивным заходом в GroupBox
-        /// </summary>
-        /// <param name="parent"></param>
-        private void CleanAllTextBoxesIn(Control parent)
-        {
-            foreach (Control c in parent.Controls)
+            foreach (var element in elements)
             {
-                if (c.GetType() == typeof(TextBox))
-                    c.Text = "";
-                if (c.GetType() == typeof(GroupBox))
-                    CleanAllTextBoxesIn(c);
+                _elements.Add(element.element, element.name);
             }
         }
 
         /// <summary>
-        /// Вызов функции отображения 
-        /// граничных параметров высоты динамика
+        /// 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CaseHeightTextBox_TextChanged(object sender, EventArgs e)
+        private void Parameter_TextChanged(object sender, EventArgs e)
         {
-            DisplayBoundaryValuesHS();
-        }
-
-        /// <summary>
-        /// Отображение диапозона параметров длинны динамика 
-        /// и разблокировка возможности ввода длинны динамика
-        /// если введена длинна корпуса
-        /// иначе блокировка ввода длинны динамика 
-        /// и отображение необходимости ввода параметра L
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void CaseLengthTextBox_TextChanged(object sender, EventArgs e)
-        {
-            double L;
-            if (double.TryParse(CaseLengthTextBox.Text, out L))
+            var textBox = (TextBox)sender;
+            try //Блок где ожидается ошибка
             {
-                if (L > 0)
+            var value = double.Parse(textBox.Text);
+                textBox.Text = value.ToString();
+            _modelParameters.Parameters[_elements[textBox]].Value = value;
+                textBox.BackColor = Color.LightGreen;
+                if(_elements[textBox] == "H" || _elements[textBox] == "D")
                 {
-                    BoundaryValueLSLabel.Text = "(от 150 до) мм";
-                    SpeakerLengthTextBox.Enabled = true;
+                    _modelParameters.CalculateMaxHeightDinamic();
+                    Displaying(SpeakerHeightTextBox, BoundaryValueHSLabel);
+                    DisplayingBoundary(SpeakerHeightTextBox);
+                }
+                if (_elements[textBox] == "L")
+                {
+                    _modelParameters.CalculateMaxLenghtDinamic();
+                    Displaying(SpeakerLengthTextBox, BoundaryValueLSLabel);
+                    DisplayingBoundary(SpeakerLengthTextBox);
                 }
             }
-            //Если значения L не являются числом
-            else
+            catch //Обработчик ошибки
             {
-                SpeakerLengthTextBox.Enabled = false;
-                SpeakerLengthTextBox.Text = "";
-                BoundaryValueLSLabel.Text = "Введите параметр : L";
+                textBox.BackColor = Color.Salmon;
             }
         }
 
         /// <summary>
-        /// Вызов функции отображения 
-        /// граничных параметров высоты динамика
-        /// при изменении параметра диаметра реле регулировки
+        /// Изменяет некорректное значение введенное пользователем
+        /// на последнее вводимое корректное значение
+        /// при потере фокуса элементом TextBox
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void RelayDiameterTextBox_TextChanged(object sender, EventArgs e)
+        private void TextBox_Leave(object sender, EventArgs e)
         {
-            //DisplayBoundaryValuesHS();
-            _elements.Add((TextBox)sender, "D");
+            var textBox = (TextBox)sender;
+            if (textBox.BackColor == Color.Salmon)
+            {
+                textBox.Text = 
+                    string.Concat(_modelParameters.Parameters[_elements[textBox]].Value);
+                textBox.BackColor = Color.LightGreen;
+            }
         }
 
         /// <summary>
-        /// Отображение диапозона параметров высоты динамика
-        /// если введены высота корпуса и диаметр реле регулировки
-        /// иначе блокировка ввода высоты динамика 
-        /// и отображение необходимости ввода параметров H и D
+        /// Изменяет значения всех параметров на начальные
         /// </summary>
-        private void DisplayBoundaryValuesHS()
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ReturnInitialValueButton_Click(object sender, EventArgs e)
         {
-            double H;
-            double D;
-                if (double.TryParse(CaseHeightTextBox.Text,out H) && double.TryParse(RelayDiameterTextBox.Text, out D))
-                {
-                    if (H>0 && D>0)
-                    {
-                        BoundaryValueHSLabel.Text = "(от 60 до ) мм";
-                        SpeakerHeightTextBox.Enabled = true;
-                    }
-                }
-                //Если значение H или D не является числом
-                else
-                {
-                    SpeakerHeightTextBox.Enabled = false;
-                    SpeakerHeightTextBox.Text = "";
-                    BoundaryValueHSLabel.Text = "Введите параметры : H, D";
-                }
+            _modelParameters = new ModelParameters();
+            var elements = new List<TextBox>
+            {
+                (SpeakerLengthTextBox),
+                (SpeakerHeightTextBox),
+                (CaseHeightTextBox),
+                (CaseLengthTextBox),
+                (CaseWidthTextBox),
+                (RelayDiameterTextBox),
+                (SpeakerWidthTextBox)
+            };
+
+            foreach (var element in elements)
+            {
+                element.Text = 
+                    string.Concat(_modelParameters.Parameters[_elements[element]].Value);
+            }
+            _modelParameters.CalculateMaxHeightDinamic();
+            Displaying(SpeakerHeightTextBox, BoundaryValueHSLabel);
+            _modelParameters.CalculateMaxLenghtDinamic();
+            Displaying(SpeakerLengthTextBox, BoundaryValueLSLabel);
         }
 
-        private void ModelParametersForm_Load(object sender, EventArgs e)
+        /// <summary>
+        /// Отображение граничных значений параметра 
+        /// в lable, в соответствии параметром
+        /// </summary>
+        /// <param name="textBox">Элемент TextBox</param>
+        /// <param name="label">Элемент Lable</param>
+        private void Displaying(TextBox textBox, Label label)
         {
-
+            label.Text = 
+                "(от " + string.Concat(_modelParameters.Parameters[_elements[textBox]].MinValue) + " до "
+                + string.Concat(_modelParameters.Parameters[_elements[textBox]].MaxValue) + ") мм";
         }
 
-        private void SpeakerHeightTextBox_Leave(object sender, EventArgs e)
+        /// <summary>
+        /// Присваивает значение подаваемому элементу TextBox
+        /// и если оно не корректно,
+        /// то присваивает максимально возможное значение параметра
+        /// </summary>
+        /// <param name="textBox"></param>
+        private void DisplayingBoundary(TextBox textBox)
         {
-            var textbox = (TextBox)sender;
-            SpeakerHeightTextBox.Text = textbox.Name;
+            Parameter_TextChanged((object)textBox, EventArgs.Empty);
+            if (textBox.BackColor == Color.Salmon)
+            {
+                textBox.Text
+                    = string.Concat(_modelParameters.Parameters[_elements[textBox]].MaxValue);
+                textBox.BackColor = Color.LightGreen;
+            }
         }
     }
 }

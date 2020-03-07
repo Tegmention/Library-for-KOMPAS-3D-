@@ -37,7 +37,32 @@ namespace Parameters
         /// <summary>
         /// Устанавливает и возвращает максимальное значение параметра
         /// </summary>
-        public T MaxValue { get; set; }// 2 теста
+        public T MaxValue
+        {
+            get
+            {
+                return _maxValue;
+            }
+            set
+            {
+                _maxValue = value;
+            }
+        }// 2 теста
+
+        /// <summary>
+        /// Устанавливает и возвращает минимальное значение параметра
+        /// </summary>
+        public T MinValue
+        {
+            get
+            {
+                return _minValue;
+            }
+            set
+            {
+                _minValue = value;
+            }
+        }// 2 теста
 
         /// <summary>
         /// Устанавливает и возвращает текущее значение параметра
@@ -54,8 +79,8 @@ namespace Parameters
             {
                 if (value.CompareTo(_minValue) < 0 || value.CompareTo(_maxValue) > 0)
                 {
-                    throw new ArgumentException("Значение параметра" + _name + "должно находиться в диапозоне от" +
-                        _minValue + "до" + _maxValue);
+                    throw new ArgumentException("Значение параметра" + _name + "должно находиться в диапозоне от " +
+                        _minValue + " до " + _maxValue);
                 }
                 else
                 {
@@ -80,7 +105,7 @@ namespace Parameters
         {
             _minValue = minValue;
             _maxValue = maxValue;
-            Value = value;
+            _value = value;
             _name = name;
         }
     }
