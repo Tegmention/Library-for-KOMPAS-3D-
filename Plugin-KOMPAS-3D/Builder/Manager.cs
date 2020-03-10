@@ -51,8 +51,6 @@ namespace Builder
             {
                 kompas.ActivateControllerAPI();
             }
-            //ksDocument3D iDocument3D = (ksDocument3D)kompas.Document3D();
-            //iDocument3D.Create(false,true);
             return kompas;
         }
         
