@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Parameters
 {
@@ -47,7 +43,7 @@ namespace Parameters
             {
                 _maxValue = value;
             }
-        }// 2 теста
+        }
 
         /// <summary>
         /// Устанавливает и возвращает минимальное значение параметра
@@ -62,7 +58,7 @@ namespace Parameters
             {
                 _minValue = value;
             }
-        }// 2 теста
+        }
 
         /// <summary>
         /// Устанавливает и возвращает текущее значение параметра
@@ -70,7 +66,7 @@ namespace Parameters
         /// от _minValue до _maxValue
         /// </summary>
         public T Value
-        { // 3 теста
+        { 
             get
             {
                 return _value;
@@ -79,7 +75,7 @@ namespace Parameters
             {
                 if (value.CompareTo(_minValue) < 0 || value.CompareTo(_maxValue) > 0)
                 {
-                    throw new ArgumentException("Значение параметра" + _name + "должно находиться в диапозоне от " +
+                    throw new ArgumentException("Значение параметра " + _name + " должно находиться в диапозоне от " +
                         _minValue + " до " + _maxValue);
                 }
                 else
@@ -88,11 +84,6 @@ namespace Parameters
                 }
             }
         }
-
-        /// <summary>
-        /// Устанавливает и возвращает название параметра
-        /// </summary>
-        //public string Name { get; set; }// 2 теста
 
         /// <summary>
         /// Коструктор класса Parameter

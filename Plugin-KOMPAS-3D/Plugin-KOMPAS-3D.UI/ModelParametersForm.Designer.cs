@@ -326,6 +326,7 @@
             this.BuildModelButton.Text = "Построить";
             this.BuildModelButton.UseVisualStyleBackColor = true;
             this.BuildModelButton.Click += new System.EventHandler(this.BuildModelButton_Click);
+            this.BuildModelButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BuildModelButton_MouseMove);
             // 
             // BoundaryValueHLabel
             // 
@@ -364,6 +365,7 @@
             this.Name = "ModelParametersForm";
             this.ShowIcon = false;
             this.Text = "Параметры модели";
+            this.Load += new System.EventHandler(this.ModelParametersForm_Load);
             this.СaseDimensionsGroupBox.ResumeLayout(false);
             this.СaseDimensionsGroupBox.PerformLayout();
             this.SpeakerDimensionsGroupBox.ResumeLayout(false);

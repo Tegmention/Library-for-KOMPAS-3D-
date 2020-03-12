@@ -50,7 +50,7 @@ namespace Plugin_KOMPAS_3D.UI
         }
 
         /// <summary>
-        /// 
+        /// Метод для обработки результата введен
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -60,15 +60,18 @@ namespace Plugin_KOMPAS_3D.UI
             try //Блок где ожидается ошибка
             {
             var value = double.Parse(textBox.Text);
+                //Необходимо при автоматическом вызове метода
                 textBox.Text = value.ToString();
             _modelParameters.Parameters[_elements[textBox]].Value = value;
                 textBox.BackColor = Color.LightGreen;
+                //Заменить на элемент перечисления 
                 if(_elements[textBox] == "H" || _elements[textBox] == "D")
                 {
                     _modelParameters.CalculateMaxHeightDinamic();
                     Displaying(SpeakerHeightTextBox, BoundaryValueHSLabel);
                     DisplayingBoundary(SpeakerHeightTextBox);
                 }
+                //Заменить на элемент перечисления
                 if (_elements[textBox] == "L")
                 {
                     _modelParameters.CalculateMaxLenghtDinamic();
@@ -160,9 +163,26 @@ namespace Plugin_KOMPAS_3D.UI
             }
         }
 
+        /// <summary>
+        /// Инициализация нового объекта Manager
+        /// (построителя модели)
+        /// при клике на кнопку "Построить"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BuildModelButton_Click(object sender, EventArgs e)
         {
             Manager manager = new Manager(_modelParameters);
+        }
+
+        private void BuildModelButton_MouseMove(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void ModelParametersForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parameters", "Parameters\Pa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Builder", "Builder\Builder.csproj", "{CC61EC6F-4C35-4611-8186-9561F8FD7F96}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin-KOMPAS-3D.UnitTests", "Plugin-KOMPAS-3D.UnitTests\Plugin-KOMPAS-3D.UnitTests.csproj", "{A86D0762-AC24-4A7E-B422-D08ED7F21167}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{CC61EC6F-4C35-4611-8186-9561F8FD7F96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC61EC6F-4C35-4611-8186-9561F8FD7F96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC61EC6F-4C35-4611-8186-9561F8FD7F96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A86D0762-AC24-4A7E-B422-D08ED7F21167}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A86D0762-AC24-4A7E-B422-D08ED7F21167}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A86D0762-AC24-4A7E-B422-D08ED7F21167}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A86D0762-AC24-4A7E-B422-D08ED7F21167}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

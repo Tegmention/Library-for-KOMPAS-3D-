@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Parameters
 {
@@ -15,6 +11,11 @@ namespace Parameters
         /// Хранит словарь параметров модели
         /// </summary>
         private Dictionary<string, Parameter<double>> _parameters = new Dictionary<string, Parameter<double>>();
+
+        /// <summary>
+        /// Устанавливает и возвращает словарь параметров модели
+        /// </summary>
+        public Dictionary<string, Parameter<double>> Parameters { get; set; }
 
         /// <summary>
         /// Метод высчитывает максимальное значение параметра
@@ -44,11 +45,6 @@ namespace Parameters
         }
 
         /// <summary>
-        /// Устанавливает и возвращает словарь параметров модели
-        /// </summary>
-        public Dictionary<string, Parameter<double>> Parameters { get; set; }
-
-        /// <summary>
         /// Конструктор класса Parameters
         /// </summary>
         public ModelParameters()
@@ -56,6 +52,7 @@ namespace Parameters
             Parameters = new Dictionary<string, Parameter<double>>();
             var values = new List<(double min, double max, string name)>
             {
+                //+1 тест проверь функцию ToString!
                 (100, 500, ParametersName.H.ToString()),
                 (200, 300, ParametersName.L.ToString()),
                 (150, 200, ParametersName.W.ToString()),
