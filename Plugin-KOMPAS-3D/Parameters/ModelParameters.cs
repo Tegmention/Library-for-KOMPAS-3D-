@@ -10,12 +10,17 @@ namespace Parameters
         /// <summary>
         /// Хранит словарь параметров модели
         /// </summary>
-        private Dictionary<string, Parameter<double>> _parameters = new Dictionary<string, Parameter<double>>();
+        private Dictionary<ParametersName, Parameter<double>> _parameters = new Dictionary<ParametersName, Parameter<double>>();
 
         /// <summary>
         /// Устанавливает и возвращает словарь параметров модели
         /// </summary>
-        public Dictionary<string, Parameter<double>> Parameters { get; set; }
+        //public Dictionary<string, Parameter<double>> Parameters { get;}
+
+        public Parameter<double> Parameter(ParametersName name)
+        {
+            return _parameters[name];
+        }
 
         /// <summary>
         /// Метод высчитывает максимальное значение параметра
@@ -26,9 +31,9 @@ namespace Parameters
         /// </summary>
         public void CalculateMaxHeightDinamic()
         {
-            Parameters[ParametersName.HS.ToString()].MaxValue = 
-                Parameters[ParametersName.H.ToString()].Value - 5
-                - (Parameters[ParametersName.D.ToString()].Value + 10);
+            Parameter(ParametersName.HS).MaxValue = 
+                Parameter(ParametersName.H).Value - 5
+                - (Parameter(ParametersName.D).Value + 10);
         }
 
         ///Сделать общее перечисление, чтобы хранить одни и те же названия
@@ -40,8 +45,8 @@ namespace Parameters
         /// </summary>
         public void CalculateMaxLenghtDinamic()
         {
-            Parameters[ParametersName.LS.ToString()].MaxValue = 
-                Parameters[ParametersName.L.ToString()].Value - 5;
+            Parameter(ParametersName.WS).MaxValue = 
+                Parameter(ParametersName.W).Value - 5;
         }
 
         /// <summary>
@@ -49,24 +54,24 @@ namespace Parameters
         /// </summary>
         public ModelParameters()
         {
-            Parameters = new Dictionary<string, Parameter<double>>();
-            var values = new List<(double min, double max, string name)>
+            _parameters = new Dictionary<ParametersName, Parameter<double>>();
+            var values = new List<(double min, double max, ParametersName name)>
             {
                 //+1 тест проверь функцию ToString!
-                (100, 500, ParametersName.H.ToString()),
-                (200, 300, ParametersName.L.ToString()),
-                (150, 200, ParametersName.W.ToString()),
-                (60, 75, ParametersName.HS.ToString()),
-                (10, 20, ParametersName.D.ToString()),
-                (5, 20, ParametersName.WS.ToString()),
-                (150, 195, ParametersName.LS.ToString())
+                (100, 500, ParametersName.H),
+                (200, 300, ParametersName.W),
+                (150, 200, ParametersName.L),
+                (60, 75, ParametersName.HS),
+                (10, 20, ParametersName.D),
+                (5, 20, ParametersName.TS),
+                (150, 195, ParametersName.WS)
             };
 
             foreach (var value in values)
             {
                 var parameter = 
-                    new Parameter<double>(value.min, value.max, value.min, value.name);
-                Parameters.Add(value.name,parameter);
+                    new Parameter<double>(value.min, value.max, value.min, value.name.ToString());
+                _parameters.Add(value.name,parameter);
             }
         }   
     }

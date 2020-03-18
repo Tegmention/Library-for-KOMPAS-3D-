@@ -7,7 +7,8 @@ using Builder;
 
 
 namespace Plugin_KOMPAS_3D.UI
-{   /// <summary>
+{  
+    /// <summary>
     /// Форма для ввода пользователем параметров модели
     /// </summary>
     public partial class ModelParametersForm : Form
@@ -16,7 +17,7 @@ namespace Plugin_KOMPAS_3D.UI
         /// Словарь хранить названия элементов управления
         /// в соответствии 
         /// </summary>
-        private Dictionary<TextBox, string> _elements = new Dictionary<TextBox, string>();
+        private Dictionary<TextBox, ParametersName> _elements = new Dictionary<TextBox, ParametersName>();
 
         /// <summary>
         /// Поле хранит параметры модели
@@ -32,15 +33,15 @@ namespace Plugin_KOMPAS_3D.UI
             InitializeComponent();
 
             //Создание списка элементов TextBox
-            var elements = new List<(TextBox element, string name)>
+            var elements = new List<(TextBox element, ParametersName name)>
             {
-                (CaseHeightTextBox,ParametersName.H.ToString()),
-                (CaseLengthTextBox,ParametersName.L.ToString()),
-                (CaseWidthTextBox,ParametersName.W.ToString()),
-                (RelayDiameterTextBox,ParametersName.D.ToString()),
-                (SpeakerWidthTextBox,ParametersName.WS.ToString()),
-                (SpeakerLengthTextBox,ParametersName.LS.ToString()),
-                (SpeakerHeightTextBox,ParametersName.HS.ToString())
+                (CaseHeightTextBox,ParametersName.H),
+                (CaseLengthTextBox,ParametersName.W),
+                (CaseWidthTextBox,ParametersName.L),
+                (RelayDiameterTextBox,ParametersName.D),
+                (SpeakerWidthTextBox,ParametersName.TS),
+                (SpeakerLengthTextBox,ParametersName.WS),
+                (SpeakerHeightTextBox,ParametersName.HS)
             };
 
             foreach (var element in elements)
@@ -59,20 +60,20 @@ namespace Plugin_KOMPAS_3D.UI
             var textBox = (TextBox)sender;
             try //Блок где ожидается ошибка
             {
-            var value = double.Parse(textBox.Text);
+                var value = double.Parse(textBox.Text);
                 //Необходимо при автоматическом вызове метода
                 textBox.Text = value.ToString();
-            _modelParameters.Parameters[_elements[textBox]].Value = value;
+                _modelParameters.Parameter(_elements[textBox]).Value = value;
                 textBox.BackColor = Color.LightGreen;
                 //Заменить на элемент перечисления 
-                if(_elements[textBox] == "H" || _elements[textBox] == "D")
+                if(_elements[textBox] == ParametersName.H || _elements[textBox] == ParametersName.D)
                 {
                     _modelParameters.CalculateMaxHeightDinamic();
                     Displaying(SpeakerHeightTextBox, BoundaryValueHSLabel);
                     DisplayingBoundary(SpeakerHeightTextBox);
                 }
                 //Заменить на элемент перечисления
-                if (_elements[textBox] == "L")
+                if (_elements[textBox] == ParametersName.W)
                 {
                     _modelParameters.CalculateMaxLenghtDinamic();
                     Displaying(SpeakerLengthTextBox, BoundaryValueLSLabel);
@@ -98,7 +99,7 @@ namespace Plugin_KOMPAS_3D.UI
             if (textBox.BackColor == Color.Salmon)
             {
                 textBox.Text = 
-                    string.Concat(_modelParameters.Parameters[_elements[textBox]].Value);
+                    string.Concat(_modelParameters.Parameter(_elements[textBox]).Value);
                 textBox.BackColor = Color.LightGreen;
             }
         }
@@ -125,7 +126,7 @@ namespace Plugin_KOMPAS_3D.UI
             foreach (var element in elements)
             {
                 element.Text = 
-                    string.Concat(_modelParameters.Parameters[_elements[element]].Value);
+                    string.Concat(_modelParameters.Parameter(_elements[element]).Value);
             }
             _modelParameters.CalculateMaxHeightDinamic();
             Displaying(SpeakerHeightTextBox, BoundaryValueHSLabel);
@@ -142,8 +143,8 @@ namespace Plugin_KOMPAS_3D.UI
         private void Displaying(TextBox textBox, Label label)
         {
             label.Text = 
-                "(от " + string.Concat(_modelParameters.Parameters[_elements[textBox]].MinValue) + " до "
-                + string.Concat(_modelParameters.Parameters[_elements[textBox]].MaxValue) + ") мм";
+                "(от " + string.Concat(_modelParameters.Parameter(_elements[textBox]).MinValue) + " до "
+                + string.Concat(_modelParameters.Parameter(_elements[textBox]).MaxValue) + ") мм";
         }
 
         /// <summary>
@@ -158,7 +159,7 @@ namespace Plugin_KOMPAS_3D.UI
             if (textBox.BackColor == Color.Salmon)
             {
                 textBox.Text
-                    = string.Concat(_modelParameters.Parameters[_elements[textBox]].MaxValue);
+                    = string.Concat(_modelParameters.Parameter(_elements[textBox]).MaxValue);
                 textBox.BackColor = Color.LightGreen;
             }
         }
@@ -177,12 +178,7 @@ namespace Plugin_KOMPAS_3D.UI
 
         private void BuildModelButton_MouseMove(object sender, MouseEventArgs e)
         {
-            
-        }
-
-        private void ModelParametersForm_Load(object sender, EventArgs e)
-        {
-
+            BuildModelButton.Focus();
         }
     }
 }

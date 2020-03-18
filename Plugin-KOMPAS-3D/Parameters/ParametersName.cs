@@ -12,11 +12,11 @@ namespace Parameters
     public enum ParametersName
     {
         H,
-        L,
         W,
+        L,
         HS,
         D,
-        WS,
-        LS
+        TS,
+        WS
     }
 }

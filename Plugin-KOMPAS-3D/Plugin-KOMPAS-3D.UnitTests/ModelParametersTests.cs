@@ -7,27 +7,19 @@ namespace Plugin_KOMPAS_3D.UnitTests
 {
     class ModelParametersTests
     {
-        [Test(Description = "Позитивный тест сеттера Parameters")]
-        public void Test_Parameters_Set_CorrectValue()
-        {
-            var modelParameters = new ModelParameters();
-            var expected = new Dictionary<string, Parameter<double>>();
-            var parameter = new Parameter<double>(100, 500, 100, "name");
-            expected.Add("name", parameter);
-            modelParameters.Parameters = expected;
-            Assert.AreEqual(expected, modelParameters.Parameters, "Сеттер Parameters некорректно записывает значение");
-        }
 
-        [Test(Description = "Позитивный тест геттера Parameters")]
-        public void Test_Parameters_Get_CorrectValue()
+        [Test(Description = "Позитивный тест метода Parameter")]
+        public void Test_Parameter()
         {
             var modelParameters = new ModelParameters();
-            var expected = new Dictionary<string, Parameter<double>>();
-            var parameter = new Parameter<double>(100, 500, 100, "name");
-            expected.Add("name", parameter);
-            modelParameters.Parameters = expected;
-            var actual = modelParameters.Parameters;
-            Assert.AreEqual(expected, actual, "Геттер Parameters некорректно возвращащает значение");
+            var result = true;
+            if(modelParameters.Parameter(ParametersName.H).MinValue != 100
+                || modelParameters.Parameter(ParametersName.H).MaxValue != 500
+                || modelParameters.Parameter(ParametersName.H).Value != 100)
+            {
+                result = false;
+            }
+            Assert.IsTrue(result, "Метод Parameter работает некорректно");
         }
 
         [Test(Description = "Позитивный тест метода CalculateMaxHeightDinamic")]
@@ -37,10 +29,10 @@ namespace Plugin_KOMPAS_3D.UnitTests
             var H = 500;
             var D = 20;
             var expected = H - 5 - (D + 10);
-            modelParameters.Parameters[ParametersName.H.ToString()].Value = H;
-            modelParameters.Parameters[ParametersName.D.ToString()].Value = D;
+            modelParameters.Parameter(ParametersName.H).Value = H;
+            modelParameters.Parameter(ParametersName.D).Value = D;
             modelParameters.CalculateMaxHeightDinamic();
-            var actual = modelParameters.Parameters[ParametersName.HS.ToString()].MaxValue;
+            var actual = modelParameters.Parameter(ParametersName.HS).MaxValue;
             Assert.AreEqual(expected, actual, "Метод CalculateMaxHeightDinamic работает некорректно");
         }
 
@@ -50,9 +42,9 @@ namespace Plugin_KOMPAS_3D.UnitTests
             var modelParameters = new ModelParameters();
             var L = 300;
             var expected = L - 5;
-            modelParameters.Parameters[ParametersName.L.ToString()].Value = L;
+            modelParameters.Parameter(ParametersName.W).Value = L;
             modelParameters.CalculateMaxLenghtDinamic();
-            var actual = modelParameters.Parameters[ParametersName.LS.ToString()].MaxValue;
+            var actual = modelParameters.Parameter(ParametersName.WS).MaxValue;
             Assert.AreEqual(expected, actual, "Метод CalculateMaxLenghtDinamic работает некорректно");
         }
 
@@ -68,24 +60,23 @@ namespace Plugin_KOMPAS_3D.UnitTests
         public void Test_ModelParameters()
         {
             var modelParameters = new ModelParameters();
-            var parameters = modelParameters.Parameters;
             var result = true;
-            var values = new List<(double min, double max, string name)>
+            var values = new List<(double min, double max, ParametersName name)>
             {
-                (100, 500, ParametersName.H.ToString()),
-                (200, 300, ParametersName.L.ToString()),
-                (150, 200, ParametersName.W.ToString()),
-                (60, 75, ParametersName.HS.ToString()),
-                (10, 20, ParametersName.D.ToString()),
-                (5, 20, ParametersName.WS.ToString()),
-                (150, 195, ParametersName.LS.ToString())
+                (100, 500, ParametersName.H),
+                (200, 300, ParametersName.W),
+                (150, 200, ParametersName.L),
+                (60, 75, ParametersName.HS),
+                (10, 20, ParametersName.D),
+                (5, 20, ParametersName.TS),
+                (150, 195, ParametersName.WS)
             };
 
             foreach (var value in values)
             {
-                if (parameters[value.name].MaxValue != value.max ||
-                    parameters[value.name].MinValue != value.min ||
-                    parameters[value.name].Value != value.min)
+                if (modelParameters.Parameter(value.name).MaxValue != value.max ||
+                    modelParameters.Parameter(value.name).MinValue != value.min ||
+                    modelParameters.Parameter(value.name).Value != value.min)
                 {
                     result = false;
                 }

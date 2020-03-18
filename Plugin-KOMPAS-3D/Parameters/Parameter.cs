@@ -16,16 +16,6 @@ namespace Parameters
         private string _name;
 
         /// <summary>
-        /// Поле хранит максимальное значение параметра
-        /// </summary>
-        private T _maxValue;
-
-        /// <summary>
-        /// Поле хранит минимальное значение параметра
-        /// </summary>
-        private T _minValue;
-
-        /// <summary>
         /// Поле хранит текущее значение параметра
         /// </summary>
         private T _value;
@@ -33,32 +23,12 @@ namespace Parameters
         /// <summary>
         /// Устанавливает и возвращает максимальное значение параметра
         /// </summary>
-        public T MaxValue
-        {
-            get
-            {
-                return _maxValue;
-            }
-            set
-            {
-                _maxValue = value;
-            }
-        }
+        public T MaxValue { get; set; }
 
         /// <summary>
         /// Устанавливает и возвращает минимальное значение параметра
         /// </summary>
-        public T MinValue
-        {
-            get
-            {
-                return _minValue;
-            }
-            set
-            {
-                _minValue = value;
-            }
-        }
+        public T MinValue { get; set; }
 
         /// <summary>
         /// Устанавливает и возвращает текущее значение параметра
@@ -73,10 +43,10 @@ namespace Parameters
             }
             set
             {
-                if (value.CompareTo(_minValue) < 0 || value.CompareTo(_maxValue) > 0)
+                if (value.CompareTo(MinValue) < 0 || value.CompareTo(MaxValue) > 0)
                 {
                     throw new ArgumentException("Значение параметра " + _name + " должно находиться в диапозоне от " +
-                        _minValue + " до " + _maxValue);
+                        MinValue + " до " + MaxValue);
                 }
                 else
                 {
@@ -94,8 +64,8 @@ namespace Parameters
         /// <param name="name">Название параметра</param>
         public Parameter(T minValue, T maxValue, T value, string name)
         {
-            _minValue = minValue;
-            _maxValue = maxValue;
+            MinValue = minValue;
+            MaxValue = maxValue;
             _value = value;
             _name = name;
         }

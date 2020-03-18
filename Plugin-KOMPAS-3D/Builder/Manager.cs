@@ -13,7 +13,9 @@ namespace Builder
     /// </summary>
     public class Manager
     {
-        //1 тест
+        //Поле хранит экземпляр построителя 3D модели
+        private BuilderModel _builderModel;
+
         /// <summary>
         /// Подключение к экземпляру компас 3Д
         /// Если экземпляр есть создан,
@@ -30,27 +32,21 @@ namespace Builder
             //Отображение необходимо в каждом случае
             //так как возможна ошибка при подключении 
             //к уже закрытому экземпляру
-            //1 тест
             try
             {
-                //1 тест
                 kompas = (KompasObject)Marshal.GetActiveObject("KOMPAS.Application.5");
                 kompas.Visible = true;
             }
             //Создание нового экзмепляра
-            //1 тест
             catch
             {
-                //1 Тест
                 Type t = Type.GetTypeFromProgID("KOMPAS.Application.5");
-                //1 Tест
                 kompas = (KompasObject)Activator.CreateInstance(t);
                 kompas.Visible = true;
             }
             //Выполняется после заверешения try и catch
             finally
             {
-                //1 Тест
                 kompas.ActivateControllerAPI();
             }
             return kompas;
@@ -59,7 +55,8 @@ namespace Builder
         //1 тест
         /// <summary>
         /// Конструктор класса Manager
-        /// Инициализирует класс построитель модели 
+        /// Вызывает метод для инициализации
+        /// экземпляра построителя 3D модели 
         /// </summary>
         /// <param name="parameters"></param>
         public Manager(ModelParameters parameters)
@@ -75,7 +72,7 @@ namespace Builder
         /// <param name="parameters"></param>
         private void InirializeModel(ModelParameters parameters)
         {
-            var BuilderModel = new BuilderModel(parameters,OpenKompas3D());
+            _builderModel = new BuilderModel(parameters,OpenKompas3D());
         }
     }
 }
