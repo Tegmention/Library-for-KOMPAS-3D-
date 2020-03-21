@@ -9,26 +9,14 @@ namespace Parameters
     /// <summary>
     /// Хранит названия параметров модели
     /// </summary>
-    public enum ParametersName
+    public enum ElementName
     {
-        H,
-        W,
-        L,
-        HS,
-        D,
-        TS,
-        WS,
-        TS1,
-        TS2,
-        TS3,
-        TS4,
-        WS1,
-        WS2,
-        WS3,
-        WS4,
-        HS1,
-        HS2,
-        HS3,
-        HS4
+        SpeakerCover1,
+        SpeakerCover2,
+        SpeakerCover3,
+        SpeakerCover4,
+        Case,
+        Rele,
+        PowerButton
     }
 }

@@ -20,10 +20,29 @@ namespace Parameters
         /// </summary>
         private T _value;
 
+        public T _maxValue;
+
         /// <summary>
         /// Устанавливает и возвращает максимальное значение параметра
         /// </summary>
-        public T MaxValue { get; set; }
+        public T MaxValue 
+        { 
+            get
+            {
+                return _maxValue;
+            }
+            set
+            {
+                if(value.CompareTo(MinValue) < 0)
+                {
+                    _maxValue = MinValue;
+                }
+                else
+                {
+                    _maxValue = value;
+                }
+            }
+        }
 
         /// <summary>
         /// Устанавливает и возвращает минимальное значение параметра
@@ -36,7 +55,7 @@ namespace Parameters
         /// от _minValue до _maxValue
         /// </summary>
         public T Value
-        { 
+        {
             get
             {
                 return _value;

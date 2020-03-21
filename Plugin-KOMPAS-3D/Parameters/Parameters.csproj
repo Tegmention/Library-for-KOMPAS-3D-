@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ElementName.cs" />
+    <Compile Include="ElementParameters.cs" />
+    <Compile Include="ModelElement.cs" />
+    <Compile Include="ModelElements.cs" />
     <Compile Include="ParametersName.cs" />
     <Compile Include="Parameter.cs" />
     <Compile Include="ModelParameters.cs" />
