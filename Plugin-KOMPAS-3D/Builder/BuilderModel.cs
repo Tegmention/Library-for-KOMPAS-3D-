@@ -19,16 +19,16 @@ namespace Builder
         /// <summary>
         /// Хранит параметры модели колонки
         /// </summary>
-        private ModelParameters _modelParameters;
+        private ModelElements _modelelElements;
 
         /// <summary>
         /// Конструктор класса BuilderModel
         /// </summary>
         /// <param name="parameters">Параметры модели</param>
         /// <param name="kompas">Экзепляр Компас 3Д</param>
-        public BuilderModel(ModelParameters parameters, KompasObject kompas)
+        public BuilderModel(ModelElements elements, KompasObject kompas)
         {
-            _modelParameters = parameters;
+            _modelelElements = elements;
             _kompasObject = kompas;
             CreateModel();
         }
@@ -39,10 +39,10 @@ namespace Builder
         private void CreateModel()
         {
             ksDocument3D iDocument3D = (ksDocument3D)_kompasObject.Document3D();
-            iDocument3D.Create(false,true);
+            iDocument3D.Create(false, true);
             ksPart iPatr = (ksPart)iDocument3D.GetPart((short)Part_Type.pTop_Part);
             CreateCase(iDocument3D, iPatr);
-            CreateSpeaker(iDocument3D, iPatr);
+            CreateSpeakers(iDocument3D, iPatr);
             CreateRele(iDocument3D, iPatr);
         }
 
@@ -51,39 +51,39 @@ namespace Builder
         /// </summary>
         private void CreateCase(ksDocument3D iDocument3D, ksPart iPart)
         {
-            if(iPart != null)
+            if (iPart != null)
             {
                 //Получаем интерфейс базовой плоскости ХОY
-                ksEntity planeZOY = 
+                ksEntity planeZOY =
                     (ksEntity)iPart.GetDefaultEntity((short)Obj3dType.o3d_planeXOZ);
                 //Создаем новый эскиз
-                ksEntity iSketch = 
+                ksEntity iSketch =
                     (ksEntity)iPart.NewEntity((short)Obj3dType.o3d_sketch);
-                if(iSketch != null)
+                if (iSketch != null)
                 {
                     //Получаем интерфейс свойств эскиза
                     ksSketchDefinition iDefinitionSketch = (ksSketchDefinition)iSketch.GetDefinition();
-                    if(iDefinitionSketch != null)
+                    if (iDefinitionSketch != null)
                     {
                         //Устанавливаем плоскость эскиза
                         iDefinitionSketch.SetPlane(planeZOY);
                         //Создание эскиза
                         iSketch.Create();
 
-                        //Заменить на элементы перечисления
                         //Создание нового 2Д документа
                         ksDocument2D iDocument2D = (ksDocument2D)iDefinitionSketch.BeginEdit();
-                        iDocument2D.ksLineSeg(0, 0, _modelParameters.Parameter(ParametersName.W).Value, 0, 1);
-                        iDocument2D.ksLineSeg(0, 0, 0, _modelParameters.Parameter(ParametersName.H).Value, 1);
-                        iDocument2D.ksLineSeg(0, _modelParameters.Parameter(ParametersName.H).Value,
-                            _modelParameters.Parameter(ParametersName.W).Value, _modelParameters.Parameter(ParametersName.H).Value, 1);
-                        iDocument2D.ksLineSeg(_modelParameters.Parameter(ParametersName.W).Value, 0,
-                            _modelParameters.Parameter(ParametersName.W).Value, _modelParameters.Parameter(ParametersName.H).Value, 1);
+                        var W = _modelelElements.Element(ElementName.Case).Parameter(ParametersName.W).Value;
+                        var H = _modelelElements.Element(ElementName.Case).Parameter(ParametersName.H).Value;
+                        var L = _modelelElements.Element(ElementName.Case).Parameter(ParametersName.L).Value;
+                        iDocument2D.ksLineSeg(0, 0, W, 0, 1);
+                        iDocument2D.ksLineSeg(0, 0, 0, H, 1);
+                        iDocument2D.ksLineSeg(0, H, W, H, 1);
+                        iDocument2D.ksLineSeg(W, 0, W, H, 1);
                         iDefinitionSketch.EndEdit();
 
                         //Операция выдавливание
-                        ExctrusionSketch(iPart, iSketch, _modelParameters.Parameter(ParametersName.L).Value, true);
-                        Fillet(iPart, "case");
+                        ExctrusionSketch(iPart, iSketch, L, true);
+                        Fillet(iPart, 20, 20 , 0);
                     }
                 }
             }
@@ -115,12 +115,12 @@ namespace Builder
                         //Заменить на элементы перечисления
                         //Создание нового 2Д документа
                         ksDocument2D iDocument2D = (ksDocument2D)iDefinitionSketch.BeginEdit();
-                        var rad = _modelParameters.Parameter(ParametersName.D).Value / 2;
-                        var partL = _modelParameters.Parameter(ParametersName.W).Value / 5;
+                        var rad = _modelelElements.Element(ElementName.Rele).Parameter(ParametersName.D).Value / 2;
+                        var partL = _modelelElements.Element(ElementName.Case).Parameter(ParametersName.W).Value / 5;
                         var height = 2.5 + rad;
                         iDocument2D.ksCircle(partL * 4, height, rad, 1);
                         iDocument2D.ksCircle(partL * 3, height, rad, 1);
-                        iDocument2D.ksCircle(partL * 2, height, rad , 1);
+                        iDocument2D.ksCircle(partL * 2, height, rad, 1);
                         iDocument2D.ksCircle(partL, height, 4, 1);
                         iDefinitionSketch.EndEdit();
 
@@ -134,8 +134,9 @@ namespace Builder
         /// <summary>
         /// Построение динамика колонки
         /// </summary>
-        private void CreateSpeaker(ksDocument3D iDocument3D, ksPart iPart)
-        { 
+        private void CreateRectanglSpeaker(ksDocument3D iDocument3D, ksPart iPart, double maxH, double minH,
+            double maxW, double minW, ModelElement element)
+        {
             if (iPart != null)
             {
                 //Получаем интерфейс базовой плоскости ХОY
@@ -156,46 +157,516 @@ namespace Builder
                         iSketch.Create();
 
                         //Создание нового 2Д документа
-                        //Заменить на элементы перечисления
                         ksDocument2D iDocument2D = (ksDocument2D)iDefinitionSketch.BeginEdit();
-                        var middleMaxHS = _modelParameters.Parameter(ParametersName.HS).MaxValue/2;
-                        var middleHS = _modelParameters.Parameter(ParametersName.HS).Value / 2;
-                        var middleLS = _modelParameters.Parameter(ParametersName.WS).Value / 2;
-                        var middleL = _modelParameters.Parameter(ParametersName.W).Value / 2;
-                        var result = 10 + _modelParameters.Parameter(ParametersName.D).Value;
-                        iDocument2D.ksLineSeg(
-                            middleL - middleLS, 
-                            middleMaxHS - middleHS + result,
-                            middleL - middleLS,
-                            middleMaxHS + middleHS + result,
-                            1);
-                        iDocument2D.ksLineSeg(
-                            middleL - middleLS,
-                            middleMaxHS + middleHS + result,
-                            middleL + middleLS,
-                            middleMaxHS + middleHS + result,
-                            1);
-                        iDocument2D.ksLineSeg(
-                            middleL + middleLS,
-                            middleMaxHS + middleHS + result,
-                            middleL + middleLS,
-                            middleMaxHS - middleHS + result,
-                            1);
-                        //1 тест
-                        iDocument2D.ksLineSeg(
-                            middleL - middleLS,
-                            middleMaxHS - middleHS + result,
-                            middleL + middleLS,
-                            middleMaxHS - middleHS + result,
-                            1);
+                        
+                        CreateSketchRectangle(iDocument2D, maxH, minH, maxW, minW);
                         iDefinitionSketch.EndEdit();
 
                         //Операция выдавливание
-                        ExctrusionSketch(iPart, iSketch, _modelParameters.Parameter(ParametersName.TS).Value, false);
-                        Fillet(iPart, "speaker");
+                        ExctrusionSketch(iPart, iSketch, element.Parameter(ParametersName.L).Value, false);
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// Построение динамика колонки
+        /// </summary>
+        private void CreateCirkleSpeaker(ksDocument3D iDocument3D, ksPart iPart, double X, double Y, double rad,  ModelElement element)
+        {
+            if (iPart != null)
+            {
+                //Получаем интерфейс базовой плоскости ХОY
+                ksEntity planeZOY =
+                    (ksEntity)iPart.GetDefaultEntity((short)Obj3dType.o3d_planeXOZ);
+                //Создаем новый эскиз
+                ksEntity iSketch =
+                    (ksEntity)iPart.NewEntity((short)Obj3dType.o3d_sketch);
+                if (iSketch != null)
+                {
+                    //Получаем интерфейс свойств эскиза
+                    ksSketchDefinition iDefinitionSketch = (ksSketchDefinition)iSketch.GetDefinition();
+                    if (iDefinitionSketch != null)
+                    {
+                        //Устанавливаем плоскость эскиза
+                        iDefinitionSketch.SetPlane(planeZOY);
+                        //Создание эскиза
+                        iSketch.Create();
+
+                        //Создание нового 2Д документа
+                        ksDocument2D iDocument2D = (ksDocument2D)iDefinitionSketch.BeginEdit();
+                        
+                        iDocument2D.ksCircle( X, Y, rad, 1);
+                        iDefinitionSketch.EndEdit();
+        
+                        //Операция выдавливание
+                        ExctrusionSketch(iPart, iSketch, element.Parameter(ParametersName.L).Value, false);
+                        Fillet(iPart, X, Y, element.Parameter(ParametersName.L).Value);
+
+
+                        ksEntity iSketch1 =
+                            (ksEntity)iPart.NewEntity((short)Obj3dType.o3d_sketch);
+                        //Получаем интерфейс свойств эскиза
+                        ksSketchDefinition iDefinitionSketch1 = (ksSketchDefinition)iSketch1.GetDefinition();
+                        iDefinitionSketch1.SetPlane(planeZOY);
+                        //Создание эскиза
+                        iSketch1.Create();
+
+                        //Создание нового 2Д документа
+                        ksDocument2D iDocument2D1 = (ksDocument2D)iDefinitionSketch1.BeginEdit();
+                        iDocument2D1.ksCircle(X, Y, rad * 0.9, 1);
+                        iDocument2D1.ksCircle(X, Y, rad * 0.8, 1);
+                        iDefinitionSketch1.EndEdit();
+                        //Операция выдавливание
+                        ExctrusionSketch(iPart, iSketch1, element.Parameter(ParametersName.L).Value + 4, false);
+                        Fillet(iPart, X + (rad * 0.9), Y, element.Parameter(ParametersName.L).Value + 4);
+                        
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Расчет и создание динамиков модели
+        /// исходя из их количества
+        /// </summary>
+        /// <param name="iDocument3D"></param>
+        /// <param name="iPart"></param>
+        private void CreateSpeakers(ksDocument3D iDocument3D, ksPart iPart)
+        {
+            //Максимальная высота для суммы высот динамиков
+            var maxDinamic = _modelelElements.CalculationMaxDinamics();
+            //Число динамиков
+            var numberDinamic = _modelelElements.NumberDinamics();
+            //Максимальная ширина динамиков
+            var maxWCase = _modelelElements.Element(ElementName.Case).Parameter(ParametersName.W).Value;
+            var result = 10 + _modelelElements.Element(ElementName.Rele).Parameter(ParametersName.D).Value;
+
+            //Если существует 1 динамик
+            if ( numberDinamic  == 1)
+            {
+                //Высота 1 динамика
+                var H = _modelelElements.Element(ElementName.SpeakerCover1).Parameter(ParametersName.H).Value;
+                //Ширина 1 динамика
+                var W = _modelelElements.Element(ElementName.SpeakerCover1).Parameter(ParametersName.W).Value;
+                if (_modelelElements.Element(ElementName.SpeakerCover1).FormKey() == false)
+                {
+                    var pointMaxHDinamic = (maxDinamic / 2) + (H / 2) + result;
+                    var pointMinHDinamic = (maxDinamic / 2) - (H / 2) + result;
+                    var pointMaxwDinamic = (maxWCase / 2) + (W / 2);
+                    var pointMinwDinamic = (maxWCase / 2) - (W / 2);
+                    CreateRectanglSpeaker(iDocument3D, iPart, pointMaxHDinamic, pointMinHDinamic, pointMaxwDinamic, pointMinwDinamic,
+                        _modelelElements.Element(ElementName.SpeakerCover1));
+                    var L = _modelelElements.Element(ElementName.SpeakerCover1).Parameter(ParametersName.L).Value;
+                    Fillet(iPart, maxWCase / 2, (maxDinamic / 2) + result, L);
+                }
+                else
+                {
+                    var X = maxWCase / 2;
+                    var Y = (maxDinamic / 2) + result;
+                    var rad = H / 2;
+                    CreateCirkleSpeaker(iDocument3D, iPart, X, Y, rad,
+                        _modelelElements.Element(ElementName.SpeakerCover1));
+                }
+            }
+
+            //Если существует 2 динамика
+            if (numberDinamic == 2)
+            {
+                var PartMaxHDinamic = maxDinamic / 2;
+                var PartMaxHDinamic1 = maxDinamic / 2;
+                var H = _modelelElements.Element(ElementName.SpeakerCover1).Parameter(ParametersName.H).Value;
+                var W = _modelelElements.Element(ElementName.SpeakerCover1).Parameter(ParametersName.W).Value;
+                var H1 = _modelelElements.Element(ElementName.SpeakerCover2).Parameter(ParametersName.H).Value;
+                var W1 = _modelelElements.Element(ElementName.SpeakerCover2).Parameter(ParametersName.W).Value;
+                if ( H > PartMaxHDinamic)
+                {
+                    PartMaxHDinamic = H;
+                    PartMaxHDinamic1 = maxDinamic - PartMaxHDinamic;
+                }
+                if (H1 > PartMaxHDinamic1)
+                {
+                    PartMaxHDinamic1 = H1;
+                    PartMaxHDinamic = maxDinamic - PartMaxHDinamic1;
+                }
+                var middlePart = PartMaxHDinamic / 2;
+                var middlePart1 = PartMaxHDinamic1 / 2;
+                //Параметры 1 динамика
+                if (_modelelElements.Element(ElementName.SpeakerCover1).FormKey() == false)
+                    {
+                        var pointMaxHDinamic = result + PartMaxHDinamic1 + middlePart + (H / 2) + 2 ; 
+                        var pointMinHDinamic = result + PartMaxHDinamic1 + middlePart - (H / 2) + 2;
+                        var pointMaxwDinamic = (maxWCase / 2) + (W / 2); 
+                        var pointMinwDinamic = (maxWCase / 2) - (W / 2); 
+                        CreateRectanglSpeaker(iDocument3D, iPart, pointMaxHDinamic, pointMinHDinamic, pointMaxwDinamic, pointMinwDinamic,
+                            _modelelElements.Element(ElementName.SpeakerCover1));
+                    }
+                    else
+                    {
+                        var X = maxWCase / 2;
+                        var Y = result + PartMaxHDinamic1 + middlePart + 2;
+                        var rad = H / 2;
+                        CreateCirkleSpeaker(iDocument3D, iPart, X, Y, rad,
+                            _modelelElements.Element(ElementName.SpeakerCover1));
+                    }
+                    var L = _modelelElements.Element(ElementName.SpeakerCover1).Parameter(ParametersName.L).Value;
+                    Fillet(iPart, maxWCase / 2, result + PartMaxHDinamic1 + middlePart + 2, L);
+                //Параметры 2 динамика
+                if (_modelelElements.Element(ElementName.SpeakerCover2).FormKey() == false)
+                {
+                    var pointMaxHDinamic = result + middlePart1 + (H1 / 2);
+                    var pointMinHDinamic = result + middlePart1 - (H1 / 2);
+                    var pointMaxwDinamic = (maxWCase / 2) + (W1 / 2); 
+                    var pointMinwDinamic = (maxWCase / 2) - (W1 / 2); 
+                    CreateRectanglSpeaker(iDocument3D, iPart, pointMaxHDinamic, pointMinHDinamic, pointMaxwDinamic, pointMinwDinamic,
+                        _modelelElements.Element(ElementName.SpeakerCover2));
+                }
+                else
+                {
+                    var X = maxWCase / 2;
+                    var Y = result + middlePart1; 
+                    var rad = H1 / 2;
+                    CreateCirkleSpeaker(iDocument3D, iPart, X, Y, rad,
+                        _modelelElements.Element(ElementName.SpeakerCover2));
+                }
+                var L1 = _modelelElements.Element(ElementName.SpeakerCover2).Parameter(ParametersName.L).Value;
+                Fillet(iPart, maxWCase / 2, result + middlePart1, L1);
+            }
+
+            //Если существует 3 динамика
+            if (numberDinamic == 3)
+            {
+                var PartMaxHDinamic = maxDinamic / 3;
+                var PartMaxHDinamic1 = maxDinamic / 3;
+                var PartMaxHDinamic2 = maxDinamic / 3;
+                var H = _modelelElements.Element(ElementName.SpeakerCover1).Parameter(ParametersName.H).Value;
+                var W = _modelelElements.Element(ElementName.SpeakerCover1).Parameter(ParametersName.W).Value;
+                var H1 = _modelelElements.Element(ElementName.SpeakerCover2).Parameter(ParametersName.H).Value;
+                var W1 = _modelelElements.Element(ElementName.SpeakerCover2).Parameter(ParametersName.W).Value;
+                var H2 = _modelelElements.Element(ElementName.SpeakerCover3).Parameter(ParametersName.H).Value;
+                var W2 = _modelelElements.Element(ElementName.SpeakerCover3).Parameter(ParametersName.W).Value;
+                if (H > PartMaxHDinamic)
+                {
+                    PartMaxHDinamic = H;
+                    PartMaxHDinamic1 = (maxDinamic - PartMaxHDinamic) / 2;
+                    PartMaxHDinamic2 = (maxDinamic - PartMaxHDinamic) / 2;
+                }
+                if (H1 > PartMaxHDinamic1)
+                {
+                    PartMaxHDinamic1 = H1;
+                    if (PartMaxHDinamic == maxDinamic / 3)
+                    {
+                        PartMaxHDinamic = (maxDinamic - PartMaxHDinamic1) / 2;
+                        PartMaxHDinamic2 = (maxDinamic - PartMaxHDinamic1) / 2;
+                    }
+                    else
+                    {
+                        PartMaxHDinamic2 = maxDinamic - PartMaxHDinamic - PartMaxHDinamic1;
+                    }
+                }
+                if (H2 > PartMaxHDinamic2)
+                {
+                    PartMaxHDinamic2 = H2;
+                    if(PartMaxHDinamic > maxDinamic / 3)
+                    {
+                        PartMaxHDinamic1 = maxDinamic - PartMaxHDinamic - PartMaxHDinamic2;
+                    }
+                    if (PartMaxHDinamic1 > maxDinamic / 3)
+                    {
+                        PartMaxHDinamic = maxDinamic - PartMaxHDinamic1 - PartMaxHDinamic2;
+                    }
+                    if(PartMaxHDinamic == (maxDinamic / 3)
+                        && (PartMaxHDinamic1 == maxDinamic / 3))
+                    {
+                        PartMaxHDinamic = (maxDinamic - PartMaxHDinamic2) / 2;
+                        PartMaxHDinamic1 = (maxDinamic - PartMaxHDinamic2) / 2;
+                    }
+                }
+                var middlePart = PartMaxHDinamic / 2;
+                var middlePart1 = PartMaxHDinamic1 / 2;
+                var middlePart2 = PartMaxHDinamic2 / 2;
+                //Параметры 1 динамика
+                if (_modelelElements.Element(ElementName.SpeakerCover1).FormKey() == false)
+                {
+                    var pointMaxHDinamic = result + PartMaxHDinamic1 + PartMaxHDinamic2 + middlePart + (H / 2) + 2;
+                    var pointMinHDinamic = result + PartMaxHDinamic1 + PartMaxHDinamic2 + middlePart - (H / 2) + 2;
+                    var pointMaxwDinamic = (maxWCase / 2) + (W / 2);
+                    var pointMinwDinamic = (maxWCase / 2) - (W / 2);
+                    CreateRectanglSpeaker(iDocument3D, iPart, pointMaxHDinamic, pointMinHDinamic, pointMaxwDinamic, pointMinwDinamic,
+                        _modelelElements.Element(ElementName.SpeakerCover1));
+                }
+                else
+                {
+                    var X = maxWCase / 2;
+                    var Y = result + PartMaxHDinamic1 + PartMaxHDinamic2 + middlePart + 2;
+                    var rad = H / 2;
+                    CreateCirkleSpeaker(iDocument3D, iPart, X, Y, rad,
+                        _modelelElements.Element(ElementName.SpeakerCover1));
+                }
+                var L = _modelelElements.Element(ElementName.SpeakerCover1).Parameter(ParametersName.L).Value;
+                Fillet(iPart, maxWCase / 2, result + PartMaxHDinamic1 + PartMaxHDinamic2 + middlePart + 2, L);
+                //Параметры 2 динамика
+                if (_modelelElements.Element(ElementName.SpeakerCover2).FormKey() == false)
+                {
+                    var pointMaxHDinamic = result + PartMaxHDinamic2 + middlePart1 + (H1 / 2);
+                    var pointMinHDinamic = result + PartMaxHDinamic2 + middlePart1 - (H1 / 2);
+                    var pointMaxwDinamic = (maxWCase / 2) + (W1 / 2);
+                    var pointMinwDinamic = (maxWCase / 2) - (W1 / 2);
+                    CreateRectanglSpeaker(iDocument3D, iPart, pointMaxHDinamic, pointMinHDinamic, pointMaxwDinamic, pointMinwDinamic,
+                        _modelelElements.Element(ElementName.SpeakerCover2));
+                }
+                else
+                {
+                    var X = maxWCase / 2;
+                    var Y = result + PartMaxHDinamic2 + middlePart1;
+                    var rad = H1 / 2;
+                    CreateCirkleSpeaker(iDocument3D, iPart, X, Y, rad,
+                        _modelelElements.Element(ElementName.SpeakerCover2));
+                }
+                var L1 = _modelelElements.Element(ElementName.SpeakerCover2).Parameter(ParametersName.L).Value;
+                Fillet(iPart, maxWCase / 2, result + PartMaxHDinamic2 + middlePart1, L1);
+                //Параметры 3 динамика
+                if (_modelelElements.Element(ElementName.SpeakerCover3).FormKey() == false)
+                {
+                    var pointMaxHDinamic = result + middlePart2 + (H2 / 2) - 2;
+                    var pointMinHDinamic = result + middlePart2 - (H2 / 2) - 2;
+                    var pointMaxwDinamic = (maxWCase / 2) + (W2 / 2);
+                    var pointMinwDinamic = (maxWCase / 2) - (W2 / 2);
+                    CreateRectanglSpeaker(iDocument3D, iPart, pointMaxHDinamic, pointMinHDinamic, pointMaxwDinamic, pointMinwDinamic,
+                        _modelelElements.Element(ElementName.SpeakerCover3));
+                }
+                else
+                {
+                    var X = maxWCase / 2;
+                    var Y = result + middlePart2 - 2;
+                    var rad = H2 / 2;
+                    CreateCirkleSpeaker(iDocument3D, iPart, X, Y, rad,
+                        _modelelElements.Element(ElementName.SpeakerCover3));
+                }
+                var L2 = _modelelElements.Element(ElementName.SpeakerCover3).Parameter(ParametersName.L).Value;
+                Fillet(iPart, maxWCase / 2, result + middlePart2 - 2, L2);
+            }
+
+            //Если существует 4 динамика
+            if (numberDinamic == 4)
+            {
+                var PartMaxHDinamic = maxDinamic / 4;
+                var PartMaxHDinamic1 = maxDinamic / 4;
+                var PartMaxHDinamic2 = maxDinamic / 4;
+                var PartMaxHDinamic3 = maxDinamic / 4;
+                var H = _modelelElements.Element(ElementName.SpeakerCover1).Parameter(ParametersName.H).Value;
+                var W = _modelelElements.Element(ElementName.SpeakerCover1).Parameter(ParametersName.W).Value;
+                var H1 = _modelelElements.Element(ElementName.SpeakerCover2).Parameter(ParametersName.H).Value;
+                var W1 = _modelelElements.Element(ElementName.SpeakerCover2).Parameter(ParametersName.W).Value;
+                var H2 = _modelelElements.Element(ElementName.SpeakerCover3).Parameter(ParametersName.H).Value;
+                var W2 = _modelelElements.Element(ElementName.SpeakerCover3).Parameter(ParametersName.W).Value;
+                var H3 = _modelelElements.Element(ElementName.SpeakerCover4).Parameter(ParametersName.H).Value;
+                var W3 = _modelelElements.Element(ElementName.SpeakerCover4).Parameter(ParametersName.W).Value;
+                if (H > PartMaxHDinamic)
+                {
+                    PartMaxHDinamic = H;
+                    PartMaxHDinamic1 = (maxDinamic - PartMaxHDinamic) / 3;
+                    PartMaxHDinamic2 = (maxDinamic - PartMaxHDinamic) / 3;
+                    PartMaxHDinamic3 = (maxDinamic - PartMaxHDinamic) / 3;
+                }
+                if ( H1 > PartMaxHDinamic1)
+                {
+                    PartMaxHDinamic1 = H1;
+                    if(PartMaxHDinamic == maxDinamic / 4)
+                    {
+                        PartMaxHDinamic = (maxDinamic - PartMaxHDinamic1) / 3;
+                        PartMaxHDinamic2 = (maxDinamic - PartMaxHDinamic1) / 3;
+                        PartMaxHDinamic3 = (maxDinamic - PartMaxHDinamic1) / 3;
+                    }
+                    else
+                    {
+                        PartMaxHDinamic2 = (maxDinamic - PartMaxHDinamic - PartMaxHDinamic1) / 2;
+                        PartMaxHDinamic3 = (maxDinamic - PartMaxHDinamic - PartMaxHDinamic1) / 2;
+                    }
+                }
+                if ( H2 > PartMaxHDinamic2)
+                {
+                    PartMaxHDinamic2 = H2;
+                    if(PartMaxHDinamic > maxDinamic / 4 && PartMaxHDinamic1 > maxDinamic / 4)
+                    {
+                        PartMaxHDinamic3 = maxDinamic - PartMaxHDinamic - PartMaxHDinamic1 - PartMaxHDinamic2;
+                    }
+                    else
+                    {
+                        if (PartMaxHDinamic > maxDinamic / 4)
+                        {
+
+                            PartMaxHDinamic1 = (maxDinamic - PartMaxHDinamic - PartMaxHDinamic2) / 2;
+                            PartMaxHDinamic3 = (maxDinamic - PartMaxHDinamic - PartMaxHDinamic2) / 2;
+                        }
+
+                        if (PartMaxHDinamic1 > maxDinamic / 4)
+                        {
+                            PartMaxHDinamic = (maxDinamic - PartMaxHDinamic1 - PartMaxHDinamic2) / 2;
+                            PartMaxHDinamic3 = (maxDinamic - PartMaxHDinamic1 - PartMaxHDinamic2) / 2;
+                        }
+                        if (PartMaxHDinamic == maxDinamic / 4
+                            && PartMaxHDinamic1 == maxDinamic / 4)
+                        {
+                            PartMaxHDinamic = (maxDinamic - PartMaxHDinamic2) / 3;
+                            PartMaxHDinamic1 = (maxDinamic - PartMaxHDinamic2) / 3;
+                            PartMaxHDinamic3 = (maxDinamic - PartMaxHDinamic2) / 3;
+                        }
+                    }
+                }
+                if (H3 > PartMaxHDinamic3)
+                {
+                    PartMaxHDinamic3 = H3;
+                    if (PartMaxHDinamic == maxDinamic / 4 && PartMaxHDinamic1 == maxDinamic / 4
+                                    && PartMaxHDinamic2 == maxDinamic / 4)
+                    {
+                        PartMaxHDinamic = (maxDinamic - PartMaxHDinamic3) / 3;
+                        PartMaxHDinamic1 = (maxDinamic - PartMaxHDinamic3) / 3;
+                        PartMaxHDinamic2 = (maxDinamic - PartMaxHDinamic3) / 3;
+                    }
+                    else
+                    {
+                        if (PartMaxHDinamic > maxDinamic / 4 && PartMaxHDinamic1 > maxDinamic / 4)
+                        {
+                            PartMaxHDinamic2 = maxDinamic - PartMaxHDinamic - PartMaxHDinamic1 - PartMaxHDinamic3;
+                        }
+                        else
+                        {
+                            if (PartMaxHDinamic > maxDinamic / 4 && PartMaxHDinamic2 > maxDinamic / 4)
+                            {
+                                PartMaxHDinamic1 = maxDinamic - PartMaxHDinamic - PartMaxHDinamic2 - PartMaxHDinamic3;
+                            }
+                            else
+                            {
+                                if (PartMaxHDinamic1 > maxDinamic / 4 && PartMaxHDinamic2 > maxDinamic / 4)
+                                {
+                                    PartMaxHDinamic = maxDinamic - PartMaxHDinamic1 - PartMaxHDinamic2 - PartMaxHDinamic3;
+                                }
+                                else
+                                {
+                                    if (PartMaxHDinamic > maxDinamic / 4)
+                                    {
+                                        PartMaxHDinamic1 = (maxDinamic - PartMaxHDinamic - PartMaxHDinamic3) / 2;
+                                        PartMaxHDinamic2 = (maxDinamic - PartMaxHDinamic - PartMaxHDinamic3) / 2;
+                                    }
+                                    if (PartMaxHDinamic1 > maxDinamic / 4)
+                                    {
+                                        PartMaxHDinamic = (maxDinamic - PartMaxHDinamic1 - PartMaxHDinamic3) / 2;
+                                        PartMaxHDinamic2 = (maxDinamic - PartMaxHDinamic1 - PartMaxHDinamic3) / 2;
+                                    }
+                                    if (PartMaxHDinamic2 > maxDinamic / 4)
+                                    {
+                                        PartMaxHDinamic = (maxDinamic - PartMaxHDinamic2 - PartMaxHDinamic3) / 2;
+                                        PartMaxHDinamic1 = (maxDinamic - PartMaxHDinamic2 - PartMaxHDinamic3) / 2;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                var middlePart = PartMaxHDinamic / 2;
+                var middlePart1 = PartMaxHDinamic1 / 2;
+                var middlePart2 = PartMaxHDinamic2 / 2;
+                var middlePart3 = PartMaxHDinamic3 / 2;
+                //Параметры 1 динамика
+                if (_modelelElements.Element(ElementName.SpeakerCover1).FormKey() == false)
+                {
+                    var pointMaxHDinamic = result + PartMaxHDinamic1 + PartMaxHDinamic2 + PartMaxHDinamic3 + middlePart + (H / 2);
+                    var pointMinHDinamic = result + PartMaxHDinamic1 + PartMaxHDinamic2 + PartMaxHDinamic3 + middlePart - (H / 2);
+                    var pointMaxwDinamic = (maxWCase / 2) + (W / 2);
+                    var pointMinwDinamic = (maxWCase / 2) - (W / 2);
+                    CreateRectanglSpeaker(iDocument3D, iPart, pointMaxHDinamic, pointMinHDinamic, pointMaxwDinamic, pointMinwDinamic,
+                        _modelelElements.Element(ElementName.SpeakerCover1));
+                }
+                else
+                {
+                    var X = maxWCase / 2;
+                    var Y = result + PartMaxHDinamic1 + PartMaxHDinamic2 + PartMaxHDinamic3 + middlePart;
+                    var rad = H / 2;
+                    CreateCirkleSpeaker(iDocument3D, iPart, X, Y, rad,
+                        _modelelElements.Element(ElementName.SpeakerCover1));
+                }
+                var L = _modelelElements.Element(ElementName.SpeakerCover1).Parameter(ParametersName.L).Value;
+                Fillet(iPart, maxWCase / 2, result + PartMaxHDinamic1 + PartMaxHDinamic2 + PartMaxHDinamic3 + middlePart, L);
+                //Параметры 2 динамика
+                if (_modelelElements.Element(ElementName.SpeakerCover2).FormKey() == false)
+                {
+                    var pointMaxHDinamic = result + PartMaxHDinamic2 + PartMaxHDinamic3 + middlePart1 + (H1 / 2) - 2;
+                    var pointMinHDinamic = result + PartMaxHDinamic2 + PartMaxHDinamic3 + middlePart1 - (H1 / 2) - 2;
+                    var pointMaxwDinamic = (maxWCase / 2) + (W1 / 2);
+                    var pointMinwDinamic = (maxWCase / 2) - (W1 / 2);
+                    CreateRectanglSpeaker(iDocument3D, iPart, pointMaxHDinamic, pointMinHDinamic, pointMaxwDinamic, pointMinwDinamic,
+                        _modelelElements.Element(ElementName.SpeakerCover2));
+                }
+                else
+                {
+                    var X = (maxWCase / 2);
+                    var Y = result + PartMaxHDinamic2 + PartMaxHDinamic3 + middlePart1 - 2;
+                    var rad = H1 / 2;
+                    CreateCirkleSpeaker(iDocument3D, iPart, X, Y, rad,
+                        _modelelElements.Element(ElementName.SpeakerCover2));
+                }
+                var L1 = _modelelElements.Element(ElementName.SpeakerCover2).Parameter(ParametersName.L).Value;
+                Fillet(iPart, maxWCase / 2, result + PartMaxHDinamic2 + PartMaxHDinamic3 + middlePart1 - 2, L1);
+                //Параметры 3 динамика
+                if (_modelelElements.Element(ElementName.SpeakerCover3).FormKey() == false)
+                {
+                    var pointMaxHDinamic = result + PartMaxHDinamic3 + middlePart2 + (H2 / 2) - 4;
+                    var pointMinHDinamic = result + PartMaxHDinamic3 + middlePart2 - (H2 / 2) - 4;
+                    var pointMaxwDinamic = (maxWCase / 2) + (W2 / 2);
+                    var pointMinwDinamic = (maxWCase / 2) - (W2 / 2);
+                    CreateRectanglSpeaker(iDocument3D, iPart, pointMaxHDinamic, pointMinHDinamic, pointMaxwDinamic, pointMinwDinamic,
+                        _modelelElements.Element(ElementName.SpeakerCover3));
+                }
+                else
+                {
+                    var X = (maxWCase / 2);
+                    var Y = result + PartMaxHDinamic3 + middlePart2 - 4;
+                    var rad = H2 / 2;
+                    CreateCirkleSpeaker(iDocument3D, iPart, X, Y, rad,
+                        _modelelElements.Element(ElementName.SpeakerCover3));
+                }
+                var L2 = _modelelElements.Element(ElementName.SpeakerCover3).Parameter(ParametersName.L).Value;
+                Fillet(iPart, maxWCase / 2, result + PartMaxHDinamic3 + middlePart2 - 4, L2);
+                //Параметры 4 динамика
+                if (_modelelElements.Element(ElementName.SpeakerCover4).FormKey() == false)
+                {
+                    var pointMaxHDinamic = result + middlePart3 + (H3 / 2) - 6;
+                    var pointMinHDinamic = result + middlePart3 - (H3 / 2) - 6;
+                    var pointMaxwDinamic = (maxWCase / 2) + (W3 / 2);
+                    var pointMinwDinamic = (maxWCase / 2) - (W3 / 2);
+                    CreateRectanglSpeaker(iDocument3D, iPart, pointMaxHDinamic, pointMinHDinamic, pointMaxwDinamic, pointMinwDinamic,
+                        _modelelElements.Element(ElementName.SpeakerCover4));
+                }
+                else
+                {
+                    var X = (maxWCase / 2);
+                    var Y = result + middlePart3 - 6;
+                    var rad = H2 / 2;
+                    CreateCirkleSpeaker(iDocument3D, iPart, X, Y, rad,
+                        _modelelElements.Element(ElementName.SpeakerCover4));
+                }
+                var L3 = _modelelElements.Element(ElementName.SpeakerCover4).Parameter(ParametersName.L).Value;
+                Fillet(iPart, maxWCase / 2, result + middlePart3 - 6, L3);
+            }
+        }
+
+        /// <summary>
+        /// Создание чертежа прямоугольника по
+        /// заданным координатам
+        /// </summary>
+        /// <param name="iDocument2D"></param>
+        /// <param name="maxH">Максимальная высота</param>
+        /// <param name="minH">Минимальная высота</param>
+        /// <param name="maxW">Максимальная ширина</param>
+        /// <param name="minW">Минимальная ширина</param>
+        private void CreateSketchRectangle(ksDocument2D iDocument2D, double maxH, double minH,
+            double maxW, double minW)
+        {
+            iDocument2D.ksLineSeg( minW, minH, maxW, minH, 1);
+            iDocument2D.ksLineSeg( minW, minH, minW, maxH, 1);
+            iDocument2D.ksLineSeg( minW, maxH, maxW, maxH, 1);
+            iDocument2D.ksLineSeg( maxW, minH, maxW, maxH, 1);
         }
 
         /// <summary>
@@ -252,7 +723,7 @@ namespace Builder
         /// </summary>
         /// <param name="iPart">Объект</param>
         /// <param name="type">Тип скругляемой грани</param>
-        private void Fillet(ksPart iPart, string type)
+        private void Fillet(ksPart iPart, double X, double Z, double Y)
         {
             //Получение интерфейса объекта скругление
             ksEntity entityFillet = (ksEntity)iPart.NewEntity((short)Obj3dType.o3d_fillet);
@@ -271,19 +742,7 @@ namespace Builder
                 (ksEntityCollection)filletDefinition.array();
             entityCollectionFillet.Clear();
             //Заполняем массив скругляемых объектов
-            //Грань корпуса
-            if(type == "case")
-            {
-                entityCollectionPart.SelectByPoint(20, 0, -20);
-            }
-            //Грань динамика
-            if (type == "speaker")
-            {
-                entityCollectionPart.SelectByPoint(
-                    _modelParameters.Parameter(ParametersName.W).Value / 2,
-                    -_modelParameters.Parameter(ParametersName.TS).Value,
-                    -_modelParameters.Parameter(ParametersName.H).Value / 2);
-            }
+            entityCollectionPart.SelectByPoint(X,  -Y, -Z);
             entityCollectionFillet.Add(entityCollectionPart.First());
             //Создаем скругление
             entityFillet.Create();

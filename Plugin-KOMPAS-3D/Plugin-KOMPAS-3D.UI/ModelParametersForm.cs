@@ -132,21 +132,36 @@ namespace Plugin_KOMPAS_3D.UI
         private void DeleteDinamicButton_Click(object sender, EventArgs e)
         {
             if(NumberDinamicTextBox.Text != "1")
-            {
-                _modelElements.DeleteDinamic();
+            {               
                 if (NumberDinamicTextBox.Text == "4")
                 {
+                    if (SpeakerLength3Label.Visible != true)
+                    {
+                        ChangeForm(Form3ComboBox, EventArgs.Empty);
+                    }
+                    _modelElements.DeleteDinamic();
                     SpeakerDimensions4GroupBox.Visible = false;
                     DisplayingParameters();
                 }
                 if (NumberDinamicTextBox.Text == "3")
                 {
+                    if (SpeakerLength2Label.Visible != true)
+                    {
+                        ChangeForm(Form2ComboBox, EventArgs.Empty);
+                    }
+                    
+                    _modelElements.DeleteDinamic();
                     this.Size = new System.Drawing.Size(683, 345);
                     SpeakerDimensions3GroupBox.Visible = false;
                     DisplayingParameters();
                 }
                 if (NumberDinamicTextBox.Text == "2")
                 {
+                    if (SpeakerLength1Label.Visible != true)
+                    {
+                        ChangeForm(Form1ComboBox, EventArgs.Empty);
+                    }
+                    _modelElements.DeleteDinamic();
                     SpeakerDimensions2GroupBox.Visible = false;
                     DisplayingParameters();
                 }
@@ -187,9 +202,11 @@ namespace Plugin_KOMPAS_3D.UI
                 var element = parameters.element;
                 var parameter = parameters.parameter;
                 var value = double.Parse(textBox.Text);
-                _modelElements.Element(element).Parameter(parameter).Value = value;
+                if (_modelElements.IsElement(element))
+                {
+                    _modelElements.Element(element).Parameter(parameter).Value = value;
+                }
                 textBox.BackColor = Color.LightGreen;
-                //Заменить на элемент перечисления 
                 if (parameter == ParametersName.H || parameter == ParametersName.D)
                 {
                     _modelElements.CalculationMaxHDinamics();
@@ -221,7 +238,7 @@ namespace Plugin_KOMPAS_3D.UI
             /// то присваивает максимально возможное значение параметра
             /// </summary>
             /// <param name="textBox"></param>
-            private void DisplayingBoundary(TextBox textBox)
+        private void DisplayingBoundary(TextBox textBox)
         {
             var information = _elements[textBox];
             var parameters = information[0];
@@ -242,25 +259,159 @@ namespace Plugin_KOMPAS_3D.UI
             /// </summary>
             /// <param name="sender"></param>
             /// <param name="e"></param>
-            private void ReturnInitialValueButton_Click(object sender, EventArgs e)
+        private void ReturnInitialValueButton_Click(object sender, EventArgs e)
         {
-            this.Size = new System.Drawing.Size(683, 345);
-            SpeakerDimensions4GroupBox.Visible = false;
-            SpeakerDimensions3GroupBox.Visible = false;
-            SpeakerDimensions2GroupBox.Visible = false;
+            if(SpeakerLengthLabel.Visible != true)
+            {
+                ChangeForm(FormComboBox, EventArgs.Empty);
+            }
+            if (SpeakerLength1Label.Visible != true)
+            {
+                ChangeForm(Form1ComboBox, EventArgs.Empty);
+            }
+            if (SpeakerLength2Label.Visible != true)
+            {
+                ChangeForm(Form2ComboBox, EventArgs.Empty);
+            }
+            if (SpeakerLength3Label.Visible != true)
+            {
+                ChangeForm(Form3ComboBox, EventArgs.Empty);
+            }
+            DeleteDinamicButton_Click(DeleteParametersButton, EventArgs.Empty);
+            DeleteDinamicButton_Click(DeleteParametersButton, EventArgs.Empty);
+            DeleteDinamicButton_Click(DeleteParametersButton, EventArgs.Empty);
             _modelElements = new ModelElements();
             foreach (var textBox in _elements.Keys)
             {
                 var information = _elements[textBox];
                 var parameters = information[0];
                 var element = parameters.element;
+                if (element == ElementName.SpeakerCover2 || element == ElementName.SpeakerCover3
+                    || element == ElementName.SpeakerCover4)
+                {
+                    element = ElementName.SpeakerCover1;
+                }
                 var parameter = parameters.parameter;
-                    textBox.Text =
-                        string.Concat(_modelElements.Element(element).Parameter(parameter).Value);
+                textBox.BackColor = Color.LightGreen;
+                textBox.Text =
+                    string.Concat(_modelElements.Element(element).Parameter(parameter).Value);
             }
-            _modelElements.CalculationMaxWDinamic();
-            _modelElements.CalculationMaxHDinamics();
-            DisplayingParameters();
+        }
+
+        private void ChangeForm(object sender, EventArgs e)
+        {
+            if(sender == FormComboBox)
+            {
+                if (_modelElements.IsElement(ElementName.SpeakerCover1))
+                {
+                    _modelElements.ChangeForm(ElementName.SpeakerCover1);
+                    if (SpeakerLengthLabel.Visible == true)
+                    {
+                        SpeakerHeightLabel.Text = "Диаметр (D:)";
+                        SpeakerLengthLabel.Visible = false;
+                        SpeakerWidthTextBox.Visible = false;
+                        BoundaryValueWSLabel.Visible = false;
+                        DisplayingBoundary(SpeakerHeightTextBox);
+                        DisplayingParameters();
+                    }
+                    else
+                    {
+                        FormComboBox.Text = "Прямоугольник";
+                        SpeakerHeightLabel.Text = "Высота (HS):";
+                        SpeakerLengthLabel.Visible = true;
+                        SpeakerWidthTextBox.Visible = true;
+                        BoundaryValueWSLabel.Visible = true;
+                    }
+                }
+            }
+            if (sender == Form1ComboBox)
+            {
+                if (_modelElements.IsElement(ElementName.SpeakerCover2))
+                {
+                    _modelElements.ChangeForm(ElementName.SpeakerCover2);
+                    if (SpeakerLength1Label.Visible == true)
+                    {
+                        SpeakerHeight1Label.Text = "Диаметр (D:)";
+                        SpeakerLength1Label.Visible = false;
+                        SpeakerWidth1TextBox.Visible = false;
+                        BoundaryValueWS1Label.Visible = false;
+                        DisplayingBoundary(SpeakerHeight1TextBox);
+                        DisplayingParameters();
+                    }
+                    else
+                    {
+                        Form1ComboBox.Text = "Прямоугольник";
+                        SpeakerHeight1Label.Text = "Высота (HS):";
+                        SpeakerLength1Label.Visible = true;
+                        SpeakerWidth1TextBox.Visible = true;
+                        BoundaryValueWS1Label.Visible = true;
+                    }
+                }
+            }
+            if (sender == Form2ComboBox)
+            {
+                if (_modelElements.IsElement(ElementName.SpeakerCover3))
+                {
+                    _modelElements.ChangeForm(ElementName.SpeakerCover3);
+                    if (SpeakerLength2Label.Visible == true)
+                    {
+                        SpeakerHeight2Label.Text = "Диаметр (D:)";
+                        SpeakerLength2Label.Visible = false;
+                        SpeakerWidth2TextBox.Visible = false;
+                        BoundaryValueWS2Label.Visible = false;
+                        DisplayingBoundary(SpeakerHeight2TextBox);
+                        DisplayingParameters();
+                    }
+                    else
+                    {
+                        Form2ComboBox.Text = "Прямоугольник";
+                        SpeakerHeight2Label.Text = "Высота (HS):";
+                        SpeakerLength2Label.Visible = true;
+                        SpeakerWidth2TextBox.Visible = true;
+                        BoundaryValueWS2Label.Visible = true;
+                    }
+                }
+            }
+            if (sender == Form3ComboBox)
+            {
+                if (_modelElements.IsElement(ElementName.SpeakerCover4))
+                {
+                    _modelElements.ChangeForm(ElementName.SpeakerCover4);
+                    if (SpeakerLength3Label.Visible == true)
+                    {
+                        SpeakerHeight3Label.Text = "Диаметр (D:)";
+                        SpeakerLength3Label.Visible = false;
+                        SpeakerWidth3TextBox.Visible = false;
+                        BoundaryValueWS3Label.Visible = false;
+                        DisplayingBoundary(SpeakerHeight3TextBox);
+                        DisplayingParameters();
+                    }
+                    else
+                    {
+                        Form3ComboBox.Text = "Прямоугольник";
+                        SpeakerHeight3Label.Text = "Высота (HS):";
+                        SpeakerLength3Label.Visible = true;
+                        SpeakerWidth3TextBox.Visible = true;
+                        BoundaryValueWS3Label.Visible = true;
+                    }
+                }
+            }
+        }
+            /// <summary>
+            /// Инициализация нового объекта Manager
+            /// (построителя модели)
+            /// при клике на кнопку "Построить"
+            /// </summary>
+            /// <param name="sender"></param>
+            /// <param name="e"></param>
+            private void BuildModelButton_Click(object sender, EventArgs e)
+        {
+            Manager manager = new Manager(_modelElements);
+        }
+
+        private void BuildModelButton_MouseMove(object sender, MouseEventArgs e)
+        {
+            BuildModelButton.Focus();
         }
     }
 

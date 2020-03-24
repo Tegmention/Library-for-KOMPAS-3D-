@@ -43,7 +43,7 @@ namespace Parameters
         {
             var values = new List<(double min, double max, ParametersName name)>
             {
-                (10, 75, ParametersName.H),
+                (10, 10, ParametersName.H),
                 (150, 195, ParametersName.W),
                 (5, 20, ParametersName.L)
             };
@@ -128,6 +128,7 @@ namespace Parameters
             }
             var maxH = H - 5 - (D + 10) - H1 - H2 - H3 - H4;
             Element(name).Parameter(ParametersName.H).MaxValue = maxH;
+            Element(name).CircleParameter();
         }
 
         /// <summary>
@@ -151,6 +152,14 @@ namespace Parameters
             }
         }
 
+        public void ChangeForm(ElementName name)
+        {
+            var element = Element(name);
+            element.ChangeForm();
+            CalculationMaxHDinamics();
+            CalculationMaxWDinamic();
+        }
+
         /// <summary>
         /// Метод расчитывает и присваивает
         /// максимальную ширину динамика
@@ -160,28 +169,39 @@ namespace Parameters
         {
             var W = Element(ElementName.Case).Parameter(ParametersName.W).Value;
             var maxW = W - 5;
-            if (_elements.ContainsKey(ElementName.SpeakerCover1) 
-                && Element(ElementName.SpeakerCover1).FormKey() == false)
+            if (_elements.ContainsKey(ElementName.SpeakerCover1))
             {
                 Element(ElementName.SpeakerCover1).Parameter(ParametersName.W).MaxValue = maxW;
+                CalculationMaxHDinamic(ElementName.SpeakerCover1);
+                Element(ElementName.SpeakerCover1).CircleParameter();
             }
-            if (_elements.ContainsKey(ElementName.SpeakerCover2)
-                && Element(ElementName.SpeakerCover2).FormKey() == false)
+            if (_elements.ContainsKey(ElementName.SpeakerCover2))
             {
                 Element(ElementName.SpeakerCover2).Parameter(ParametersName.W).MaxValue = maxW;
+                CalculationMaxHDinamic(ElementName.SpeakerCover2);
+                Element(ElementName.SpeakerCover2).CircleParameter();
             }
-            if (_elements.ContainsKey(ElementName.SpeakerCover3)
-               && Element(ElementName.SpeakerCover3).FormKey() == false)
+            if (_elements.ContainsKey(ElementName.SpeakerCover3))
             {
                 Element(ElementName.SpeakerCover3).Parameter(ParametersName.W).MaxValue = maxW;
+                CalculationMaxHDinamic(ElementName.SpeakerCover3);
+                Element(ElementName.SpeakerCover3).CircleParameter();
             }
-            if (_elements.ContainsKey(ElementName.SpeakerCover4)
-               && Element(ElementName.SpeakerCover4).FormKey() == false)
+            if (_elements.ContainsKey(ElementName.SpeakerCover4))
             {
                 Element(ElementName.SpeakerCover4).Parameter(ParametersName.W).MaxValue = maxW;
+                CalculationMaxHDinamic(ElementName.SpeakerCover4);
+                Element(ElementName.SpeakerCover4).CircleParameter();
             }
         }
 
+        public double CalculationMaxDinamics()
+        {
+            var D = Element(ElementName.Rele).Parameter(ParametersName.D).Value;
+            var H = Element(ElementName.Case).Parameter(ParametersName.H).Value;
+            var maxH = H - 5 - (D + 10);
+            return maxH;
+        }
 
         /// <summary>
         /// Конструктор класса ModelElements
@@ -204,7 +224,6 @@ namespace Parameters
             AddElement(values, ElementName.Case, false);
 
             //Параметры реле регулировки
-            //Для круга H = W
             values = new List<(double min, double max, ParametersName name)>
             {
                 (10, 20, ParametersName.D),
@@ -228,6 +247,28 @@ namespace Parameters
                 (5, 20, ParametersName.L)
             };
             AddElement(values, ElementName.SpeakerCover1, false);
+        }
+
+        public int NumberDinamics()
+        {
+            var number = 0;
+            if (_elements.ContainsKey(ElementName.SpeakerCover1))
+            {
+                number++;
+            }
+            if (_elements.ContainsKey(ElementName.SpeakerCover2))
+            {
+                number++;
+            }
+            if (_elements.ContainsKey(ElementName.SpeakerCover3))
+            {
+                number++;
+            }
+            if (_elements.ContainsKey(ElementName.SpeakerCover4))
+            {
+                number++;
+            }
+            return number;
         }
     }
 }

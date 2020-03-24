@@ -30,11 +30,6 @@ namespace Parameters
             return _formKey;
         }
 
-        public void ChangeParameter(ParametersName name, double value)
-        {
-            //_elementParameters;
-        }
-
         public ModelElement(List<(double min, double max, ParametersName name)> parameters,
             bool formKey)
         {
@@ -42,6 +37,38 @@ namespace Parameters
             _formKey = formKey;
         }
 
+        public void CircleParameter()
+        {
+            if (_formKey == true)
+            {
+                if (_elementParameters.Parameter(ParametersName.H).MaxValue >
+                          _elementParameters.Parameter(ParametersName.W).MaxValue)
+                {
+                    _elementParameters.Parameter(ParametersName.H).MaxValue =
+                    _elementParameters.Parameter(ParametersName.W).MaxValue;
+                }
+                if (_elementParameters.Parameter(ParametersName.W).MaxValue >
+                    _elementParameters.Parameter(ParametersName.H).MaxValue)
+                {
+                    _elementParameters.Parameter(ParametersName.W).MaxValue =
+                    _elementParameters.Parameter(ParametersName.H).MaxValue;
+                }
+            }
+        }
+
         ///Метод для изменения ключа формы
+        public void ChangeForm()
+        {
+            if(_formKey == true)
+            {
+                _formKey = false;
+            }
+            else
+            {
+                CircleParameter();
+                _formKey = true;
+                //CircleParameter();
+            }
+        }
     }
 }

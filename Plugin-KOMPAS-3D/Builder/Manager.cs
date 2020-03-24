@@ -59,9 +59,9 @@ namespace Builder
         /// экземпляра построителя 3D модели 
         /// </summary>
         /// <param name="parameters"></param>
-        public Manager(ModelParameters parameters)
+        public Manager(ModelElements elements)
         {
-            InirializeModel(parameters);
+            InirializeModel(elements);
         }
 
         //1 тест
@@ -70,9 +70,9 @@ namespace Builder
         /// класса построителья модели
         /// </summary>
         /// <param name="parameters"></param>
-        private void InirializeModel(ModelParameters parameters)
+        private void InirializeModel(ModelElements elements)
         {
-            _builderModel = new BuilderModel(parameters,OpenKompas3D());
+            _builderModel = new BuilderModel(elements,OpenKompas3D());
         }
     }
 }
