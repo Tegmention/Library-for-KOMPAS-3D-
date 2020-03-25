@@ -16,11 +16,25 @@ namespace Parameters
         /// </summary>
         private Dictionary<ElementName, ModelElement> _elements = new Dictionary<ElementName, ModelElement>();
 
+        /// <summary>
+        /// Возвращает элемент модели
+        /// </summary>
+        /// <param name="name">Имя элемента модели</param>
+        /// <returns>Элемент модели</returns>
         public ModelElement Element(ElementName name)
         {
             return _elements[name];
         }
 
+        /// <summary>
+        /// Метод проверяет существование 
+        /// элемента
+        /// </summary>
+        /// <param name="name">Имя элемента</param>
+        /// <returns>
+        /// true - элемент существует
+        /// false - элемент не существует
+        /// </returns>
         public bool IsElement(ElementName name)
         {
             var result = false;
@@ -31,7 +45,12 @@ namespace Parameters
             return result;
         }
 
-        //Метод для добавления элемента 
+        /// <summary>
+        /// Метод добавляет элемент
+        /// </summary>
+        /// <param name="parameters">Параметры элемента</param>
+        /// <param name="name">Имя элемента</param>
+        /// <param name="formKey">Ключ формы</param>
         public void AddElement(List<(double min, double max, ParametersName name)> parameters,
             ElementName name, bool formKey)
         { 
@@ -39,6 +58,9 @@ namespace Parameters
             _elements.Add(name, modelElement);
         }
 
+        /// <summary>
+        /// Добавление динамика
+        /// </summary>
         public void AddDinamic()
         {
             var values = new List<(double min, double max, ParametersName name)>
@@ -69,6 +91,9 @@ namespace Parameters
             CalculationMaxWDinamic();
         }
 
+        /// <summary>
+        /// Удалаение динамика
+        /// </summary>
         public void DeleteDinamic()
         {
             if (_elements.ContainsKey(ElementName.SpeakerCover4))
@@ -152,9 +177,14 @@ namespace Parameters
             }
         }
 
+        /// <summary>
+        /// Метод для изменения формы элемента
+        /// </summary>
+        /// <param name="name">Имя элемента</param>
         public void ChangeForm(ElementName name)
         {
             var element = Element(name);
+            //Element(name).ChangeForm();
             element.ChangeForm();
             CalculationMaxHDinamics();
             CalculationMaxWDinamic();
@@ -195,12 +225,44 @@ namespace Parameters
             }
         }
 
+        /// <summary>
+        /// Метод возвращает максимальную
+        /// сумму высот динамиков
+        /// </summary>
+        /// <returns>Максимальна высота динамиков</returns>
         public double CalculationMaxDinamics()
         {
             var D = Element(ElementName.Rele).Parameter(ParametersName.D).Value;
             var H = Element(ElementName.Case).Parameter(ParametersName.H).Value;
             var maxH = H - 5 - (D + 10);
             return maxH;
+        }
+
+        /// <summary>
+        /// Метод возвращает число динамиков 
+        /// модели
+        /// </summary>
+        /// <returns>Число динамиков</returns>
+        public int NumberDinamics()
+        {
+            var number = 0;
+            if (_elements.ContainsKey(ElementName.SpeakerCover1))
+            {
+                number++;
+            }
+            if (_elements.ContainsKey(ElementName.SpeakerCover2))
+            {
+                number++;
+            }
+            if (_elements.ContainsKey(ElementName.SpeakerCover3))
+            {
+                number++;
+            }
+            if (_elements.ContainsKey(ElementName.SpeakerCover4))
+            {
+                number++;
+            }
+            return number;
         }
 
         /// <summary>
@@ -231,14 +293,6 @@ namespace Parameters
             };
             AddElement(values, ElementName.Rele, true);
 
-            //Параметры кнопки включения
-            values = new List<(double min, double max, ParametersName name)>
-            {
-                (10, 10, ParametersName.D),
-                (12, 12, ParametersName.L)
-            };
-            AddElement(values, ElementName.PowerButton, true);
-
             //Добавить 1 динамик
             values = new List<(double min, double max, ParametersName name)>
             {
@@ -247,28 +301,6 @@ namespace Parameters
                 (5, 20, ParametersName.L)
             };
             AddElement(values, ElementName.SpeakerCover1, false);
-        }
-
-        public int NumberDinamics()
-        {
-            var number = 0;
-            if (_elements.ContainsKey(ElementName.SpeakerCover1))
-            {
-                number++;
-            }
-            if (_elements.ContainsKey(ElementName.SpeakerCover2))
-            {
-                number++;
-            }
-            if (_elements.ContainsKey(ElementName.SpeakerCover3))
-            {
-                number++;
-            }
-            if (_elements.ContainsKey(ElementName.SpeakerCover4))
-            {
-                number++;
-            }
-            return number;
         }
     }
 }

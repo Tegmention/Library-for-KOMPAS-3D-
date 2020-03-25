@@ -30,24 +30,24 @@ namespace Plugin_KOMPAS_3D.UI
             InitializeComponent();
             this.Size = new System.Drawing.Size(683, 345);
             //Создание списка элементов TextBox
-                    var elements = new List<(TextBox textBox,ElementName element, ParametersName parameter)>
-                    {
-                        (CaseHeightTextBox, ElementName.Case, ParametersName.H),
-                        (CaseLengthTextBox, ElementName.Case, ParametersName.W),
-                        (CaseWidthTextBox, ElementName.Case, ParametersName.L),
-                        (RelayDiameterTextBox, ElementName.Rele, ParametersName.D),
-                        (SpeakerTTextBox, ElementName.SpeakerCover1, ParametersName.L),
-                        (SpeakerWidthTextBox, ElementName.SpeakerCover1, ParametersName.W),
-                        (SpeakerHeightTextBox,ElementName.SpeakerCover1, ParametersName.H),
-                        (SpeakerT1TextBox, ElementName.SpeakerCover2, ParametersName.L),
-                        (SpeakerWidth1TextBox, ElementName.SpeakerCover2, ParametersName.W),
-                        (SpeakerHeight1TextBox,ElementName.SpeakerCover2, ParametersName.H),
-                        (SpeakerT2TextBox, ElementName.SpeakerCover3, ParametersName.L),
-                        (SpeakerWidth2TextBox, ElementName.SpeakerCover3, ParametersName.W),
-                        (SpeakerHeight2TextBox,ElementName.SpeakerCover3, ParametersName.H),
-                        (SpeakerT3TextBox, ElementName.SpeakerCover4, ParametersName.L),
-                        (SpeakerWidth3TextBox, ElementName.SpeakerCover4, ParametersName.W),
-                        (SpeakerHeight3TextBox,ElementName.SpeakerCover4, ParametersName.H),
+                var elements = new List<(TextBox textBox,ElementName element, ParametersName parameter)>
+                  {
+                     (CaseHeightTextBox, ElementName.Case, ParametersName.H),
+                     (CaseLengthTextBox, ElementName.Case, ParametersName.W),
+                     (CaseWidthTextBox, ElementName.Case, ParametersName.L),
+                     (RelayDiameterTextBox, ElementName.Rele, ParametersName.D),
+                     (SpeakerTTextBox, ElementName.SpeakerCover1, ParametersName.L),
+                     (SpeakerWidthTextBox, ElementName.SpeakerCover1, ParametersName.W),
+                     (SpeakerHeightTextBox,ElementName.SpeakerCover1, ParametersName.H),
+                     (SpeakerT1TextBox, ElementName.SpeakerCover2, ParametersName.L),
+                     (SpeakerWidth1TextBox, ElementName.SpeakerCover2, ParametersName.W),
+                     (SpeakerHeight1TextBox,ElementName.SpeakerCover2, ParametersName.H),
+                     (SpeakerT2TextBox, ElementName.SpeakerCover3, ParametersName.L),
+                     (SpeakerWidth2TextBox, ElementName.SpeakerCover3, ParametersName.W),
+                     (SpeakerHeight2TextBox,ElementName.SpeakerCover3, ParametersName.H),
+                     (SpeakerT3TextBox, ElementName.SpeakerCover4, ParametersName.L),
+                     (SpeakerWidth3TextBox, ElementName.SpeakerCover4, ParametersName.W),
+                     (SpeakerHeight3TextBox,ElementName.SpeakerCover4, ParametersName.H),
                     };
 
             foreach (var element in elements)
@@ -61,7 +61,9 @@ namespace Plugin_KOMPAS_3D.UI
         }
 
         /// <summary>
-        /// 
+        /// Метод отображает 
+        /// граничные значения 
+        /// существующих параметров
         /// </summary>
         public void DisplayingParameters()
         {
@@ -88,7 +90,8 @@ namespace Plugin_KOMPAS_3D.UI
         }
 
         /// <summary>
-        /// 
+        /// Метод отображает значения 
+        /// граничных параметров параметра
         /// </summary>
         /// <param name="label"></param>
         /// <param name="name"></param>
@@ -99,6 +102,11 @@ namespace Plugin_KOMPAS_3D.UI
                             + string.Concat(_modelElements.Element(elementName).Parameter(name).MaxValue) + ") мм";
         }
 
+        /// <summary>
+        /// Метод добавляет диамик
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddDinamicButton_Click(object sender, EventArgs e)
         {
             if (NumberDinamicTextBox.Text != "4")
@@ -129,6 +137,11 @@ namespace Plugin_KOMPAS_3D.UI
             }
         }
 
+        /// <summary>
+        /// Метод удаляет динамик 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DeleteDinamicButton_Click(object sender, EventArgs e)
         {
             if(NumberDinamicTextBox.Text != "1")
@@ -192,6 +205,12 @@ namespace Plugin_KOMPAS_3D.UI
             }
         }
 
+        /// <summary>
+        /// Присваивает параметру значение 
+        /// из соответствующего элемента TextBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBoxChanged(object sender, EventArgs e)
         {
             var textBox = (TextBox)sender;
@@ -210,13 +229,13 @@ namespace Plugin_KOMPAS_3D.UI
                 if (parameter == ParametersName.H || parameter == ParametersName.D)
                 {
                     _modelElements.CalculationMaxHDinamics();
+                    _modelElements.CalculationMaxWDinamic();
                     DisplayingBoundary(SpeakerHeightTextBox);
                     DisplayingBoundary(SpeakerHeight1TextBox);
                     DisplayingBoundary(SpeakerHeight2TextBox);
                     DisplayingBoundary(SpeakerHeight3TextBox);
                     DisplayingParameters();
                 }
-                //Заменить на элемент перечисления
                 if (parameter == ParametersName.W)
                 {
                     _modelElements.CalculationMaxWDinamic();
@@ -233,11 +252,11 @@ namespace Plugin_KOMPAS_3D.UI
             }
         }
 
-            /// Присваивает значение подаваемому элементу TextBox
-            /// и если оно не корректно,
-            /// то присваивает максимально возможное значение параметра
-            /// </summary>
-            /// <param name="textBox"></param>
+        /// Присваивает значение подаваемому элементу TextBox
+        /// и если оно не корректно,
+        /// то присваивает максимально возможное значение параметра
+        /// </summary>
+        /// <param name="textBox"></param>
         private void DisplayingBoundary(TextBox textBox)
         {
             var information = _elements[textBox];
@@ -254,11 +273,12 @@ namespace Plugin_KOMPAS_3D.UI
                 }
             }
         }
-            /// <summary>
-            /// Изменяет значения всех параметров на начальные
-            /// </summary>
-            /// <param name="sender"></param>
-            /// <param name="e"></param>
+
+        /// <summary>
+        /// Изменяет значения всех параметров на начальные
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ReturnInitialValueButton_Click(object sender, EventArgs e)
         {
             if(SpeakerLengthLabel.Visible != true)
@@ -298,6 +318,13 @@ namespace Plugin_KOMPAS_3D.UI
             }
         }
 
+        /// <summary>
+        /// Отображает и скрывает 
+        /// элементы GroupBox исходя 
+        /// из количества динамиков 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ChangeForm(object sender, EventArgs e)
         {
             if(sender == FormComboBox)
@@ -397,297 +424,29 @@ namespace Plugin_KOMPAS_3D.UI
                 }
             }
         }
-            /// <summary>
-            /// Инициализация нового объекта Manager
-            /// (построителя модели)
-            /// при клике на кнопку "Построить"
-            /// </summary>
-            /// <param name="sender"></param>
-            /// <param name="e"></param>
-            private void BuildModelButton_Click(object sender, EventArgs e)
+
+        /// <summary>
+        /// Инициализация нового объекта Manager
+        /// (построителя модели)
+        /// при клике на кнопку "Построить"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BuildModelButton_Click(object sender, EventArgs e)
         {
             Manager manager = new Manager(_modelElements);
         }
 
+        /// <summary>
+        /// Кнопка "Построить" получает фокус 
+        /// принаведении наведении курсора
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BuildModelButton_MouseMove(object sender, MouseEventArgs e)
         {
             BuildModelButton.Focus();
         }
     }
-
-
-
-    ///////
-    //    /// <summary>
-    //    /// Словарь хранить названия элементов управления
-    //    /// в соответствии 
-    //    /// </summary>
-    //    private Dictionary<TextBox, ParametersName> _elements = new Dictionary<TextBox, ParametersName>();
-
-    //    /// <summary>
-    //    /// Поле хранит параметры модели
-    //    /// </summary>
-    //    private ModelParameters _modelParameters = new ModelParameters();
-
-    //    /// <summary>
-    //    /// Иницилизация формы и создание списка элементов TextBox
-    //    /// </summary>
-    //    public ModelParametersForm()
-    //    {
-    //        //Инициализация формы
-    //        InitializeComponent();
-
-
-    //        //Создание списка элементов TextBox
-    //        var elements = new List<(TextBox element, ParametersName name)>
-    //        {
-    //            (CaseHeightTextBox,ParametersName.H),
-    //            (CaseLengthTextBox,ParametersName.W),
-    //            (CaseWidthTextBox,ParametersName.L),
-    //            (RelayDiameterTextBox,ParametersName.D),
-    //            (SpeakerWidthTextBox,ParametersName.TS),
-    //            (SpeakerLengthTextBox,ParametersName.WS),
-    //            (SpeakerHeightTextBox,ParametersName.HS)
-    //        };
-
-    //        foreach (var element in elements)
-    //        {
-    //            _elements.Add(element.element, element.name);
-    //        }
-    //    }
-
-    //    /// <summary>
-    //    /// Метод для обработки результата введен
-    //    /// </summary>
-    //    /// <param name="sender"></param>
-    //    /// <param name="e"></param>
-    //    private void Parameter_TextChanged(object sender, EventArgs e)
-    //    {
-    //        var textBox = (TextBox)sender;
-    //        try //Блок где ожидается ошибка
-    //        {
-    //            var value = double.Parse(textBox.Text);
-    //            //Необходимо при автоматическом вызове метода
-    //            textBox.Text = value.ToString();
-    //            _modelParameters.Parameter(_elements[textBox]).Value = value;
-    //            textBox.BackColor = Color.LightGreen;
-    //            //Заменить на элемент перечисления 
-    //            if(_elements[textBox] == ParametersName.H || _elements[textBox] == ParametersName.D)
-    //            {
-    //                _modelParameters.CalculateMaxHeightDinamic();
-    //                Displaying(SpeakerHeightTextBox, BoundaryValueHSLabel);
-    //                DisplayingBoundary(SpeakerHeightTextBox);
-    //            }
-    //            //Заменить на элемент перечисления
-    //            if (_elements[textBox] == ParametersName.W)
-    //            {
-    //                _modelParameters.CalculateMaxLenghtDinamic();
-    //                Displaying(SpeakerLengthTextBox, BoundaryValueLSLabel);
-    //                DisplayingBoundary(SpeakerLengthTextBox);
-    //            }
-    //        }
-    //        catch //Обработчик ошибки
-    //        {
-    //            textBox.BackColor = Color.Salmon;
-    //        }
-    //    }
-
-    //    /// <summary>
-    //    /// Изменяет некорректное значение введенное пользователем
-    //    /// на последнее вводимое корректное значение
-    //    /// при потере фокуса элементом TextBox
-    //    /// </summary>
-    //    /// <param name="sender"></param>
-    //    /// <param name="e"></param>
-    //    private void TextBox_Leave(object sender, EventArgs e)
-    //    {
-    //        var textBox = (TextBox)sender;
-    //        if (textBox.BackColor == Color.Salmon)
-    //        {
-    //            textBox.Text = 
-    //                string.Concat(_modelParameters.Parameter(_elements[textBox]).Value);
-    //            textBox.BackColor = Color.LightGreen;
-    //        }
-    //    }
-
-    //    /// <summary>
-    //    /// Изменяет значения всех параметров на начальные
-    //    /// </summary>
-    //    /// <param name="sender"></param>
-    //    /// <param name="e"></param>
-    //    private void ReturnInitialValueButton_Click(object sender, EventArgs e)
-    //    {
-    //        _modelParameters = new ModelParameters();
-    //        var elements = new List<TextBox>
-    //        {
-    //            (SpeakerLengthTextBox),
-    //            (SpeakerHeightTextBox),
-    //            (CaseHeightTextBox),
-    //            (CaseLengthTextBox),
-    //            (CaseWidthTextBox),
-    //            (RelayDiameterTextBox),
-    //            (SpeakerWidthTextBox)
-    //        };
-
-    //        foreach (var element in elements)
-    //        {
-    //            element.Text = 
-    //                string.Concat(_modelParameters.Parameter(_elements[element]).Value);
-    //        }
-    //        _modelParameters.CalculateMaxHeightDinamic();
-    //        Displaying(SpeakerHeightTextBox, BoundaryValueHSLabel);
-    //        _modelParameters.CalculateMaxLenghtDinamic();
-    //        Displaying(SpeakerLengthTextBox, BoundaryValueLSLabel);
-    //    }
-
-    //    /// <summary>
-    //    /// Отображение граничных значений параметра 
-    //    /// в lable, в соответствии параметром
-    //    /// </summary>
-    //    /// <param name="textBox">Элемент TextBox</param>
-    //    /// <param name="label">Элемент Lable</param>
-    //    private void Displaying(TextBox textBox, Label label)
-    //    {
-    //        label.Text = 
-    //            "(от " + string.Concat(_modelParameters.Parameter(_elements[textBox]).MinValue) + " до "
-    //            + string.Concat(_modelParameters.Parameter(_elements[textBox]).MaxValue) + ") мм";
-    //    }
-
-    //    /// <summary>
-    //    /// Присваивает значение подаваемому элементу TextBox
-    //    /// и если оно не корректно,
-    //    /// то присваивает максимально возможное значение параметра
-    //    /// </summary>
-    //    /// <param name="textBox"></param>
-    //    private void DisplayingBoundary(TextBox textBox)
-    //    {
-    //        Parameter_TextChanged((object)textBox, EventArgs.Empty);
-    //        if (textBox.BackColor == Color.Salmon)
-    //        {
-    //            textBox.Text
-    //                = string.Concat(_modelParameters.Parameter(_elements[textBox]).MaxValue);
-    //            textBox.BackColor = Color.LightGreen;
-    //        }
-    //    }
-
-    //    /// <summary>
-    //    /// Инициализация нового объекта Manager
-    //    /// (построителя модели)
-    //    /// при клике на кнопку "Построить"
-    //    /// </summary>
-    //    /// <param name="sender"></param>
-    //    /// <param name="e"></param>
-    //    private void BuildModelButton_Click(object sender, EventArgs e)
-    //    {
-    //        Manager manager = new Manager(_modelParameters);
-    //    }
-
-    //    private void BuildModelButton_MouseMove(object sender, MouseEventArgs e)
-    //    {
-    //        BuildModelButton.Focus();
-    //    }
-
-    //    //Сделать массив и хранить там GroupBox
-    //    private void AddDinamicButton_Click(object sender, EventArgs e)
-    //    {
-    //        if(NumberDinamicTextBox.Text != "4")
-    //        {
-    //            //Прибавить +1 к числу элементов
-    //            NumberDinamicTextBox.Text =
-    //                 (double.Parse(NumberDinamicTextBox.Text) + 1).ToString();
-    //            //Отобразить TextBox
-    //            if (NumberDinamicTextBox.Text == "2")
-    //            {
-    //                _modelParameters.AddParametersCap();
-    //                _modelParameters.CalculationMax();
-    //                SpeakerDimensions2GroupBox.Visible = true;
-    //                BoundaryValueLSLabel.Text =
-    //                     "(от " + string.Concat(_modelParameters.Parameter(ParametersName.WS).MinValue) + " до "
-    //                    + string.Concat(_modelParameters.Parameter(ParametersName.WS).MaxValue) + ") мм";
-    //                BoundaryValueHSLabel.Text =
-    //                     "(от " + string.Concat(_modelParameters.Parameter(ParametersName.HS).MinValue) + " до "
-    //                    + string.Concat(_modelParameters.Parameter(ParametersName.HS).MaxValue) + ") мм";
-    //                BoundaryValueLS1Label.Text =
-    //                     "(от " + string.Concat(_modelParameters.Parameter(ParametersName.WS1).MinValue) + " до "
-    //                    + string.Concat(_modelParameters.Parameter(ParametersName.WS1).MaxValue) + ") мм";
-    //                BoundaryValueHS1Label.Text =
-    //                     "(от " + string.Concat(_modelParameters.Parameter(ParametersName.HS1).MinValue) + " до "
-    //                    + string.Concat(_modelParameters.Parameter(ParametersName.HS1).MaxValue) + ") мм";
-    //            }
-
-    //        }
-    //            if (NumberDinamicTextBox.Text == "3")
-    //            {
-    //                _modelParameters.AddParametersCap();
-    //                _modelParameters.CalculationMax();
-    //                SpeakerDimensions3GroupBox.Visible = true;
-    //                BoundaryValueLSLabel.Text =
-    //                     "(от " + string.Concat(_modelParameters.Parameter(ParametersName.WS).MinValue) + " до "
-    //                    + string.Concat(_modelParameters.Parameter(ParametersName.WS).MaxValue) + ") мм";
-
-    //                BoundaryValueHSLabel.Text =
-    //                 "(от " + string.Concat(_modelParameters.Parameter(ParametersName.HS).MinValue) + " до "
-    //                + string.Concat(_modelParameters.Parameter(ParametersName.HS).MaxValue) + ") мм";
-
-    //                BoundaryValueLS1Label.Text =
-    //                 "(от " + string.Concat(_modelParameters.Parameter(ParametersName.WS1).MinValue) + " до "
-    //                + string.Concat(_modelParameters.Parameter(ParametersName.WS1).MaxValue) + ") мм";
-
-    //                BoundaryValueHS1Label.Text =
-    //                 "(от " + string.Concat(_modelParameters.Parameter(ParametersName.HS1).MinValue) + " до "
-    //                + string.Concat(_modelParameters.Parameter(ParametersName.HS1).MaxValue) + ") мм";
-
-
-    //                BoundaryValueLS2Label.Text =
-    //                 "(от " + string.Concat(_modelParameters.Parameter(ParametersName.WS2).MinValue) + " до "
-    //                + string.Concat(_modelParameters.Parameter(ParametersName.WS2).MaxValue) + ") мм";
-
-    //                BoundaryValueHS2Label.Text =
-    //                 "(от " + string.Concat(_modelParameters.Parameter(ParametersName.HS2).MinValue) + " до "
-    //                + string.Concat(_modelParameters.Parameter(ParametersName.HS2).MaxValue) + ") мм";
-    //        }
-    //            if (NumberDinamicTextBox.Text == "4")
-    //            {
-    //                _modelParameters.AddParametersCap();
-    //                _modelParameters.CalculationMax();
-    //                SpeakerDimensions4GroupBox.Visible = true;
-
-    //                BoundaryValueLSLabel.Text =
-    //                    "(от " + string.Concat(_modelParameters.Parameter(ParametersName.WS).MinValue) + " до "
-    //                   + string.Concat(_modelParameters.Parameter(ParametersName.WS).MaxValue) + ") мм";
-
-    //                BoundaryValueHSLabel.Text =
-    //                 "(от " + string.Concat(_modelParameters.Parameter(ParametersName.HS).MinValue) + " до "
-    //                + string.Concat(_modelParameters.Parameter(ParametersName.HS).MaxValue) + ") мм";
-
-    //                BoundaryValueLS1Label.Text =
-    //                 "(от " + string.Concat(_modelParameters.Parameter(ParametersName.WS1).MinValue) + " до "
-    //                + string.Concat(_modelParameters.Parameter(ParametersName.WS1).MaxValue) + ") мм";
-
-    //                BoundaryValueHS1Label.Text =
-    //                 "(от " + string.Concat(_modelParameters.Parameter(ParametersName.HS1).MinValue) + " до "
-    //                + string.Concat(_modelParameters.Parameter(ParametersName.HS1).MaxValue) + ") мм";
-
-
-    //                BoundaryValueLS2Label.Text =
-    //                 "(от " + string.Concat(_modelParameters.Parameter(ParametersName.WS2).MinValue) + " до "
-    //                + string.Concat(_modelParameters.Parameter(ParametersName.WS2).MaxValue) + ") мм";
-
-    //                BoundaryValueHS2Label.Text =
-    //                 "(от " + string.Concat(_modelParameters.Parameter(ParametersName.HS2).MinValue) + " до "
-    //                + string.Concat(_modelParameters.Parameter(ParametersName.HS2).MaxValue) + ") мм";
-
-    //                BoundaryValueLS3Label.Text =
-    //                "(от " + string.Concat(_modelParameters.Parameter(ParametersName.WS3).MinValue) + " до "
-    //               + string.Concat(_modelParameters.Parameter(ParametersName.WS3).MaxValue) + ") мм";
-
-    //                BoundaryValueHS3Label.Text =
-    //                 "(от " + string.Concat(_modelParameters.Parameter(ParametersName.HS3).MinValue) + " до "
-    //                + string.Concat(_modelParameters.Parameter(ParametersName.HS3).MaxValue) + ") мм";
-
-    //        }
-    //            //Исправить интервал всех элементов
-    //    }
-    //}
 }
 

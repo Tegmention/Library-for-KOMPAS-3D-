@@ -16,7 +16,6 @@ namespace Parameters
         SpeakerCover3,
         SpeakerCover4,
         Case,
-        Rele,
-        PowerButton
+        Rele
     }
 }

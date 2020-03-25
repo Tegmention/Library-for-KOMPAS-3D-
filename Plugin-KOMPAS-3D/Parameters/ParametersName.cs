@@ -14,21 +14,6 @@ namespace Parameters
         H,
         W,
         L,
-        HS,
-        D,
-        TS,
-        WS,
-        TS1,
-        TS2,
-        TS3,
-        TS4,
-        WS1,
-        WS2,
-        WS3,
-        WS4,
-        HS1,
-        HS2,
-        HS3,
-        HS4
+        D
     }
 }

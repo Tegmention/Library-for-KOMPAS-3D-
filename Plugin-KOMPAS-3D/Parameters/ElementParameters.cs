@@ -13,49 +13,20 @@ namespace Parameters
         /// </summary>
         private Dictionary<ParametersName, Parameter<double>> _parameters = new Dictionary<ParametersName, Parameter<double>>();
 
+        /// <summary>
+        /// Возвращает параметер элемента
+        /// </summary>
+        /// <param name="name">Имя возвращаемого параметра</param>
+        /// <returns></returns>
         public Parameter<double> Parameter(ParametersName name)
         {
             return _parameters[name];
         }
 
-        public void ChangeParameter(ParametersName name, double value)
-            {
-                //Parameter(name)
-            }
-
-
-        /// <summary>
-        /// Метод высчитывает максимальное значение параметра
-        /// высоты динамика(HS)
-        /// исходя из значений высоты корпуса(H)
-        /// и диаметра реле регулировки(D)
-        /// по формуле HS=H-5-(D+10)
-        /// </summary>
-        /// !!!!
-        public void CalculateMaxHeightDinamic()
-        {
-            Parameter(ParametersName.HS).MaxValue =
-                Parameter(ParametersName.H).Value - 5
-                - (Parameter(ParametersName.D).Value + 10);
-        }
-
-        ///Сделать общее перечисление, чтобы хранить одни и те же названия
-        /// <summary>
-        /// Метод высчитывает максимальное значение параметра 
-        /// длинна динамика(LS)
-        /// исходя из значения длинны колонки(L)
-        /// по формуле LS=L-5
-        /// </summary>
-        /// !!!!
-        public void CalculateMaxLenghtDinamic()
-        {
-            Parameter(ParametersName.WS).MaxValue =
-                Parameter(ParametersName.W).Value - 5;
-        }
-
         /// <summary>
         /// Конструктор класса ElementParameters
         /// </summary>
+        /// <param name="values">Картеж значений параметро</param>
         public ElementParameters(List<(double min, double max, ParametersName name)> values)
         {
             _parameters = new Dictionary<ParametersName, Parameter<double>>();

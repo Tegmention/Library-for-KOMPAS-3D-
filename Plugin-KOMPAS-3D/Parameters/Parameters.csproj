@@ -47,7 +47,6 @@
     <Compile Include="ModelElements.cs" />
     <Compile Include="ParametersName.cs" />
     <Compile Include="Parameter.cs" />
-    <Compile Include="ModelParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

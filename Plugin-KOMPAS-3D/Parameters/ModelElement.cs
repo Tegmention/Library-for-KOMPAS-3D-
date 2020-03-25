@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Parameters
 {
+    /// <summary>
+    /// Класс элемента модели
+    /// </summary>
     public class ModelElement
     {
         /// <summary>
@@ -25,18 +28,20 @@ namespace Parameters
             return _elementParameters.Parameter(name);
         }
 
+        /// <summary>
+        /// Возвращает ключ формы 
+        /// элемента модели
+        /// </summary>
+        /// <returns></returns>
         public bool FormKey()
         {
             return _formKey;
         }
 
-        public ModelElement(List<(double min, double max, ParametersName name)> parameters,
-            bool formKey)
-        {
-            _elementParameters = new ElementParameters(parameters);
-            _formKey = formKey;
-        }
-
+        /// <summary>
+        /// Изменяет параметры элемента
+        /// в зависимости от текущего ключа формы
+        /// </summary>
         public void CircleParameter()
         {
             if (_formKey == true)
@@ -56,7 +61,9 @@ namespace Parameters
             }
         }
 
-        ///Метод для изменения ключа формы
+        /// <summary>
+        /// Метод для изменения ключа формы
+        /// </summary>
         public void ChangeForm()
         {
             if(_formKey == true)
@@ -67,8 +74,19 @@ namespace Parameters
             {
                 CircleParameter();
                 _formKey = true;
-                //CircleParameter();
             }
+        }
+
+        /// <summary>
+        /// Конструктор класса 
+        /// </summary>
+        /// <param name="parameters"></param>
+        /// <param name="formKey"></param>
+        public ModelElement(List<(double min, double max, ParametersName name)> parameters,
+            bool formKey)
+        {
+            _elementParameters = new ElementParameters(parameters);
+            _formKey = formKey;
         }
     }
 }
