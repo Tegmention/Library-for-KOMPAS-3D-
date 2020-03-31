@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Builder;
-//using Kompas6API5;
 
 namespace Plugin_KOMPAS_3D.UI
 {

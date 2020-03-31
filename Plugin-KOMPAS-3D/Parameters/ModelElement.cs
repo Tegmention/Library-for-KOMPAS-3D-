@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Parameters
 {
@@ -46,18 +42,7 @@ namespace Parameters
         {
             if (_formKey == true)
             {
-                if (_elementParameters.Parameter(ParametersName.H).MaxValue >
-                          _elementParameters.Parameter(ParametersName.W).MaxValue)
-                {
-                    _elementParameters.Parameter(ParametersName.H).MaxValue =
-                    _elementParameters.Parameter(ParametersName.W).MaxValue;
-                }
-                if (_elementParameters.Parameter(ParametersName.W).MaxValue >
-                    _elementParameters.Parameter(ParametersName.H).MaxValue)
-                {
-                    _elementParameters.Parameter(ParametersName.W).MaxValue =
-                    _elementParameters.Parameter(ParametersName.H).MaxValue;
-                }
+                _elementParameters.CalculationCircleParameter();
             }
         }
 

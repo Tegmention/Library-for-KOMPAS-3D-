@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Parameters
 {
@@ -158,7 +154,7 @@ namespace Parameters
 
         /// <summary>
         /// Метод расчитывает и присваивает 
-        /// максимальное значение высоты динамиков
+        /// максимальное значение высот динамиков
         /// </summary>
         public void CalculationMaxHDinamics()
         {
@@ -184,7 +180,6 @@ namespace Parameters
         public void ChangeForm(ElementName name)
         {
             var element = Element(name);
-            //Element(name).ChangeForm();
             element.ChangeForm();
             CalculationMaxHDinamics();
             CalculationMaxWDinamic();
@@ -193,7 +188,6 @@ namespace Parameters
         /// <summary>
         /// Метод расчитывает и присваивает
         /// максимальную ширину динамика
-        /// если он имеет прямоугольную форму
         /// </summary>
         public void CalculationMaxWDinamic()
         {
@@ -245,24 +239,7 @@ namespace Parameters
         /// <returns>Число динамиков</returns>
         public int NumberDinamics()
         {
-            var number = 0;
-            if (_elements.ContainsKey(ElementName.SpeakerCover1))
-            {
-                number++;
-            }
-            if (_elements.ContainsKey(ElementName.SpeakerCover2))
-            {
-                number++;
-            }
-            if (_elements.ContainsKey(ElementName.SpeakerCover3))
-            {
-                number++;
-            }
-            if (_elements.ContainsKey(ElementName.SpeakerCover4))
-            {
-                number++;
-            }
-            return number;
+            return _elements.Count - 2;
         }
 
         /// <summary>

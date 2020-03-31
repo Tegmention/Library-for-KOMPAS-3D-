@@ -29,8 +29,9 @@ namespace Plugin_KOMPAS_3D.UI
             //Инициализация формы
             InitializeComponent();
             this.Size = new System.Drawing.Size(683, 345);
+            this.MaximumSize = new System.Drawing.Size(683, 345);
             //Создание списка элементов TextBox
-                var elements = new List<(TextBox textBox,ElementName element, ParametersName parameter)>
+            var elements = new List<(TextBox textBox,ElementName element, ParametersName parameter)>
                   {
                      (CaseHeightTextBox, ElementName.Case, ParametersName.H),
                      (CaseLengthTextBox, ElementName.Case, ParametersName.W),
@@ -121,6 +122,7 @@ namespace Plugin_KOMPAS_3D.UI
                 }
                 if (NumberDinamicTextBox.Text == "3")
                 {
+                    this.MaximumSize = new System.Drawing.Size(683, 488);
                     this.Size = new System.Drawing.Size(683, 488);
                     SpeakerDimensions3GroupBox.Visible = true;
                     DisplayingParameters();
@@ -164,6 +166,7 @@ namespace Plugin_KOMPAS_3D.UI
                     }
                     
                     _modelElements.DeleteDinamic();
+                    this.MaximumSize = new System.Drawing.Size(683, 345);
                     this.Size = new System.Drawing.Size(683, 345);
                     SpeakerDimensions3GroupBox.Visible = false;
                     DisplayingParameters();
@@ -338,8 +341,6 @@ namespace Plugin_KOMPAS_3D.UI
                         SpeakerLengthLabel.Visible = false;
                         SpeakerWidthTextBox.Visible = false;
                         BoundaryValueWSLabel.Visible = false;
-                        DisplayingBoundary(SpeakerHeightTextBox);
-                        DisplayingParameters();
                     }
                     else
                     {
@@ -349,6 +350,8 @@ namespace Plugin_KOMPAS_3D.UI
                         SpeakerWidthTextBox.Visible = true;
                         BoundaryValueWSLabel.Visible = true;
                     }
+                    DisplayingBoundary(SpeakerHeightTextBox);
+                    DisplayingParameters();
                 }
             }
             if (sender == Form1ComboBox)
@@ -362,8 +365,6 @@ namespace Plugin_KOMPAS_3D.UI
                         SpeakerLength1Label.Visible = false;
                         SpeakerWidth1TextBox.Visible = false;
                         BoundaryValueWS1Label.Visible = false;
-                        DisplayingBoundary(SpeakerHeight1TextBox);
-                        DisplayingParameters();
                     }
                     else
                     {
@@ -373,6 +374,8 @@ namespace Plugin_KOMPAS_3D.UI
                         SpeakerWidth1TextBox.Visible = true;
                         BoundaryValueWS1Label.Visible = true;
                     }
+                    DisplayingBoundary(SpeakerHeight1TextBox);
+                    DisplayingParameters();
                 }
             }
             if (sender == Form2ComboBox)
@@ -386,8 +389,6 @@ namespace Plugin_KOMPAS_3D.UI
                         SpeakerLength2Label.Visible = false;
                         SpeakerWidth2TextBox.Visible = false;
                         BoundaryValueWS2Label.Visible = false;
-                        DisplayingBoundary(SpeakerHeight2TextBox);
-                        DisplayingParameters();
                     }
                     else
                     {
@@ -397,6 +398,8 @@ namespace Plugin_KOMPAS_3D.UI
                         SpeakerWidth2TextBox.Visible = true;
                         BoundaryValueWS2Label.Visible = true;
                     }
+                    DisplayingBoundary(SpeakerHeight2TextBox);
+                    DisplayingParameters();
                 }
             }
             if (sender == Form3ComboBox)
@@ -410,8 +413,6 @@ namespace Plugin_KOMPAS_3D.UI
                         SpeakerLength3Label.Visible = false;
                         SpeakerWidth3TextBox.Visible = false;
                         BoundaryValueWS3Label.Visible = false;
-                        DisplayingBoundary(SpeakerHeight3TextBox);
-                        DisplayingParameters();
                     }
                     else
                     {
@@ -421,6 +422,8 @@ namespace Plugin_KOMPAS_3D.UI
                         SpeakerWidth3TextBox.Visible = true;
                         BoundaryValueWS3Label.Visible = true;
                     }
+                    DisplayingBoundary(SpeakerHeight3TextBox);
+                    DisplayingParameters();
                 }
             }
         }

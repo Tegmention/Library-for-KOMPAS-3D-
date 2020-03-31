@@ -69,34 +69,34 @@
             this.SpeakerHeight1Label = new System.Windows.Forms.Label();
             this.SpeakerLength1Label = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.Form1ComboBox = new System.Windows.Forms.ComboBox();
             this.SpeakerHeight1TextBox = new System.Windows.Forms.TextBox();
             this.SpeakerWidth1TextBox = new System.Windows.Forms.TextBox();
+            this.Form1ComboBox = new System.Windows.Forms.ComboBox();
             this.SpeakerT1TextBox = new System.Windows.Forms.TextBox();
             this.SpeakerDimensions3GroupBox = new System.Windows.Forms.GroupBox();
             this.BoundaryValueHS2Label = new System.Windows.Forms.Label();
             this.BoundaryValueWS2Label = new System.Windows.Forms.Label();
             this.BoundaryValueTS2Label = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.SpeakerHeight2Label = new System.Windows.Forms.Label();
             this.SpeakerLength2Label = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.Form2ComboBox = new System.Windows.Forms.ComboBox();
-            this.SpeakerHeight2TextBox = new System.Windows.Forms.TextBox();
+            this.SpeakerHeight2Label = new System.Windows.Forms.Label();
             this.SpeakerWidth2TextBox = new System.Windows.Forms.TextBox();
+            this.Form2ComboBox = new System.Windows.Forms.ComboBox();
             this.SpeakerT2TextBox = new System.Windows.Forms.TextBox();
+            this.SpeakerHeight2TextBox = new System.Windows.Forms.TextBox();
             this.SpeakerDimensions4GroupBox = new System.Windows.Forms.GroupBox();
             this.BoundaryValueHS3Label = new System.Windows.Forms.Label();
             this.BoundaryValueWS3Label = new System.Windows.Forms.Label();
             this.BoundaryValueTS3Label = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.SpeakerHeight3Label = new System.Windows.Forms.Label();
             this.SpeakerLength3Label = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.Form3ComboBox = new System.Windows.Forms.ComboBox();
-            this.SpeakerHeight3TextBox = new System.Windows.Forms.TextBox();
+            this.SpeakerHeight3Label = new System.Windows.Forms.Label();
             this.SpeakerWidth3TextBox = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.SpeakerT3TextBox = new System.Windows.Forms.TextBox();
+            this.SpeakerHeight3TextBox = new System.Windows.Forms.TextBox();
+            this.Form3ComboBox = new System.Windows.Forms.ComboBox();
             this.СaseDimensionsGroupBox.SuspendLayout();
             this.SpeakerDimensions1GroupBox.SuspendLayout();
             this.ReleDimensionsGroupBox.SuspendLayout();
@@ -574,19 +574,6 @@
             this.label2.TabIndex = 26;
             this.label2.Text = "Толщина (TS):";
             // 
-            // Form1ComboBox
-            // 
-            this.Form1ComboBox.FormattingEnabled = true;
-            this.Form1ComboBox.Items.AddRange(new object[] {
-            "Прямоугольник",
-            "Круг"});
-            this.Form1ComboBox.Location = new System.Drawing.Point(85, 26);
-            this.Form1ComboBox.Name = "Form1ComboBox";
-            this.Form1ComboBox.Size = new System.Drawing.Size(104, 21);
-            this.Form1ComboBox.TabIndex = 25;
-            this.Form1ComboBox.Text = "Прямоугольник";
-            this.Form1ComboBox.TextChanged += new System.EventHandler(this.ChangeForm);
-            // 
             // SpeakerHeight1TextBox
             // 
             this.SpeakerHeight1TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -612,6 +599,19 @@
             this.SpeakerWidth1TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.SpeakerWidth1TextBox.TextChanged += new System.EventHandler(this.TextBoxChanged);
             this.SpeakerWidth1TextBox.Leave += new System.EventHandler(this.TextBox_Leave);
+            // 
+            // Form1ComboBox
+            // 
+            this.Form1ComboBox.FormattingEnabled = true;
+            this.Form1ComboBox.Items.AddRange(new object[] {
+            "Прямоугольник",
+            "Круг"});
+            this.Form1ComboBox.Location = new System.Drawing.Point(85, 26);
+            this.Form1ComboBox.Name = "Form1ComboBox";
+            this.Form1ComboBox.Size = new System.Drawing.Size(104, 21);
+            this.Form1ComboBox.TabIndex = 25;
+            this.Form1ComboBox.Text = "Прямоугольник";
+            this.Form1ComboBox.TextChanged += new System.EventHandler(this.ChangeForm);
             // 
             // SpeakerT1TextBox
             // 
@@ -688,15 +688,6 @@
             this.label12.TabIndex = 29;
             this.label12.Text = "Форма:";
             // 
-            // SpeakerHeight2Label
-            // 
-            this.SpeakerHeight2Label.AutoSize = true;
-            this.SpeakerHeight2Label.Location = new System.Drawing.Point(3, 55);
-            this.SpeakerHeight2Label.Name = "SpeakerHeight2Label";
-            this.SpeakerHeight2Label.Size = new System.Drawing.Size(72, 13);
-            this.SpeakerHeight2Label.TabIndex = 28;
-            this.SpeakerHeight2Label.Text = "Высота (HS):";
-            // 
             // SpeakerLength2Label
             // 
             this.SpeakerLength2Label.AutoSize = true;
@@ -715,31 +706,14 @@
             this.label4.TabIndex = 26;
             this.label4.Text = "Толщина (TS):";
             // 
-            // Form2ComboBox
+            // SpeakerHeight2Label
             // 
-            this.Form2ComboBox.FormattingEnabled = true;
-            this.Form2ComboBox.Items.AddRange(new object[] {
-            "Прямоугольник",
-            "Круг"});
-            this.Form2ComboBox.Location = new System.Drawing.Point(85, 26);
-            this.Form2ComboBox.Name = "Form2ComboBox";
-            this.Form2ComboBox.Size = new System.Drawing.Size(104, 21);
-            this.Form2ComboBox.TabIndex = 25;
-            this.Form2ComboBox.Text = "Прямоугольник";
-            this.Form2ComboBox.TextChanged += new System.EventHandler(this.ChangeForm);
-            // 
-            // SpeakerHeight2TextBox
-            // 
-            this.SpeakerHeight2TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.SpeakerHeight2TextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.SpeakerHeight2TextBox.Location = new System.Drawing.Point(85, 53);
-            this.SpeakerHeight2TextBox.Name = "SpeakerHeight2TextBox";
-            this.SpeakerHeight2TextBox.Size = new System.Drawing.Size(104, 20);
-            this.SpeakerHeight2TextBox.TabIndex = 7;
-            this.SpeakerHeight2TextBox.Text = "10";
-            this.SpeakerHeight2TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.SpeakerHeight2TextBox.TextChanged += new System.EventHandler(this.TextBoxChanged);
-            this.SpeakerHeight2TextBox.Leave += new System.EventHandler(this.TextBox_Leave);
+            this.SpeakerHeight2Label.AutoSize = true;
+            this.SpeakerHeight2Label.Location = new System.Drawing.Point(3, 55);
+            this.SpeakerHeight2Label.Name = "SpeakerHeight2Label";
+            this.SpeakerHeight2Label.Size = new System.Drawing.Size(72, 13);
+            this.SpeakerHeight2Label.TabIndex = 28;
+            this.SpeakerHeight2Label.Text = "Высота (HS):";
             // 
             // SpeakerWidth2TextBox
             // 
@@ -754,6 +728,19 @@
             this.SpeakerWidth2TextBox.TextChanged += new System.EventHandler(this.TextBoxChanged);
             this.SpeakerWidth2TextBox.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
+            // Form2ComboBox
+            // 
+            this.Form2ComboBox.FormattingEnabled = true;
+            this.Form2ComboBox.Items.AddRange(new object[] {
+            "Прямоугольник",
+            "Круг"});
+            this.Form2ComboBox.Location = new System.Drawing.Point(85, 26);
+            this.Form2ComboBox.Name = "Form2ComboBox";
+            this.Form2ComboBox.Size = new System.Drawing.Size(104, 21);
+            this.Form2ComboBox.TabIndex = 25;
+            this.Form2ComboBox.Text = "Прямоугольник";
+            this.Form2ComboBox.TextChanged += new System.EventHandler(this.ChangeForm);
+            // 
             // SpeakerT2TextBox
             // 
             this.SpeakerT2TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -766,6 +753,19 @@
             this.SpeakerT2TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.SpeakerT2TextBox.TextChanged += new System.EventHandler(this.TextBoxChanged);
             this.SpeakerT2TextBox.Leave += new System.EventHandler(this.TextBox_Leave);
+            // 
+            // SpeakerHeight2TextBox
+            // 
+            this.SpeakerHeight2TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SpeakerHeight2TextBox.BackColor = System.Drawing.Color.LightGreen;
+            this.SpeakerHeight2TextBox.Location = new System.Drawing.Point(85, 53);
+            this.SpeakerHeight2TextBox.Name = "SpeakerHeight2TextBox";
+            this.SpeakerHeight2TextBox.Size = new System.Drawing.Size(104, 20);
+            this.SpeakerHeight2TextBox.TabIndex = 7;
+            this.SpeakerHeight2TextBox.Text = "10";
+            this.SpeakerHeight2TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.SpeakerHeight2TextBox.TextChanged += new System.EventHandler(this.TextBoxChanged);
+            this.SpeakerHeight2TextBox.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
             // SpeakerDimensions4GroupBox
             // 
@@ -820,24 +820,6 @@
             this.BoundaryValueTS3Label.TabIndex = 30;
             this.BoundaryValueTS3Label.Text = "(от 5 до 20) мм";
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 29);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(47, 13);
-            this.label13.TabIndex = 29;
-            this.label13.Text = "Форма:";
-            // 
-            // SpeakerHeight3Label
-            // 
-            this.SpeakerHeight3Label.AutoSize = true;
-            this.SpeakerHeight3Label.Location = new System.Drawing.Point(3, 55);
-            this.SpeakerHeight3Label.Name = "SpeakerHeight3Label";
-            this.SpeakerHeight3Label.Size = new System.Drawing.Size(72, 13);
-            this.SpeakerHeight3Label.TabIndex = 28;
-            this.SpeakerHeight3Label.Text = "Высота (HS):";
-            // 
             // SpeakerLength3Label
             // 
             this.SpeakerLength3Label.AutoSize = true;
@@ -856,31 +838,14 @@
             this.label3.TabIndex = 26;
             this.label3.Text = "Толщина (TS):";
             // 
-            // Form3ComboBox
+            // SpeakerHeight3Label
             // 
-            this.Form3ComboBox.FormattingEnabled = true;
-            this.Form3ComboBox.Items.AddRange(new object[] {
-            "Прямоугольник",
-            "Круг"});
-            this.Form3ComboBox.Location = new System.Drawing.Point(85, 26);
-            this.Form3ComboBox.Name = "Form3ComboBox";
-            this.Form3ComboBox.Size = new System.Drawing.Size(104, 21);
-            this.Form3ComboBox.TabIndex = 25;
-            this.Form3ComboBox.Text = "Прямоугольник";
-            this.Form3ComboBox.TextChanged += new System.EventHandler(this.ChangeForm);
-            // 
-            // SpeakerHeight3TextBox
-            // 
-            this.SpeakerHeight3TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.SpeakerHeight3TextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.SpeakerHeight3TextBox.Location = new System.Drawing.Point(85, 53);
-            this.SpeakerHeight3TextBox.Name = "SpeakerHeight3TextBox";
-            this.SpeakerHeight3TextBox.Size = new System.Drawing.Size(104, 20);
-            this.SpeakerHeight3TextBox.TabIndex = 7;
-            this.SpeakerHeight3TextBox.Text = "10";
-            this.SpeakerHeight3TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.SpeakerHeight3TextBox.TextChanged += new System.EventHandler(this.TextBoxChanged);
-            this.SpeakerHeight3TextBox.Leave += new System.EventHandler(this.TextBox_Leave);
+            this.SpeakerHeight3Label.AutoSize = true;
+            this.SpeakerHeight3Label.Location = new System.Drawing.Point(3, 55);
+            this.SpeakerHeight3Label.Name = "SpeakerHeight3Label";
+            this.SpeakerHeight3Label.Size = new System.Drawing.Size(72, 13);
+            this.SpeakerHeight3Label.TabIndex = 28;
+            this.SpeakerHeight3Label.Text = "Высота (HS):";
             // 
             // SpeakerWidth3TextBox
             // 
@@ -895,6 +860,15 @@
             this.SpeakerWidth3TextBox.TextChanged += new System.EventHandler(this.TextBoxChanged);
             this.SpeakerWidth3TextBox.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(3, 29);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(47, 13);
+            this.label13.TabIndex = 29;
+            this.label13.Text = "Форма:";
+            // 
             // SpeakerT3TextBox
             // 
             this.SpeakerT3TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -907,6 +881,32 @@
             this.SpeakerT3TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.SpeakerT3TextBox.TextChanged += new System.EventHandler(this.TextBoxChanged);
             this.SpeakerT3TextBox.Leave += new System.EventHandler(this.TextBox_Leave);
+            // 
+            // SpeakerHeight3TextBox
+            // 
+            this.SpeakerHeight3TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SpeakerHeight3TextBox.BackColor = System.Drawing.Color.LightGreen;
+            this.SpeakerHeight3TextBox.Location = new System.Drawing.Point(85, 53);
+            this.SpeakerHeight3TextBox.Name = "SpeakerHeight3TextBox";
+            this.SpeakerHeight3TextBox.Size = new System.Drawing.Size(104, 20);
+            this.SpeakerHeight3TextBox.TabIndex = 7;
+            this.SpeakerHeight3TextBox.Text = "10";
+            this.SpeakerHeight3TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.SpeakerHeight3TextBox.TextChanged += new System.EventHandler(this.TextBoxChanged);
+            this.SpeakerHeight3TextBox.Leave += new System.EventHandler(this.TextBox_Leave);
+            // 
+            // Form3ComboBox
+            // 
+            this.Form3ComboBox.FormattingEnabled = true;
+            this.Form3ComboBox.Items.AddRange(new object[] {
+            "Прямоугольник",
+            "Круг"});
+            this.Form3ComboBox.Location = new System.Drawing.Point(85, 26);
+            this.Form3ComboBox.Name = "Form3ComboBox";
+            this.Form3ComboBox.Size = new System.Drawing.Size(104, 21);
+            this.Form3ComboBox.TabIndex = 25;
+            this.Form3ComboBox.Text = "Прямоугольник";
+            this.Form3ComboBox.TextChanged += new System.EventHandler(this.ChangeForm);
             // 
             // ModelParametersForm
             // 
@@ -923,7 +923,7 @@
             this.Controls.Add(this.ReleDimensionsGroupBox);
             this.Controls.Add(this.СaseDimensionsGroupBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximumSize = new System.Drawing.Size(1000, 1000);
+            this.MaximumSize = new System.Drawing.Size(683, 488);
             this.MinimumSize = new System.Drawing.Size(50, 50);
             this.Name = "ModelParametersForm";
             this.ShowIcon = false;

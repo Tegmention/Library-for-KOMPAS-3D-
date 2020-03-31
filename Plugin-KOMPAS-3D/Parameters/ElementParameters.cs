@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Parameters
 {
-    class ElementParameters
+    public class ElementParameters
     {
         /// <summary>
         /// Хранит словарь параметров элемента
@@ -21,6 +17,23 @@ namespace Parameters
         public Parameter<double> Parameter(ParametersName name)
         {
             return _parameters[name];
+        }
+
+        //Перерасчет параметров для хранения знечения круга
+        public void CalculationCircleParameter()
+        {
+            if (Parameter(ParametersName.H).MaxValue >
+                          Parameter(ParametersName.W).MaxValue)
+            {
+                Parameter(ParametersName.H).MaxValue =
+                Parameter(ParametersName.W).MaxValue;
+            }
+            if (Parameter(ParametersName.W).MaxValue >
+                Parameter(ParametersName.H).MaxValue)
+            {
+                Parameter(ParametersName.W).MaxValue =
+                Parameter(ParametersName.H).MaxValue;
+            }
         }
 
         /// <summary>

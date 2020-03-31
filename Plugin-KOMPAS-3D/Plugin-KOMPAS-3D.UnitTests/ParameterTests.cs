@@ -15,6 +15,15 @@ namespace Plugin_KOMPAS_3D.UnitTests
             Assert.AreEqual(expected, parameter.MaxValue, "Сеттер MaxValue некорректно записывает значение");
         }
 
+        [Test(Description = "Позитивный тест сеттера MaxValue")]
+        public void Test_MaxValue_Set_CorrectValue_LessMinValue()
+        {
+            var parameter = new Parameter<double>(10, 10, 5, "name");
+            var expected = 10;
+            Assert.AreEqual(expected, parameter.MaxValue, "Сеттер MaxValue некорректно записывает значение " +
+                "меньшее минимально возможного");
+        }
+
         [Test(Description = "Позитивный тест геттера MaxValue")]
         public void Test_MaxValue_Get_CorrectValue()
         {
