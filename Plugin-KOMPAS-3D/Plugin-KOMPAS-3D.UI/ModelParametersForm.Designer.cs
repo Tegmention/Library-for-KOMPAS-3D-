@@ -152,7 +152,7 @@
             this.SpeakerHeightTextBox.Location = new System.Drawing.Point(85, 54);
             this.SpeakerHeightTextBox.Name = "SpeakerHeightTextBox";
             this.SpeakerHeightTextBox.Size = new System.Drawing.Size(104, 20);
-            this.SpeakerHeightTextBox.TabIndex = 6;
+            this.SpeakerHeightTextBox.TabIndex = 1;
             this.SpeakerHeightTextBox.Text = "10";
             this.SpeakerHeightTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.SpeakerHeightTextBox.TextChanged += new System.EventHandler(this.TextBoxChanged);
@@ -165,7 +165,7 @@
             this.SpeakerWidthTextBox.Location = new System.Drawing.Point(85, 106);
             this.SpeakerWidthTextBox.Name = "SpeakerWidthTextBox";
             this.SpeakerWidthTextBox.Size = new System.Drawing.Size(104, 20);
-            this.SpeakerWidthTextBox.TabIndex = 5;
+            this.SpeakerWidthTextBox.TabIndex = 3;
             this.SpeakerWidthTextBox.Text = "150";
             this.SpeakerWidthTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.SpeakerWidthTextBox.TextChanged += new System.EventHandler(this.TextBoxChanged);
@@ -178,7 +178,7 @@
             this.SpeakerTTextBox.Location = new System.Drawing.Point(85, 80);
             this.SpeakerTTextBox.Name = "SpeakerTTextBox";
             this.SpeakerTTextBox.Size = new System.Drawing.Size(104, 20);
-            this.SpeakerTTextBox.TabIndex = 4;
+            this.SpeakerTTextBox.TabIndex = 2;
             this.SpeakerTTextBox.Text = "5";
             this.SpeakerTTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.SpeakerTTextBox.TextChanged += new System.EventHandler(this.TextBoxChanged);
@@ -276,7 +276,7 @@
             this.СaseDimensionsGroupBox.Location = new System.Drawing.Point(9, 10);
             this.СaseDimensionsGroupBox.Name = "СaseDimensionsGroupBox";
             this.СaseDimensionsGroupBox.Size = new System.Drawing.Size(322, 111);
-            this.СaseDimensionsGroupBox.TabIndex = 7;
+            this.СaseDimensionsGroupBox.TabIndex = 0;
             this.СaseDimensionsGroupBox.TabStop = false;
             this.СaseDimensionsGroupBox.Text = "Габариты корпуса";
             // 
@@ -328,7 +328,7 @@
             this.SpeakerDimensions1GroupBox.Location = new System.Drawing.Point(9, 127);
             this.SpeakerDimensions1GroupBox.Name = "SpeakerDimensions1GroupBox";
             this.SpeakerDimensions1GroupBox.Size = new System.Drawing.Size(322, 143);
-            this.SpeakerDimensions1GroupBox.TabIndex = 9;
+            this.SpeakerDimensions1GroupBox.TabIndex = 3;
             this.SpeakerDimensions1GroupBox.TabStop = false;
             this.SpeakerDimensions1GroupBox.Text = "Габариты крышки динамика 1";
             // 
@@ -350,7 +350,7 @@
             this.FormComboBox.Location = new System.Drawing.Point(85, 27);
             this.FormComboBox.Name = "FormComboBox";
             this.FormComboBox.Size = new System.Drawing.Size(104, 21);
-            this.FormComboBox.TabIndex = 24;
+            this.FormComboBox.TabIndex = 0;
             this.FormComboBox.Text = "Прямоугольник";
             this.FormComboBox.TextChanged += new System.EventHandler(this.ChangeForm);
             // 
@@ -394,7 +394,7 @@
             this.ReleDimensionsGroupBox.Location = new System.Drawing.Point(337, 10);
             this.ReleDimensionsGroupBox.Name = "ReleDimensionsGroupBox";
             this.ReleDimensionsGroupBox.Size = new System.Drawing.Size(322, 60);
-            this.ReleDimensionsGroupBox.TabIndex = 8;
+            this.ReleDimensionsGroupBox.TabIndex = 1;
             this.ReleDimensionsGroupBox.TabStop = false;
             this.ReleDimensionsGroupBox.Text = "Габариты реле регулировки ";
             // 
@@ -414,7 +414,7 @@
             this.BuildModelButton.Location = new System.Drawing.Point(586, 417);
             this.BuildModelButton.Name = "BuildModelButton";
             this.BuildModelButton.Size = new System.Drawing.Size(72, 23);
-            this.BuildModelButton.TabIndex = 11;
+            this.BuildModelButton.TabIndex = 8;
             this.BuildModelButton.Text = "Построить";
             this.BuildModelButton.UseVisualStyleBackColor = true;
             this.BuildModelButton.Click += new System.EventHandler(this.BuildModelButton_Click);
@@ -426,7 +426,7 @@
             this.DeleteParametersButton.Location = new System.Drawing.Point(505, 417);
             this.DeleteParametersButton.Name = "DeleteParametersButton";
             this.DeleteParametersButton.Size = new System.Drawing.Size(75, 23);
-            this.DeleteParametersButton.TabIndex = 10;
+            this.DeleteParametersButton.TabIndex = 7;
             this.DeleteParametersButton.Text = "Сбросить";
             this.DeleteParametersButton.UseVisualStyleBackColor = true;
             this.DeleteParametersButton.Click += new System.EventHandler(this.ReturnInitialValueButton_Click);
@@ -442,7 +442,7 @@
             this.Кол.Location = new System.Drawing.Point(337, 70);
             this.Кол.Name = "Кол";
             this.Кол.Size = new System.Drawing.Size(322, 51);
-            this.Кол.TabIndex = 12;
+            this.Кол.TabIndex = 2;
             this.Кол.TabStop = false;
             this.Кол.Text = "Количество динамиков";
             // 
@@ -460,7 +460,7 @@
             this.AddDinamicButton.Location = new System.Drawing.Point(195, 17);
             this.AddDinamicButton.Name = "AddDinamicButton";
             this.AddDinamicButton.Size = new System.Drawing.Size(56, 23);
-            this.AddDinamicButton.TabIndex = 2;
+            this.AddDinamicButton.TabIndex = 5;
             this.AddDinamicButton.Text = "+";
             this.AddDinamicButton.UseVisualStyleBackColor = true;
             this.AddDinamicButton.Click += new System.EventHandler(this.AddDinamicButton_Click);
@@ -470,7 +470,7 @@
             this.DeleteDinamicButton1.Location = new System.Drawing.Point(257, 17);
             this.DeleteDinamicButton1.Name = "DeleteDinamicButton1";
             this.DeleteDinamicButton1.Size = new System.Drawing.Size(56, 23);
-            this.DeleteDinamicButton1.TabIndex = 1;
+            this.DeleteDinamicButton1.TabIndex = 6;
             this.DeleteDinamicButton1.Text = "-";
             this.DeleteDinamicButton1.UseVisualStyleBackColor = true;
             this.DeleteDinamicButton1.Click += new System.EventHandler(this.DeleteDinamicButton_Click);
@@ -481,7 +481,7 @@
             this.NumberDinamicTextBox.Location = new System.Drawing.Point(85, 19);
             this.NumberDinamicTextBox.Name = "NumberDinamicTextBox";
             this.NumberDinamicTextBox.Size = new System.Drawing.Size(104, 20);
-            this.NumberDinamicTextBox.TabIndex = 0;
+            this.NumberDinamicTextBox.TabIndex = 4;
             this.NumberDinamicTextBox.Text = "1";
             this.NumberDinamicTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -503,7 +503,7 @@
             this.SpeakerDimensions2GroupBox.Location = new System.Drawing.Point(337, 127);
             this.SpeakerDimensions2GroupBox.Name = "SpeakerDimensions2GroupBox";
             this.SpeakerDimensions2GroupBox.Size = new System.Drawing.Size(322, 143);
-            this.SpeakerDimensions2GroupBox.TabIndex = 13;
+            this.SpeakerDimensions2GroupBox.TabIndex = 4;
             this.SpeakerDimensions2GroupBox.TabStop = false;
             this.SpeakerDimensions2GroupBox.Text = "Габариты крышки динамика 2";
             this.SpeakerDimensions2GroupBox.Visible = false;
@@ -581,7 +581,7 @@
             this.SpeakerHeight1TextBox.Location = new System.Drawing.Point(85, 53);
             this.SpeakerHeight1TextBox.Name = "SpeakerHeight1TextBox";
             this.SpeakerHeight1TextBox.Size = new System.Drawing.Size(104, 20);
-            this.SpeakerHeight1TextBox.TabIndex = 5;
+            this.SpeakerHeight1TextBox.TabIndex = 1;
             this.SpeakerHeight1TextBox.Text = "10";
             this.SpeakerHeight1TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.SpeakerHeight1TextBox.TextChanged += new System.EventHandler(this.TextBoxChanged);
@@ -594,7 +594,7 @@
             this.SpeakerWidth1TextBox.Location = new System.Drawing.Point(85, 106);
             this.SpeakerWidth1TextBox.Name = "SpeakerWidth1TextBox";
             this.SpeakerWidth1TextBox.Size = new System.Drawing.Size(104, 20);
-            this.SpeakerWidth1TextBox.TabIndex = 6;
+            this.SpeakerWidth1TextBox.TabIndex = 3;
             this.SpeakerWidth1TextBox.Text = "150";
             this.SpeakerWidth1TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.SpeakerWidth1TextBox.TextChanged += new System.EventHandler(this.TextBoxChanged);
@@ -609,7 +609,7 @@
             this.Form1ComboBox.Location = new System.Drawing.Point(85, 26);
             this.Form1ComboBox.Name = "Form1ComboBox";
             this.Form1ComboBox.Size = new System.Drawing.Size(104, 21);
-            this.Form1ComboBox.TabIndex = 25;
+            this.Form1ComboBox.TabIndex = 0;
             this.Form1ComboBox.Text = "Прямоугольник";
             this.Form1ComboBox.TextChanged += new System.EventHandler(this.ChangeForm);
             // 
@@ -620,7 +620,7 @@
             this.SpeakerT1TextBox.Location = new System.Drawing.Point(85, 80);
             this.SpeakerT1TextBox.Name = "SpeakerT1TextBox";
             this.SpeakerT1TextBox.Size = new System.Drawing.Size(104, 20);
-            this.SpeakerT1TextBox.TabIndex = 5;
+            this.SpeakerT1TextBox.TabIndex = 2;
             this.SpeakerT1TextBox.Text = "5";
             this.SpeakerT1TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.SpeakerT1TextBox.TextChanged += new System.EventHandler(this.TextBoxChanged);
@@ -644,7 +644,7 @@
             this.SpeakerDimensions3GroupBox.Location = new System.Drawing.Point(9, 274);
             this.SpeakerDimensions3GroupBox.Name = "SpeakerDimensions3GroupBox";
             this.SpeakerDimensions3GroupBox.Size = new System.Drawing.Size(322, 140);
-            this.SpeakerDimensions3GroupBox.TabIndex = 14;
+            this.SpeakerDimensions3GroupBox.TabIndex = 5;
             this.SpeakerDimensions3GroupBox.TabStop = false;
             this.SpeakerDimensions3GroupBox.Text = "Габариты крышки динамика 3";
             this.SpeakerDimensions3GroupBox.Visible = false;
@@ -722,7 +722,7 @@
             this.SpeakerWidth2TextBox.Location = new System.Drawing.Point(85, 105);
             this.SpeakerWidth2TextBox.Name = "SpeakerWidth2TextBox";
             this.SpeakerWidth2TextBox.Size = new System.Drawing.Size(104, 20);
-            this.SpeakerWidth2TextBox.TabIndex = 6;
+            this.SpeakerWidth2TextBox.TabIndex = 3;
             this.SpeakerWidth2TextBox.Text = "150";
             this.SpeakerWidth2TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.SpeakerWidth2TextBox.TextChanged += new System.EventHandler(this.TextBoxChanged);
@@ -737,7 +737,7 @@
             this.Form2ComboBox.Location = new System.Drawing.Point(85, 26);
             this.Form2ComboBox.Name = "Form2ComboBox";
             this.Form2ComboBox.Size = new System.Drawing.Size(104, 21);
-            this.Form2ComboBox.TabIndex = 25;
+            this.Form2ComboBox.TabIndex = 0;
             this.Form2ComboBox.Text = "Прямоугольник";
             this.Form2ComboBox.TextChanged += new System.EventHandler(this.ChangeForm);
             // 
@@ -748,7 +748,7 @@
             this.SpeakerT2TextBox.Location = new System.Drawing.Point(85, 79);
             this.SpeakerT2TextBox.Name = "SpeakerT2TextBox";
             this.SpeakerT2TextBox.Size = new System.Drawing.Size(104, 20);
-            this.SpeakerT2TextBox.TabIndex = 5;
+            this.SpeakerT2TextBox.TabIndex = 2;
             this.SpeakerT2TextBox.Text = "5";
             this.SpeakerT2TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.SpeakerT2TextBox.TextChanged += new System.EventHandler(this.TextBoxChanged);
@@ -761,7 +761,7 @@
             this.SpeakerHeight2TextBox.Location = new System.Drawing.Point(85, 53);
             this.SpeakerHeight2TextBox.Name = "SpeakerHeight2TextBox";
             this.SpeakerHeight2TextBox.Size = new System.Drawing.Size(104, 20);
-            this.SpeakerHeight2TextBox.TabIndex = 7;
+            this.SpeakerHeight2TextBox.TabIndex = 1;
             this.SpeakerHeight2TextBox.Text = "10";
             this.SpeakerHeight2TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.SpeakerHeight2TextBox.TextChanged += new System.EventHandler(this.TextBoxChanged);
@@ -785,7 +785,7 @@
             this.SpeakerDimensions4GroupBox.Location = new System.Drawing.Point(337, 274);
             this.SpeakerDimensions4GroupBox.Name = "SpeakerDimensions4GroupBox";
             this.SpeakerDimensions4GroupBox.Size = new System.Drawing.Size(321, 140);
-            this.SpeakerDimensions4GroupBox.TabIndex = 15;
+            this.SpeakerDimensions4GroupBox.TabIndex = 6;
             this.SpeakerDimensions4GroupBox.TabStop = false;
             this.SpeakerDimensions4GroupBox.Text = "Габариты крышки динамика 4";
             this.SpeakerDimensions4GroupBox.Visible = false;
@@ -854,7 +854,7 @@
             this.SpeakerWidth3TextBox.Location = new System.Drawing.Point(85, 104);
             this.SpeakerWidth3TextBox.Name = "SpeakerWidth3TextBox";
             this.SpeakerWidth3TextBox.Size = new System.Drawing.Size(104, 20);
-            this.SpeakerWidth3TextBox.TabIndex = 6;
+            this.SpeakerWidth3TextBox.TabIndex = 3;
             this.SpeakerWidth3TextBox.Text = "150";
             this.SpeakerWidth3TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.SpeakerWidth3TextBox.TextChanged += new System.EventHandler(this.TextBoxChanged);
@@ -876,7 +876,7 @@
             this.SpeakerT3TextBox.Location = new System.Drawing.Point(85, 78);
             this.SpeakerT3TextBox.Name = "SpeakerT3TextBox";
             this.SpeakerT3TextBox.Size = new System.Drawing.Size(104, 20);
-            this.SpeakerT3TextBox.TabIndex = 5;
+            this.SpeakerT3TextBox.TabIndex = 2;
             this.SpeakerT3TextBox.Text = "5";
             this.SpeakerT3TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.SpeakerT3TextBox.TextChanged += new System.EventHandler(this.TextBoxChanged);
@@ -889,7 +889,7 @@
             this.SpeakerHeight3TextBox.Location = new System.Drawing.Point(85, 53);
             this.SpeakerHeight3TextBox.Name = "SpeakerHeight3TextBox";
             this.SpeakerHeight3TextBox.Size = new System.Drawing.Size(104, 20);
-            this.SpeakerHeight3TextBox.TabIndex = 7;
+            this.SpeakerHeight3TextBox.TabIndex = 1;
             this.SpeakerHeight3TextBox.Text = "10";
             this.SpeakerHeight3TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.SpeakerHeight3TextBox.TextChanged += new System.EventHandler(this.TextBoxChanged);
@@ -904,7 +904,7 @@
             this.Form3ComboBox.Location = new System.Drawing.Point(85, 26);
             this.Form3ComboBox.Name = "Form3ComboBox";
             this.Form3ComboBox.Size = new System.Drawing.Size(104, 21);
-            this.Form3ComboBox.TabIndex = 25;
+            this.Form3ComboBox.TabIndex = 0;
             this.Form3ComboBox.Text = "Прямоугольник";
             this.Form3ComboBox.TextChanged += new System.EventHandler(this.ChangeForm);
             // 
