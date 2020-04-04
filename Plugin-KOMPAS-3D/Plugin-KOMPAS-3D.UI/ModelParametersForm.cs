@@ -68,6 +68,7 @@ namespace Plugin_KOMPAS_3D.UI
         /// </summary>
         public void DisplayingParameters()
         {
+            //TODO: XML - длина строк
             if (_modelElements.IsElement(ElementName.SpeakerCover1))
             {
                 Displaying(BoundaryValueHSLabel, ParametersName.H, ElementName.SpeakerCover1);
@@ -99,6 +100,7 @@ namespace Plugin_KOMPAS_3D.UI
         /// <param name="elementName"></param>
         public void Displaying(Label label, ParametersName name, ElementName elementName)
         {
+            //TODO: XML - длина строк
                 label.Text = "(от " + string.Concat(_modelElements.Element(elementName).Parameter(name).MinValue) + " до "
                             + string.Concat(_modelElements.Element(elementName).Parameter(name).MaxValue) + ") мм";
         }

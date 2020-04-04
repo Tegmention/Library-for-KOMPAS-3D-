@@ -2,8 +2,10 @@
 
 namespace Parameters
 {
+    //TODO: XML
     public class ElementParameters
     {
+        //TODO: RSDN
         /// <summary>
         /// Хранит словарь параметров элемента
         /// </summary>

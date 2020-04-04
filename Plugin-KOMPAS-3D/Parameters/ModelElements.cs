@@ -33,6 +33,7 @@ namespace Parameters
         /// </returns>
         public bool IsElement(ElementName name)
         {
+            //TODO: Можно просто вернуть ContainsKey
             var result = false;
             if(_elements.ContainsKey(name))
             {
@@ -57,6 +58,7 @@ namespace Parameters
         /// <summary>
         /// Добавление динамика
         /// </summary>
+        /// //TODO: dYnamic - везде переписать с Y
         public void AddDinamic()
         {
             var values = new List<(double min, double max, ParametersName name)>
@@ -114,6 +116,7 @@ namespace Parameters
             CalculationMaxWDinamic();
         }
 
+        //TODO: XML
         //Метод для удаления элемента
         public void DeleteElement(ElementName name)
         {
@@ -125,6 +128,7 @@ namespace Parameters
         /// </summary>
         public void CalculationMaxHDinamic(ElementName name)
         {
+            //TODO: RSDN - именование
             var D = Element(ElementName.Rele).Parameter(ParametersName.D).Value;
             var H = Element(ElementName.Case).Parameter(ParametersName.H).Value;
             var H1 = 0.0;
@@ -191,6 +195,7 @@ namespace Parameters
         /// </summary>
         public void CalculationMaxWDinamic()
         {
+            //TODO: RSDN - именование
             var W = Element(ElementName.Case).Parameter(ParametersName.W).Value;
             var maxW = W - 5;
             if (_elements.ContainsKey(ElementName.SpeakerCover1))
@@ -226,6 +231,7 @@ namespace Parameters
         /// <returns>Максимальна высота динамиков</returns>
         public double CalculationMaxDinamics()
         {
+            //TODO: RSDN - именование
             var D = Element(ElementName.Rele).Parameter(ParametersName.D).Value;
             var H = Element(ElementName.Case).Parameter(ParametersName.H).Value;
             var maxH = H - 5 - (D + 10);
@@ -250,9 +256,13 @@ namespace Parameters
         /// 3.Кнопка включения
         /// 4.Динамик №1
         /// </summary>
+        /// //TODO: XML - параметры
         /// <param name="name"></param>
         public ModelElements()
         {
+            //TODO: Не переиспользуйте одну и туже переменную - это плохая практика,
+            //TODO которая может привести к ошибкам. Лучше уж напрямую создавать эти
+            //TODO: списки в передаваемых аргументах
             //Параметры корпуса
             var values = new List<(double min, double max, ParametersName name)>
             {

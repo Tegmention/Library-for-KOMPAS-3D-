@@ -14,7 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Builder\Builder.csproj" />
     <ProjectReference Include="..\Parameters\Parameters.csproj" />
   </ItemGroup>
 

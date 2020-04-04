@@ -204,6 +204,8 @@ namespace Builder
         /// <param name="iPart"></param>
         private void CreateSpeakers(ksDocument3D iDocument3D, ksPart iPart)
         {
+            //TODO: Очень плохой метод, необходимо разделить на отдельные методы
+            //TODO: В идеале - реализовать бы динамический алгоритм расчёта положения динамиков
             //Максимальная сумма высот динамиков
             var maxDinamic = _modelelElements.CalculationMaxDinamics();
             //Число динамиков
@@ -243,6 +245,7 @@ namespace Builder
             //Если существует 2 динамика
             if (numberDinamic == 2)
             {
+                //TODO: RSDN - именование
                 //Часть высоты для 1 динамика
                 var PartMaxHDinamic = maxDinamic / 2;
                 //Часть высоты для 2 динамика
@@ -309,6 +312,7 @@ namespace Builder
             //Если существует 3 динамика
             if (numberDinamic == 3)
             {
+                //TODO: RSDN - именование
                 var PartMaxHDinamic = maxDinamic / 3;
                 var PartMaxHDinamic1 = maxDinamic / 3;
                 var PartMaxHDinamic2 = maxDinamic / 3;
@@ -424,6 +428,7 @@ namespace Builder
             //Если существует 4 динамика
             if (numberDinamic == 4)
             {
+                //TODO: RSDN - именование
                 var PartMaxHDinamic = maxDinamic / 4;
                 var PartMaxHDinamic1 = maxDinamic / 4;
                 var PartMaxHDinamic2 = maxDinamic / 4;

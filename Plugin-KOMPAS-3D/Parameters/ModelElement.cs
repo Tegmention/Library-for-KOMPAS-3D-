@@ -12,6 +12,7 @@ namespace Parameters
         /// </summary>
         private ElementParameters _elementParameters;
 
+        //TODO: Правильнее сделать перечисление вместо bool
         /// <summary>
         /// Хранит ключ формы модели
         /// true - круг
@@ -19,6 +20,7 @@ namespace Parameters
         /// </summary>
         private bool _formKey;
 
+        //TODO: XML
         public Parameter<double> Parameter(ParametersName name)
         {
             return _elementParameters.Parameter(name);

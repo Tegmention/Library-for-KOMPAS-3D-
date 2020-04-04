@@ -13,6 +13,7 @@ namespace Builder
     /// </summary>
     public class Manager
     {
+        //TODO: XML
         //Поле хранит экземпляр построителя 3D модели
         private BuilderModel _builderModel;
 
@@ -58,6 +59,7 @@ namespace Builder
         /// Вызывает метод для инициализации
         /// экземпляра построителя 3D модели 
         /// </summary>
+        /// //TODO: XML - параметры
         /// <param name="parameters"></param>
         public Manager(ModelElements elements)
         {
@@ -69,6 +71,7 @@ namespace Builder
         /// Метод создает экземпляр 
         /// класса построителья модели
         /// </summary>
+        /// //TODO: XML - параметры
         /// <param name="parameters"></param>
         private void InirializeModel(ModelElements elements)
         {

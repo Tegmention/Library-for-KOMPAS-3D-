@@ -11,6 +11,7 @@ namespace Parameters
     /// </summary>
     public enum ParametersName
     {
+        //TODO: Плохое именование по RSDN
         H,
         W,
         L,

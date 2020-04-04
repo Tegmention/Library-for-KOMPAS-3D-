@@ -6,6 +6,8 @@ using Parameters;
 
 namespace Plugin_KOMPAS_3D.UnitTests
 {
+    //TODO расставил тут TODO, пройдитесь по остальным тестам и поисправляйте эти же типы ошибок
+    //TODO: тесты не запускаются, т.к. у проекта есть ссылка на билдер
     class ModelElementTests
     {
         [Test(Description = "Позитивный тест метода Parameter")]
@@ -16,6 +18,7 @@ namespace Plugin_KOMPAS_3D.UnitTests
                 (100, 500, ParametersName.H)
             };
             var modelElement = new ModelElement(values, false);
+            //TODO Тут не правильно заводить отдельный флаг, лучше сравнивать каждый элемент и выдовать подходящее сообщение
             var result = true;
             if (modelElement.Parameter(ParametersName.H).MinValue != 100
                 || modelElement.Parameter(ParametersName.H).MaxValue != 500
@@ -69,6 +72,10 @@ namespace Plugin_KOMPAS_3D.UnitTests
         [Test(Description = "Позитивный тест метода CircleParameter при круглой форме")]
         public void Test_CircleParameterCircleForm()
         {
+            //TODO между модульными тестами есть дублирование кода,
+            //TODO которое можно устранить грамотно используя входные параметры,
+            //TODO напр. методы Test_CircleParameterRectangleForm и Test_CircleParameterCircleForm
+            //TODO посмотрите и другие тесты и устраните дублирование
             var values = new List<(double min, double max, ParametersName name)>
             {
                 (100, 500, ParametersName.H),
@@ -91,6 +98,7 @@ namespace Plugin_KOMPAS_3D.UnitTests
             };
             var modelElement = new ModelElement(values, false);
             modelElement.ChangeForm();
+            //TODO Тут не правильно заводить отдельный флаг, лучше сравнивать каждый элемент и выдовать подходящее сообщение
             var result = true;
             if (modelElement.FormKey() != true 
                 && modelElement.Parameter(ParametersName.W).MaxValue != 500)
@@ -133,6 +141,7 @@ namespace Plugin_KOMPAS_3D.UnitTests
                 (150, 200, ParametersName.L)
             };
 
+            //TODO Для коллекций правильно использовать CollectionAssert
             foreach (var value in valuesOne)
             {
                 if (modelElement.Parameter(value.name).MaxValue != value.max ||
@@ -143,6 +152,7 @@ namespace Plugin_KOMPAS_3D.UnitTests
                     result = false;
                 }
             }
+            
             Assert.IsTrue(result, "Конструктор ModelParameters не создает корректный экземпляр класса");
         }
     }

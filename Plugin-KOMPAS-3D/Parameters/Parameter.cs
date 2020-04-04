@@ -20,6 +20,7 @@ namespace Parameters
         /// </summary>
         private T _value;
 
+        //TODO: XML
         public T _maxValue;
 
         /// <summary>
@@ -64,6 +65,7 @@ namespace Parameters
             {
                 if (value.CompareTo(MinValue) < 0 || value.CompareTo(MaxValue) > 0)
                 {
+                    //TODO: RSDN
                     throw new ArgumentException("Значение параметра " + _name + " должно находиться в диапозоне от " +
                         MinValue + " до " + MaxValue);
                 }
