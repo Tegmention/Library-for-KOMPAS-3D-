@@ -41,7 +41,6 @@ namespace Plugin_KOMPAS_3D.UnitTests
         public void Test_MaxValue_Get_CorrectValue()
         {
             var expected = 20;
-            _parameter.MaxValue = expected;
             var actual = _parameter.MaxValue;
             Assert.AreEqual(expected, actual, 
                 "Геттер MaxValue некорректно возвращащает значение");
@@ -59,8 +58,7 @@ namespace Plugin_KOMPAS_3D.UnitTests
         [Test(Description = "Позитивный тест геттера MinValue")]
         public void Test_MinValue_Get_CorrectValue()
         {
-            var expected = 20;
-            _parameter.MinValue = expected;
+            var expected = 10;
             var actual = _parameter.MinValue;
             Assert.AreEqual(expected, actual, 
                 "Геттер MinValue некорректно возвращает значение");
@@ -78,8 +76,7 @@ namespace Plugin_KOMPAS_3D.UnitTests
         [Test(Description = "Позитивный тест геттера Value")]
         public void Test_Value_Get_CorrectValue()
         {
-            var expected = 20;
-            _parameter.Value = expected;
+            var expected = 10;
             var actual = _parameter.Value;
             Assert.AreEqual(expected, actual, 
                 "Геттер Value некорректно возвращает значение");
@@ -88,25 +85,23 @@ namespace Plugin_KOMPAS_3D.UnitTests
         [Test(Description = "Тест конструктора Parameter")]
         public void Test_Parameter_Designer()
         {
-            var parameter = 
-                new Parameter<double>(10, 20, 10, "name");
             string messege = "";
             var result = true;
-            if(parameter.MinValue != 10)
+            if(_parameter.MinValue != 10)
             {
                 result = false;
                 messege = "Ошибка при создании минимального " +
                     "значение параметра";
             }
 
-            if (parameter.MaxValue != 20)
+            if (_parameter.MaxValue != 20)
             {
                 result = false;
                 messege = "Ошибка при создании максимального " +
                     "значение параметра";
             }
 
-            if (parameter.Value != 10)
+            if (_parameter.Value != 10)
             {
                 result = false;
                 messege = "Ошибка при создании текущего " +
