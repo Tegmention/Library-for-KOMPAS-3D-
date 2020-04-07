@@ -12,15 +12,17 @@ namespace Parameters
         /// </summary>
         private ElementParameters _elementParameters;
 
-        //TODO: Правильнее сделать перечисление вместо bool
         /// <summary>
         /// Хранит ключ формы модели
-        /// true - круг
-        /// false - прямоугольник
         /// </summary>
-        private bool _formKey;
+        private ElementFormKey _formKey;
 
-        //TODO: XML
+        /// <summary>
+        /// Возвращает параметер
+        /// с запрошенным названием
+        /// </summary>
+        /// <param name="name">Название параметра</param>
+        /// <returns></returns>
         public Parameter<double> Parameter(ParametersName name)
         {
             return _elementParameters.Parameter(name);
@@ -31,7 +33,7 @@ namespace Parameters
         /// элемента модели
         /// </summary>
         /// <returns></returns>
-        public bool FormKey()
+        public ElementFormKey FormKey()
         {
             return _formKey;
         }
@@ -42,7 +44,7 @@ namespace Parameters
         /// </summary>
         public void CircleParameter()
         {
-            if (_formKey == true)
+            if (_formKey == ElementFormKey.Circle)
             {
                 _elementParameters.CalculationCircleParameter();
             }
@@ -53,24 +55,24 @@ namespace Parameters
         /// </summary>
         public void ChangeForm()
         {
-            if(_formKey == true)
+            if(_formKey == ElementFormKey.Circle)
             {
-                _formKey = false;
+                _formKey = ElementFormKey.Rectangle;
             }
             else
             {
+                _formKey = ElementFormKey.Circle;
                 CircleParameter();
-                _formKey = true;
             }
         }
 
         /// <summary>
         /// Конструктор класса 
         /// </summary>
-        /// <param name="parameters"></param>
-        /// <param name="formKey"></param>
+        /// <param name="parameters">Параметра элемента</param>
+        /// <param name="formKey">Ключ формы</param>
         public ModelElement(List<(double min, double max, ParametersName name)> parameters,
-            bool formKey)
+            ElementFormKey formKey)
         {
             _elementParameters = new ElementParameters(parameters);
             _formKey = formKey;

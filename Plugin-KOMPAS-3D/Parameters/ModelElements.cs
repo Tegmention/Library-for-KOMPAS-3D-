@@ -10,7 +10,8 @@ namespace Parameters
         /// <summary>
         /// Хранит словарь элементов модели
         /// </summary>
-        private Dictionary<ElementName, ModelElement> _elements = new Dictionary<ElementName, ModelElement>();
+        private Dictionary<ElementName, ModelElement> _elements = 
+            new Dictionary<ElementName, ModelElement>();
 
         /// <summary>
         /// Возвращает элемент модели
@@ -33,13 +34,7 @@ namespace Parameters
         /// </returns>
         public bool IsElement(ElementName name)
         {
-            //TODO: Можно просто вернуть ContainsKey
-            var result = false;
-            if(_elements.ContainsKey(name))
-            {
-                result = true;
-            }
-            return result;
+            return _elements.ContainsKey(name);
         }
 
         /// <summary>
@@ -49,7 +44,7 @@ namespace Parameters
         /// <param name="name">Имя элемента</param>
         /// <param name="formKey">Ключ формы</param>
         public void AddElement(List<(double min, double max, ParametersName name)> parameters,
-            ElementName name, bool formKey)
+            ElementName name, ElementFormKey formKey)
         { 
             var modelElement = new ModelElement(parameters, formKey);
             _elements.Add(name, modelElement);
@@ -58,41 +53,46 @@ namespace Parameters
         /// <summary>
         /// Добавление динамика
         /// </summary>
-        /// //TODO: dYnamic - везде переписать с Y
-        public void AddDinamic()
+        public void AddDynamic()
         {
             var values = new List<(double min, double max, ParametersName name)>
             {
-                (10, 10, ParametersName.H),
-                (150, 195, ParametersName.W),
-                (5, 20, ParametersName.L)
+                (10, 10, ParametersName.Height),
+                (150, 195, ParametersName.Width),
+                (5, 20, ParametersName.Length)
             };
             if (!_elements.ContainsKey(ElementName.SpeakerCover2))
             {
-                AddElement(values, ElementName.SpeakerCover2, false);
+                AddElement(values,
+                    ElementName.SpeakerCover2, 
+                    ElementFormKey.Rectangle);
             }
             else
             {
                 if (!_elements.ContainsKey(ElementName.SpeakerCover3))
                 {
-                    AddElement(values, ElementName.SpeakerCover3, false);
+                    AddElement(values, 
+                        ElementName.SpeakerCover3, 
+                        ElementFormKey.Rectangle);
                 }
                 else
                 {
                     if (!_elements.ContainsKey(ElementName.SpeakerCover4))
                     {
-                        AddElement(values, ElementName.SpeakerCover4, false);
+                        AddElement(values, 
+                            ElementName.SpeakerCover4, 
+                            ElementFormKey.Rectangle);
                     }
                 }
             }
-            CalculationMaxHDinamics();
-            CalculationMaxWDinamic();
+            CalculationMaxHDynamics();
+            CalculationMaxWidthDynamic();
         }
 
         /// <summary>
-        /// Удалаение динамика
+        /// Удаление динамика
         /// </summary>
-        public void DeleteDinamic()
+        public void DeleteDynamic()
         {
             if (_elements.ContainsKey(ElementName.SpeakerCover4))
             {
@@ -112,47 +112,63 @@ namespace Parameters
                     }
                 }
             }
-            CalculationMaxHDinamics();
-            CalculationMaxWDinamic();
+            CalculationMaxHDynamics();
+            CalculationMaxWidthDynamic();
         }
 
-        //TODO: XML
-        //Метод для удаления элемента
+        /// <summary>
+        /// Метод выполняет удаление 
+        /// элемента с указанным названием
+        /// </summary>
+        /// <param name="name">Название элемента</param>
         public void DeleteElement(ElementName name)
         {
             _elements.Remove(name);
         }
 
         /// <summary>
-        /// Метод расчитывает максимальное значение высоты динамика
+        /// Метод расчитывает максимальное 
+        /// значение высоты динамика
         /// </summary>
-        public void CalculationMaxHDinamic(ElementName name)
+        /// <param name="name">Название элемента</param>
+        public void CalculationMaxHeightDynamic(ElementName name)
         {
-            //TODO: RSDN - именование
-            var D = Element(ElementName.Rele).Parameter(ParametersName.D).Value;
-            var H = Element(ElementName.Case).Parameter(ParametersName.H).Value;
-            var H1 = 0.0;
+            var diameterRele = 
+                Element(ElementName.Rele).Parameter(ParametersName.Diameter).Value;
+            var heightCase = 
+                Element(ElementName.Case).Parameter(ParametersName.Height).Value;
+            var heightSpeakerCover1 = 0.0;
             if(name != ElementName.SpeakerCover1)
             {
-                H1 = Element(ElementName.SpeakerCover1).Parameter(ParametersName.H).Value;
+                heightSpeakerCover1 = 
+                    Element(ElementName.SpeakerCover1)
+                    .Parameter(ParametersName.Height).Value;
             }
-            var H2 = 0.0;
-            if (_elements.ContainsKey(ElementName.SpeakerCover2) && name != ElementName.SpeakerCover2)
+            var heightSpeakerCover2 = 0.0;
+            if (_elements.ContainsKey(ElementName.SpeakerCover2) 
+                && name != ElementName.SpeakerCover2)
             {
-                H2 = Element(ElementName.SpeakerCover2).Parameter(ParametersName.H).Value;
+                heightSpeakerCover2 = 
+                    Element(ElementName.SpeakerCover2).Parameter(ParametersName.Height).Value;
             }
-            var H3 = 0.0;
-            if (_elements.ContainsKey(ElementName.SpeakerCover3) && name != ElementName.SpeakerCover3)
+            var heightSpeakerCover3 = 0.0;
+            if (_elements.ContainsKey(ElementName.SpeakerCover3) 
+                && name != ElementName.SpeakerCover3)
             {
-                H3 = Element(ElementName.SpeakerCover3).Parameter(ParametersName.H).Value;
+                heightSpeakerCover3 = 
+                    Element(ElementName.SpeakerCover3).Parameter(ParametersName.Height).Value;
             }
-            var H4 = 0.0;
-            if (_elements.ContainsKey(ElementName.SpeakerCover4) && name != ElementName.SpeakerCover4)
+            var heightSpeakerCover4 = 0.0;
+            if (_elements.ContainsKey(ElementName.SpeakerCover4) 
+                && name != ElementName.SpeakerCover4)
             {
-                H4 = Element(ElementName.SpeakerCover4).Parameter(ParametersName.H).Value;
+                heightSpeakerCover4 = 
+                    Element(ElementName.SpeakerCover4).Parameter(ParametersName.Height).Value;
             }
-            var maxH = H - 5 - (D + 10) - H1 - H2 - H3 - H4;
-            Element(name).Parameter(ParametersName.H).MaxValue = maxH;
+            var maxHeight = heightCase - 5 - (diameterRele + 10) 
+                - heightSpeakerCover1 - heightSpeakerCover2 
+                - heightSpeakerCover3 - heightSpeakerCover4;
+            Element(name).Parameter(ParametersName.Height).MaxValue = maxHeight;
             Element(name).CircleParameter();
         }
 
@@ -160,20 +176,20 @@ namespace Parameters
         /// Метод расчитывает и присваивает 
         /// максимальное значение высот динамиков
         /// </summary>
-        public void CalculationMaxHDinamics()
+        public void CalculationMaxHDynamics()
         {
-            CalculationMaxHDinamic(ElementName.SpeakerCover1);
+            CalculationMaxHeightDynamic(ElementName.SpeakerCover1);
             if (_elements.ContainsKey(ElementName.SpeakerCover2))
             {
-                CalculationMaxHDinamic(ElementName.SpeakerCover2);
+                CalculationMaxHeightDynamic(ElementName.SpeakerCover2);
             }
             if (_elements.ContainsKey(ElementName.SpeakerCover3))
             {
-                CalculationMaxHDinamic(ElementName.SpeakerCover3);
+                CalculationMaxHeightDynamic(ElementName.SpeakerCover3);
             }
             if (_elements.ContainsKey(ElementName.SpeakerCover4))
             {
-                CalculationMaxHDinamic(ElementName.SpeakerCover4);
+                CalculationMaxHeightDynamic(ElementName.SpeakerCover4);
             }
         }
 
@@ -185,41 +201,45 @@ namespace Parameters
         {
             var element = Element(name);
             element.ChangeForm();
-            CalculationMaxHDinamics();
-            CalculationMaxWDinamic();
+            CalculationMaxHDynamics();
+            CalculationMaxWidthDynamic();
         }
 
         /// <summary>
         /// Метод расчитывает и присваивает
         /// максимальную ширину динамика
         /// </summary>
-        public void CalculationMaxWDinamic()
+        public void CalculationMaxWidthDynamic()
         {
-            //TODO: RSDN - именование
-            var W = Element(ElementName.Case).Parameter(ParametersName.W).Value;
-            var maxW = W - 5;
+            var widthCase = 
+                Element(ElementName.Case).Parameter(ParametersName.Width).Value;
+            var maxWidthDynamic = widthCase - 5;
             if (_elements.ContainsKey(ElementName.SpeakerCover1))
             {
-                Element(ElementName.SpeakerCover1).Parameter(ParametersName.W).MaxValue = maxW;
-                CalculationMaxHDinamic(ElementName.SpeakerCover1);
+                Element(ElementName.SpeakerCover1).Parameter(ParametersName.Width).MaxValue = 
+                    maxWidthDynamic;
+                CalculationMaxHeightDynamic(ElementName.SpeakerCover1);
                 Element(ElementName.SpeakerCover1).CircleParameter();
             }
             if (_elements.ContainsKey(ElementName.SpeakerCover2))
             {
-                Element(ElementName.SpeakerCover2).Parameter(ParametersName.W).MaxValue = maxW;
-                CalculationMaxHDinamic(ElementName.SpeakerCover2);
+                Element(ElementName.SpeakerCover2).Parameter(ParametersName.Width).MaxValue = 
+                    maxWidthDynamic;
+                CalculationMaxHeightDynamic(ElementName.SpeakerCover2);
                 Element(ElementName.SpeakerCover2).CircleParameter();
             }
             if (_elements.ContainsKey(ElementName.SpeakerCover3))
             {
-                Element(ElementName.SpeakerCover3).Parameter(ParametersName.W).MaxValue = maxW;
-                CalculationMaxHDinamic(ElementName.SpeakerCover3);
+                Element(ElementName.SpeakerCover3).Parameter(ParametersName.Width).MaxValue = 
+                    maxWidthDynamic;
+                CalculationMaxHeightDynamic(ElementName.SpeakerCover3);
                 Element(ElementName.SpeakerCover3).CircleParameter();
             }
             if (_elements.ContainsKey(ElementName.SpeakerCover4))
             {
-                Element(ElementName.SpeakerCover4).Parameter(ParametersName.W).MaxValue = maxW;
-                CalculationMaxHDinamic(ElementName.SpeakerCover4);
+                Element(ElementName.SpeakerCover4).Parameter(ParametersName.Width).MaxValue = 
+                    maxWidthDynamic;
+                CalculationMaxHeightDynamic(ElementName.SpeakerCover4);
                 Element(ElementName.SpeakerCover4).CircleParameter();
             }
         }
@@ -229,13 +249,14 @@ namespace Parameters
         /// сумму высот динамиков
         /// </summary>
         /// <returns>Максимальна высота динамиков</returns>
-        public double CalculationMaxDinamics()
+        public double CalculationMaxDynamics()
         {
-            //TODO: RSDN - именование
-            var D = Element(ElementName.Rele).Parameter(ParametersName.D).Value;
-            var H = Element(ElementName.Case).Parameter(ParametersName.H).Value;
-            var maxH = H - 5 - (D + 10);
-            return maxH;
+            var diameterRele = 
+                Element(ElementName.Rele).Parameter(ParametersName.Diameter).Value;
+            var heightCase = 
+                Element(ElementName.Case).Parameter(ParametersName.Height).Value;
+            var maxHeightDinamics = heightCase - 5 - (diameterRele + 10);
+            return maxHeightDinamics;
         }
 
         /// <summary>
@@ -243,7 +264,7 @@ namespace Parameters
         /// модели
         /// </summary>
         /// <returns>Число динамиков</returns>
-        public int NumberDinamics()
+        public int NumberDynamics()
         {
             return _elements.Count - 2;
         }
@@ -256,38 +277,42 @@ namespace Parameters
         /// 3.Кнопка включения
         /// 4.Динамик №1
         /// </summary>
-        /// //TODO: XML - параметры
-        /// <param name="name"></param>
         public ModelElements()
         {
-            //TODO: Не переиспользуйте одну и туже переменную - это плохая практика,
-            //TODO которая может привести к ошибкам. Лучше уж напрямую создавать эти
-            //TODO: списки в передаваемых аргументах
-            //Параметры корпуса
-            var values = new List<(double min, double max, ParametersName name)>
-            {
-                (100, 500, ParametersName.H),
-                (200, 300, ParametersName.W),
-                (150, 200, ParametersName.L)
-            };
-            AddElement(values, ElementName.Case, false);
+            // Добавление параметров
+            // корпуса колонки
+            AddElement(
+                new List<(double min, double max, ParametersName name)>
+                {
+                    (100, 500, ParametersName.Height),
+                    (200, 300, ParametersName.Width),
+                    (150, 200, ParametersName.Length)
+                },
+                ElementName.Case, 
+                ElementFormKey.Rectangle);
 
-            //Параметры реле регулировки
-            values = new List<(double min, double max, ParametersName name)>
-            {
-                (10, 20, ParametersName.D),
-                (12, 12, ParametersName.L)
-            };
-            AddElement(values, ElementName.Rele, true);
+            // Добавление параметров 
+            // реле регулировки
+            AddElement(
+                new List<(double min, double max, ParametersName name)>
+                {
+                    (10, 20, ParametersName.Diameter),
+                    (12, 12, ParametersName.Length)
+                }, 
+                ElementName.Rele, 
+                ElementFormKey.Circle);
 
-            //Добавить 1 динамик
-            values = new List<(double min, double max, ParametersName name)>
-            {
-                (10, 75, ParametersName.H),
-                (150, 195, ParametersName.W),
-                (5, 20, ParametersName.L)
-            };
-            AddElement(values, ElementName.SpeakerCover1, false);
+            // Добавление параметров
+            // первого динамик
+            AddElement(
+                new List<(double min, double max, ParametersName name)>
+                {
+                    (10, 75, ParametersName.Height),
+                    (150, 195, ParametersName.Width),
+                    (5, 20, ParametersName.Length)
+                }, 
+                ElementName.SpeakerCover1, 
+                ElementFormKey.Rectangle);
         }
     }
 }

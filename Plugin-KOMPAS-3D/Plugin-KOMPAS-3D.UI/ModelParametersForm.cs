@@ -21,7 +21,8 @@ namespace Plugin_KOMPAS_3D.UI
         /// <summary>
         /// Хранит словарь соответствий TextBox и параметра элемента
         /// </summary>
-        private Dictionary<TextBox, List<(ElementName element, ParametersName parameter)>> _elements =
+        private Dictionary<TextBox, 
+            List<(ElementName element, ParametersName parameter)>> _elements =
             new Dictionary<TextBox, List<(ElementName element, ParametersName parameter)>>();
         
         public ModelParametersForm()
@@ -33,22 +34,22 @@ namespace Plugin_KOMPAS_3D.UI
             //Создание списка элементов TextBox
             var elements = new List<(TextBox textBox,ElementName element, ParametersName parameter)>
                   {
-                     (CaseHeightTextBox, ElementName.Case, ParametersName.H),
-                     (CaseLengthTextBox, ElementName.Case, ParametersName.W),
-                     (CaseWidthTextBox, ElementName.Case, ParametersName.L),
-                     (RelayDiameterTextBox, ElementName.Rele, ParametersName.D),
-                     (SpeakerTTextBox, ElementName.SpeakerCover1, ParametersName.L),
-                     (SpeakerWidthTextBox, ElementName.SpeakerCover1, ParametersName.W),
-                     (SpeakerHeightTextBox,ElementName.SpeakerCover1, ParametersName.H),
-                     (SpeakerT1TextBox, ElementName.SpeakerCover2, ParametersName.L),
-                     (SpeakerWidth1TextBox, ElementName.SpeakerCover2, ParametersName.W),
-                     (SpeakerHeight1TextBox,ElementName.SpeakerCover2, ParametersName.H),
-                     (SpeakerT2TextBox, ElementName.SpeakerCover3, ParametersName.L),
-                     (SpeakerWidth2TextBox, ElementName.SpeakerCover3, ParametersName.W),
-                     (SpeakerHeight2TextBox,ElementName.SpeakerCover3, ParametersName.H),
-                     (SpeakerT3TextBox, ElementName.SpeakerCover4, ParametersName.L),
-                     (SpeakerWidth3TextBox, ElementName.SpeakerCover4, ParametersName.W),
-                     (SpeakerHeight3TextBox,ElementName.SpeakerCover4, ParametersName.H),
+                     (CaseHeightTextBox, ElementName.Case, ParametersName.Height),
+                     (CaseLengthTextBox, ElementName.Case, ParametersName.Width),
+                     (CaseWidthTextBox, ElementName.Case, ParametersName.Length),
+                     (RelayDiameterTextBox, ElementName.Rele, ParametersName.Diameter),
+                     (SpeakerTTextBox, ElementName.SpeakerCover1, ParametersName.Length),
+                     (SpeakerWidthTextBox, ElementName.SpeakerCover1, ParametersName.Width),
+                     (SpeakerHeightTextBox,ElementName.SpeakerCover1, ParametersName.Height),
+                     (SpeakerT1TextBox, ElementName.SpeakerCover2, ParametersName.Length),
+                     (SpeakerWidth1TextBox, ElementName.SpeakerCover2, ParametersName.Width),
+                     (SpeakerHeight1TextBox,ElementName.SpeakerCover2, ParametersName.Height),
+                     (SpeakerT2TextBox, ElementName.SpeakerCover3, ParametersName.Length),
+                     (SpeakerWidth2TextBox, ElementName.SpeakerCover3, ParametersName.Width),
+                     (SpeakerHeight2TextBox,ElementName.SpeakerCover3, ParametersName.Height),
+                     (SpeakerT3TextBox, ElementName.SpeakerCover4, ParametersName.Length),
+                     (SpeakerWidth3TextBox, ElementName.SpeakerCover4, ParametersName.Width),
+                     (SpeakerHeight3TextBox,ElementName.SpeakerCover4, ParametersName.Height),
                     };
 
             foreach (var element in elements)
@@ -68,26 +69,33 @@ namespace Plugin_KOMPAS_3D.UI
         /// </summary>
         public void DisplayingParameters()
         {
-            //TODO: XML - длина строк
             if (_modelElements.IsElement(ElementName.SpeakerCover1))
             {
-                Displaying(BoundaryValueHSLabel, ParametersName.H, ElementName.SpeakerCover1);
-                Displaying(BoundaryValueWSLabel, ParametersName.W, ElementName.SpeakerCover1);
+                Displaying(BoundaryValueHSLabel, 
+                    ParametersName.Height, ElementName.SpeakerCover1);
+                Displaying(BoundaryValueWSLabel, 
+                    ParametersName.Width, ElementName.SpeakerCover1);
             }
             if (_modelElements.IsElement(ElementName.SpeakerCover2))
             {
-                Displaying(BoundaryValueWS1Label, ParametersName.W, ElementName.SpeakerCover2);
-                Displaying(BoundaryValueHS1Label, ParametersName.H, ElementName.SpeakerCover2);
+                Displaying(BoundaryValueWS1Label, 
+                    ParametersName.Width, ElementName.SpeakerCover2);
+                Displaying(BoundaryValueHS1Label, 
+                    ParametersName.Height, ElementName.SpeakerCover2);
             }
             if (_modelElements.IsElement(ElementName.SpeakerCover3))
             {
-                Displaying(BoundaryValueWS2Label, ParametersName.W, ElementName.SpeakerCover3);
-                Displaying(BoundaryValueHS2Label, ParametersName.H, ElementName.SpeakerCover3);
+                Displaying(BoundaryValueWS2Label, 
+                    ParametersName.Width, ElementName.SpeakerCover3);
+                Displaying(BoundaryValueHS2Label, 
+                    ParametersName.Height, ElementName.SpeakerCover3);
             }
             if (_modelElements.IsElement(ElementName.SpeakerCover4))
             {
-                Displaying(BoundaryValueWS3Label, ParametersName.W, ElementName.SpeakerCover4);
-                Displaying(BoundaryValueHS3Label, ParametersName.H, ElementName.SpeakerCover4);
+                Displaying(BoundaryValueWS3Label, 
+                    ParametersName.Width, ElementName.SpeakerCover4);
+                Displaying(BoundaryValueHS3Label, 
+                    ParametersName.Height, ElementName.SpeakerCover4);
             }
         }
 
@@ -95,28 +103,32 @@ namespace Plugin_KOMPAS_3D.UI
         /// Метод отображает значения 
         /// граничных параметров параметра
         /// </summary>
-        /// <param name="label"></param>
-        /// <param name="name"></param>
-        /// <param name="elementName"></param>
+        /// <param name="label">
+        /// Элемент отображения
+        /// диапозона возможных значений
+        /// </param>
+        /// <param name="name">Название параметра</param>
+        /// <param name="elementName">Название элемента</param>
         public void Displaying(Label label, ParametersName name, ElementName elementName)
         {
-            //TODO: XML - длина строк
-                label.Text = "(от " + string.Concat(_modelElements.Element(elementName).Parameter(name).MinValue) + " до "
-                            + string.Concat(_modelElements.Element(elementName).Parameter(name).MaxValue) + ") мм";
+                label.Text = "(от " + string.Concat(_modelElements.Element(elementName).
+                    Parameter(name).MinValue) + " до "
+                    + string.Concat(_modelElements.Element(elementName).
+                    Parameter(name).MaxValue) + ") мм";
         }
 
         /// <summary>
-        /// Метод добавляет диамик
+        /// Метод добавляет динамик
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Действующий объект</param>
+        /// <param name="e">Действие</param>
         private void AddDinamicButton_Click(object sender, EventArgs e)
         {
             if (NumberDinamicTextBox.Text != "4")
             {
                 NumberDinamicTextBox.Text =
                        (double.Parse(NumberDinamicTextBox.Text) + 1).ToString();
-                _modelElements.AddDinamic();
+                _modelElements.AddDynamic();
                 if (NumberDinamicTextBox.Text == "2")
                 {
                     SpeakerDimensions2GroupBox.Visible = true;
@@ -144,8 +156,8 @@ namespace Plugin_KOMPAS_3D.UI
         /// <summary>
         /// Метод удаляет динамик 
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Действующий объект</param>
+        /// <param name="e">Действие</param>
         private void DeleteDinamicButton_Click(object sender, EventArgs e)
         {
             if(NumberDinamicTextBox.Text != "1")
@@ -156,7 +168,7 @@ namespace Plugin_KOMPAS_3D.UI
                     {
                         ChangeForm(Form3ComboBox, EventArgs.Empty);
                     }
-                    _modelElements.DeleteDinamic();
+                    _modelElements.DeleteDynamic();
                     SpeakerDimensions4GroupBox.Visible = false;
                     DisplayingParameters();
                 }
@@ -167,7 +179,7 @@ namespace Plugin_KOMPAS_3D.UI
                         ChangeForm(Form2ComboBox, EventArgs.Empty);
                     }
                     
-                    _modelElements.DeleteDinamic();
+                    _modelElements.DeleteDynamic();
                     this.MaximumSize = new System.Drawing.Size(683, 345);
                     this.Size = new System.Drawing.Size(683, 345);
                     SpeakerDimensions3GroupBox.Visible = false;
@@ -179,7 +191,7 @@ namespace Plugin_KOMPAS_3D.UI
                     {
                         ChangeForm(Form1ComboBox, EventArgs.Empty);
                     }
-                    _modelElements.DeleteDinamic();
+                    _modelElements.DeleteDynamic();
                     SpeakerDimensions2GroupBox.Visible = false;
                     DisplayingParameters();
                 }
@@ -193,8 +205,8 @@ namespace Plugin_KOMPAS_3D.UI
         /// на последнее вводимое корректное значение
         /// при потере фокуса элементом TextBox
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Действующий объект</param>
+        /// <param name="e">Действие</param>
         private void TextBox_Leave(object sender, EventArgs e)
         {
             var textBox = (TextBox)sender;
@@ -214,8 +226,8 @@ namespace Plugin_KOMPAS_3D.UI
         /// Присваивает параметру значение 
         /// из соответствующего элемента TextBox
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Действующий объект</param>
+        /// <param name="e">Действие</param>
         private void TextBoxChanged(object sender, EventArgs e)
         {
             var textBox = (TextBox)sender;
@@ -231,19 +243,19 @@ namespace Plugin_KOMPAS_3D.UI
                     _modelElements.Element(element).Parameter(parameter).Value = value;
                 }
                 textBox.BackColor = Color.LightGreen;
-                if (parameter == ParametersName.H || parameter == ParametersName.D)
+                if (parameter == ParametersName.Height || parameter == ParametersName.Diameter)
                 {
-                    _modelElements.CalculationMaxHDinamics();
-                    _modelElements.CalculationMaxWDinamic();
+                    _modelElements.CalculationMaxHDynamics();
+                    _modelElements.CalculationMaxWidthDynamic();
                     DisplayingBoundary(SpeakerHeightTextBox);
                     DisplayingBoundary(SpeakerHeight1TextBox);
                     DisplayingBoundary(SpeakerHeight2TextBox);
                     DisplayingBoundary(SpeakerHeight3TextBox);
                     DisplayingParameters();
                 }
-                if (parameter == ParametersName.W)
+                if (parameter == ParametersName.Width)
                 {
-                    _modelElements.CalculationMaxWDinamic();
+                    _modelElements.CalculationMaxWidthDynamic();
                     DisplayingBoundary(SpeakerWidthTextBox);
                     DisplayingBoundary(SpeakerWidth1TextBox);
                     DisplayingBoundary(SpeakerWidth2TextBox);
@@ -261,7 +273,7 @@ namespace Plugin_KOMPAS_3D.UI
         /// и если оно не корректно,
         /// то присваивает максимально возможное значение параметра
         /// </summary>
-        /// <param name="textBox"></param>
+        /// <param name="textBox">Действие</param>
         private void DisplayingBoundary(TextBox textBox)
         {
             var information = _elements[textBox];
@@ -282,8 +294,8 @@ namespace Plugin_KOMPAS_3D.UI
         /// <summary>
         /// Изменяет значения всех параметров на начальные
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Действующий объект</param>
+        /// <param name="e">Действие</param>
         private void ReturnInitialValueButton_Click(object sender, EventArgs e)
         {
             if(SpeakerLengthLabel.Visible != true)
@@ -311,7 +323,8 @@ namespace Plugin_KOMPAS_3D.UI
                 var information = _elements[textBox];
                 var parameters = information[0];
                 var element = parameters.element;
-                if (element == ElementName.SpeakerCover2 || element == ElementName.SpeakerCover3
+                if (element == ElementName.SpeakerCover2 
+                    || element == ElementName.SpeakerCover3
                     || element == ElementName.SpeakerCover4)
                 {
                     element = ElementName.SpeakerCover1;
@@ -324,12 +337,12 @@ namespace Plugin_KOMPAS_3D.UI
         }
 
         /// <summary>
-        /// Отображает и скрывает 
-        /// элементы GroupBox исходя 
-        /// из количества динамиков 
+        /// Отображает необходимые 
+        /// параметры при изменении 
+        /// формы
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Действующий объект</param>
+        /// <param name="e">Действие</param>
         private void ChangeForm(object sender, EventArgs e)
         {
             if(sender == FormComboBox)
@@ -435,8 +448,8 @@ namespace Plugin_KOMPAS_3D.UI
         /// (построителя модели)
         /// при клике на кнопку "Построить"
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Действующий объект</param>
+        /// <param name="e">Действие</param>
         private void BuildModelButton_Click(object sender, EventArgs e)
         {
             Manager manager = new Manager(_modelElements);
@@ -446,8 +459,8 @@ namespace Plugin_KOMPAS_3D.UI
         /// Кнопка "Построить" получает фокус 
         /// принаведении наведении курсора
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Действующий объект</param>
+        /// <param name="e">Действие</param>
         private void BuildModelButton_MouseMove(object sender, MouseEventArgs e)
         {
             BuildModelButton.Focus();

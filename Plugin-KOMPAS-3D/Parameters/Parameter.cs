@@ -7,7 +7,7 @@ namespace Parameters
     /// Хранит название, текущее значение
     /// и граничные значения параметра модели
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">Тип хранимых данных</typeparam>
     public class Parameter<T> where T : IComparable<T>
     {
         /// <summary>
@@ -20,7 +20,9 @@ namespace Parameters
         /// </summary>
         private T _value;
 
-        //TODO: XML
+        /// <summary>
+        /// Устанавливает и возвращает минимальное значение параметра
+        /// </summary>
         public T _maxValue;
 
         /// <summary>
@@ -53,7 +55,7 @@ namespace Parameters
         /// <summary>
         /// Устанавливает и возвращает текущее значение параметра
         /// Текущее значение устанавливается если оно входит в диапозон параметров
-        /// от _minValue до _maxValue
+        /// от MinValue до _maxValue
         /// </summary>
         public T Value
         {
@@ -63,11 +65,12 @@ namespace Parameters
             }
             set
             {
-                if (value.CompareTo(MinValue) < 0 || value.CompareTo(MaxValue) > 0)
+                if (value.CompareTo(MinValue) < 0 
+                    || value.CompareTo(MaxValue) > 0)
                 {
-                    //TODO: RSDN
-                    throw new ArgumentException("Значение параметра " + _name + " должно находиться в диапозоне от " +
-                        MinValue + " до " + MaxValue);
+                    throw new ArgumentException("Значение параметра " + 
+                        _name + " должно находиться в диапозоне от " +
+                        MinValue + " до " + _maxValue);
                 }
                 else
                 {

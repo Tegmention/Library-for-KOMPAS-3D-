@@ -5,7 +5,6 @@ using System.Runtime.InteropServices;
 
 namespace Builder
 {
-    // 9 тестов
     /// <summary>
     /// Класс используется для подключения 
     /// к САПР Компас 3Д и инициализации 
@@ -13,8 +12,9 @@ namespace Builder
     /// </summary>
     public class Manager
     {
-        //TODO: XML
-        //Поле хранит экземпляр построителя 3D модели
+        /// <summary>
+        /// Поле хранит экземпляр построителя 3D модели
+        /// </summary>
         private BuilderModel _builderModel;
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Builder
         /// Если экземпляр не создан,
         /// то создать и подключиться к новому
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Экземпляр Kompas3D</returns>
         private KompasObject OpenKompas3D()
         {
             //Начальное присвоение 
@@ -35,14 +35,15 @@ namespace Builder
             //к уже закрытому экземпляру
             try
             {
-                kompas = (KompasObject)Marshal.GetActiveObject("KOMPAS.Application.5");
+                kompas = 
+                    (KompasObject)Marshal.GetActiveObject("KOMPAS.Application.5");
                 kompas.Visible = true;
             }
             //Создание нового экзмепляра
             catch
             {
-                Type t = Type.GetTypeFromProgID("KOMPAS.Application.5");
-                kompas = (KompasObject)Activator.CreateInstance(t);
+                Type type = Type.GetTypeFromProgID("KOMPAS.Application.5");
+                kompas = (KompasObject)Activator.CreateInstance(type);
                 kompas.Visible = true;
             }
             //Выполняется после заверешения try и catch
@@ -52,27 +53,23 @@ namespace Builder
             }
             return kompas;
         }
-        
-        //1 тест
+
         /// <summary>
         /// Конструктор класса Manager
         /// Вызывает метод для инициализации
         /// экземпляра построителя 3D модели 
         /// </summary>
-        /// //TODO: XML - параметры
-        /// <param name="parameters"></param>
+        /// <param name="elements">Элементы модели</param>
         public Manager(ModelElements elements)
         {
             InirializeModel(elements);
         }
 
-        //1 тест
         /// <summary>
         /// Метод создает экземпляр 
-        /// класса построителья модели
+        /// класса построителя модели
         /// </summary>
-        /// //TODO: XML - параметры
-        /// <param name="parameters"></param>
+        /// <param name="elements">Элементы модели</param>
         private void InirializeModel(ModelElements elements)
         {
             _builderModel = new BuilderModel(elements,OpenKompas3D());

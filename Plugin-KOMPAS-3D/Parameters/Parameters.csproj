@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ElementFormKey.cs" />
     <Compile Include="ElementName.cs" />
     <Compile Include="ElementParameters.cs" />
     <Compile Include="ModelElement.cs" />
