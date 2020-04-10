@@ -249,32 +249,17 @@ namespace Builder
         {
             var maxDynamic = _modelelElements.CalculationMaxDynamics();
             var result = 10 + _modelelElements.Element(ElementName.Rele).
-                Parameter(ParametersName.Diameter).Value;
-            //Часть высоты для 1 динамика
-            var PartMaxHeightDynamic = maxDynamic / 2;
-            //Часть высоты для 2 динамика
-            var PartMaxHDynamic1 = maxDynamic / 2;
-            var HeightSpeakerCover1 = _modelelElements.Element(ElementName.SpeakerCover1).
+               Parameter(ParametersName.Diameter).Value;
+            var heightDinamic1 = _modelelElements.Element(ElementName.SpeakerCover1).
                 Parameter(ParametersName.Height).Value;
-            var HeightSpeakerCover2 = _modelelElements.Element(ElementName.SpeakerCover2).
+            var heightDinamic2 = _modelelElements.Element(ElementName.SpeakerCover2).
                 Parameter(ParametersName.Height).Value;
-            //Перераспределение частей высот
-            if (HeightSpeakerCover1 > PartMaxHeightDynamic)
-            {
-                PartMaxHeightDynamic = HeightSpeakerCover1;
-                PartMaxHDynamic1 = maxDynamic - PartMaxHeightDynamic;
-            }
-            if (HeightSpeakerCover2 > PartMaxHDynamic1)
-            {
-                PartMaxHDynamic1 = HeightSpeakerCover2;
-                PartMaxHeightDynamic = maxDynamic - PartMaxHDynamic1;
-            }
-            var middlePart = PartMaxHeightDynamic / 2;
-            var middlePart1 = PartMaxHDynamic1 / 2;
+            var indent = ((maxDynamic - heightDinamic1 - heightDinamic2) / 3);
             CreateDynamic(iPart, iDocument3D,
-                ElementName.SpeakerCover1, result + PartMaxHDynamic1 + middlePart + 2);
+                ElementName.SpeakerCover1, 
+                 result + (2*indent) + heightDinamic2 + (heightDinamic1 / 2));
             CreateDynamic(iPart, iDocument3D,
-                ElementName.SpeakerCover2, result + middlePart1);
+                ElementName.SpeakerCover2, result + indent + (heightDinamic2 / 2));
         }
 
         /// <summary>
@@ -286,70 +271,25 @@ namespace Builder
         {
             var maxDynamic = _modelelElements.CalculationMaxDynamics();
             var result = 10 + _modelelElements.Element(ElementName.Rele).
-                Parameter(ParametersName.Diameter).Value;
-            var PartMaxHeighDynamic = maxDynamic / 3;
-            var PartMaxHeighDynamic1 = maxDynamic / 3;
-            var PartMaxHeighDynamic2 = maxDynamic / 3;
-            var HeightSpeakerCover1 = 
-                _modelelElements.Element(ElementName.SpeakerCover1).
+               Parameter(ParametersName.Diameter).Value;
+            var heightDinamic1 = _modelelElements.Element(ElementName.SpeakerCover1).
                 Parameter(ParametersName.Height).Value;
-            var HeightSpeakerCover2 = 
-                _modelelElements.Element(ElementName.SpeakerCover2).
+            var heightDinamic2 = _modelelElements.Element(ElementName.SpeakerCover2).
                 Parameter(ParametersName.Height).Value;
-            var HeightSpeakerCover3 = 
-                _modelelElements.Element(ElementName.SpeakerCover3).
+            var heightDinamic3 = _modelelElements.Element(ElementName.SpeakerCover3).
                 Parameter(ParametersName.Height).Value;
-            //Перераспределение частей высот
-            if (HeightSpeakerCover1 > PartMaxHeighDynamic)
-            {
-                PartMaxHeighDynamic = HeightSpeakerCover1;
-                PartMaxHeighDynamic1 = (maxDynamic - PartMaxHeighDynamic) / 2;
-                PartMaxHeighDynamic2 = (maxDynamic - PartMaxHeighDynamic) / 2;
-            }
-            if (HeightSpeakerCover2 > PartMaxHeighDynamic1)
-            {
-                PartMaxHeighDynamic1 = HeightSpeakerCover2;
-                if (PartMaxHeighDynamic == maxDynamic / 3)
-                {
-                    PartMaxHeighDynamic = (maxDynamic - PartMaxHeighDynamic1) / 2;
-                    PartMaxHeighDynamic2 = (maxDynamic - PartMaxHeighDynamic1) / 2;
-                }
-                else
-                {
-                    PartMaxHeighDynamic2 = 
-                        maxDynamic - PartMaxHeighDynamic - PartMaxHeighDynamic1;
-                }
-            }
-            if (HeightSpeakerCover3 > PartMaxHeighDynamic2)
-            {
-                PartMaxHeighDynamic2 = HeightSpeakerCover3;
-                if (PartMaxHeighDynamic > maxDynamic / 3)
-                {
-                    PartMaxHeighDynamic1 = 
-                        maxDynamic - PartMaxHeighDynamic - PartMaxHeighDynamic2;
-                }
-                if (PartMaxHeighDynamic1 > maxDynamic / 3)
-                {
-                    PartMaxHeighDynamic = 
-                        maxDynamic - PartMaxHeighDynamic1 - PartMaxHeighDynamic2;
-                }
-                if (PartMaxHeighDynamic == (maxDynamic / 3)
-                    && (PartMaxHeighDynamic1 == maxDynamic / 3))
-                {
-                    PartMaxHeighDynamic = (maxDynamic - PartMaxHeighDynamic2) / 2;
-                    PartMaxHeighDynamic1 = (maxDynamic - PartMaxHeighDynamic2) / 2;
-                }
-            }
-            var middlePart = PartMaxHeighDynamic / 2;
-            var middlePart1 = PartMaxHeighDynamic1 / 2;
-            var middlePart2 = PartMaxHeighDynamic2 / 2;
+            var indent = ((maxDynamic - heightDinamic1 - heightDinamic2
+                - heightDinamic3) / 4);
             CreateDynamic(iPart, iDocument3D,
-                 ElementName.SpeakerCover1, 
-                 result + PartMaxHeighDynamic1 + PartMaxHeighDynamic2 + middlePart + 2);
+                ElementName.SpeakerCover1,
+                 result + (3*indent) + heightDinamic3 
+                 + heightDinamic2 + (heightDinamic1 / 2));
             CreateDynamic(iPart, iDocument3D,
-                 ElementName.SpeakerCover2, result + PartMaxHeighDynamic2 + middlePart1);
+                ElementName.SpeakerCover2, result + (2*indent) 
+                + heightDinamic3 + (heightDinamic2 / 2));
             CreateDynamic(iPart, iDocument3D,
-                ElementName.SpeakerCover3, result + middlePart2 - 2);
+                ElementName.SpeakerCover3, result + indent
+                + (heightDinamic3 / 2));
         }
 
         /// <summary>
@@ -361,167 +301,30 @@ namespace Builder
         {
             var maxDynamic = _modelelElements.CalculationMaxDynamics();
             var result = 10 + _modelelElements.Element(ElementName.Rele).
-                Parameter(ParametersName.Diameter).Value;
-            var PartMaxHeightDynamic = maxDynamic / 4;
-            var PartMaxHeightDynamic1 = maxDynamic / 4;
-            var PartMaxHeightDynamic2 = maxDynamic / 4;
-            var PartMaxHeightDynamic3 = maxDynamic / 4;
-            var HeightSpeakerCover1 = 
-                _modelelElements.Element(ElementName.SpeakerCover1).
+               Parameter(ParametersName.Diameter).Value;
+            var heightDinamic1 = _modelelElements.Element(ElementName.SpeakerCover1).
                 Parameter(ParametersName.Height).Value;
-            var HeightSpeakerCover2 = 
-                _modelelElements.Element(ElementName.SpeakerCover2).
+            var heightDinamic2 = _modelelElements.Element(ElementName.SpeakerCover2).
                 Parameter(ParametersName.Height).Value;
-            var HeightSpeakerCover3 = 
-                _modelelElements.Element(ElementName.SpeakerCover3).
+            var heightDinamic3 = _modelelElements.Element(ElementName.SpeakerCover3).
                 Parameter(ParametersName.Height).Value;
-            var HeightSpeakerCover4 = 
-                _modelelElements.Element(ElementName.SpeakerCover4).
+            var heightDinamic4 = _modelelElements.Element(ElementName.SpeakerCover4).
                 Parameter(ParametersName.Height).Value;
-            //Перераспределение частей высот
-            if (HeightSpeakerCover1 > PartMaxHeightDynamic)
-            {
-                PartMaxHeightDynamic = HeightSpeakerCover1;
-                PartMaxHeightDynamic1 = (maxDynamic - PartMaxHeightDynamic) / 3;
-                PartMaxHeightDynamic2 = (maxDynamic - PartMaxHeightDynamic) / 3;
-                PartMaxHeightDynamic3 = (maxDynamic - PartMaxHeightDynamic) / 3;
-            }
-            if (HeightSpeakerCover2 > PartMaxHeightDynamic1)
-            {
-                PartMaxHeightDynamic1 = HeightSpeakerCover2;
-                if (PartMaxHeightDynamic == maxDynamic / 4)
-                {
-                    PartMaxHeightDynamic = (maxDynamic - PartMaxHeightDynamic1) / 3;
-                    PartMaxHeightDynamic2 = (maxDynamic - PartMaxHeightDynamic1) / 3;
-                    PartMaxHeightDynamic3 = (maxDynamic - PartMaxHeightDynamic1) / 3;
-                }
-                else
-                {
-                    PartMaxHeightDynamic2 = 
-                        (maxDynamic - PartMaxHeightDynamic - PartMaxHeightDynamic1) / 2;
-                    PartMaxHeightDynamic3 = 
-                        (maxDynamic - PartMaxHeightDynamic - PartMaxHeightDynamic1) / 2;
-                }
-            }
-            if (HeightSpeakerCover3 > PartMaxHeightDynamic2)
-            {
-                PartMaxHeightDynamic2 = HeightSpeakerCover3;
-                if (PartMaxHeightDynamic > maxDynamic / 4 
-                    && PartMaxHeightDynamic1 > maxDynamic / 4)
-                {
-                    PartMaxHeightDynamic3 = 
-                        maxDynamic - PartMaxHeightDynamic 
-                        - PartMaxHeightDynamic1 - PartMaxHeightDynamic2;
-                }
-                else
-                {
-                    if (PartMaxHeightDynamic > maxDynamic / 4)
-                    {
-
-                        PartMaxHeightDynamic1 = 
-                            (maxDynamic - PartMaxHeightDynamic - PartMaxHeightDynamic2) / 2;
-                        PartMaxHeightDynamic3 = 
-                            (maxDynamic - PartMaxHeightDynamic - PartMaxHeightDynamic2) / 2;
-                    }
-
-                    if (PartMaxHeightDynamic1 > maxDynamic / 4)
-                    {
-                        PartMaxHeightDynamic = 
-                            (maxDynamic - PartMaxHeightDynamic1 - PartMaxHeightDynamic2) / 2;
-                        PartMaxHeightDynamic3 = 
-                            (maxDynamic - PartMaxHeightDynamic1 - PartMaxHeightDynamic2) / 2;
-                    }
-                    if (PartMaxHeightDynamic == maxDynamic / 4
-                        && PartMaxHeightDynamic1 == maxDynamic / 4)
-                    {
-                        PartMaxHeightDynamic = (maxDynamic - PartMaxHeightDynamic2) / 3;
-                        PartMaxHeightDynamic1 = (maxDynamic - PartMaxHeightDynamic2) / 3;
-                        PartMaxHeightDynamic3 = (maxDynamic - PartMaxHeightDynamic2) / 3;
-                    }
-                }
-            }
-            if (HeightSpeakerCover4 > PartMaxHeightDynamic3)
-            {
-                PartMaxHeightDynamic3 = HeightSpeakerCover4;
-                if (PartMaxHeightDynamic == maxDynamic / 4 
-                    && PartMaxHeightDynamic1 == maxDynamic / 4
-                                && PartMaxHeightDynamic2 == maxDynamic / 4)
-                {
-                    PartMaxHeightDynamic = (maxDynamic - PartMaxHeightDynamic3) / 3;
-                    PartMaxHeightDynamic1 = (maxDynamic - PartMaxHeightDynamic3) / 3;
-                    PartMaxHeightDynamic2 = (maxDynamic - PartMaxHeightDynamic3) / 3;
-                }
-                else
-                {
-                    if (PartMaxHeightDynamic > maxDynamic / 4 
-                        && PartMaxHeightDynamic1 > maxDynamic / 4)
-                    {
-                        PartMaxHeightDynamic2 = 
-                            maxDynamic - PartMaxHeightDynamic 
-                            - PartMaxHeightDynamic1 - PartMaxHeightDynamic3;
-                    }
-                    else
-                    {
-                        if (PartMaxHeightDynamic > maxDynamic / 4 
-                            && PartMaxHeightDynamic2 > maxDynamic / 4)
-                        {
-                            PartMaxHeightDynamic1 = 
-                                maxDynamic - PartMaxHeightDynamic 
-                                - PartMaxHeightDynamic2 - PartMaxHeightDynamic3;
-                        }
-                        else
-                        {
-                            if (PartMaxHeightDynamic1 > maxDynamic / 4 
-                                && PartMaxHeightDynamic2 > maxDynamic / 4)
-                            {
-                                PartMaxHeightDynamic = 
-                                    maxDynamic - PartMaxHeightDynamic1 
-                                    - PartMaxHeightDynamic2 - PartMaxHeightDynamic3;
-                            }
-                            else
-                            {
-                                if (PartMaxHeightDynamic > maxDynamic / 4)
-                                {
-                                    PartMaxHeightDynamic1 = 
-                                        (maxDynamic - PartMaxHeightDynamic - PartMaxHeightDynamic3) / 2;
-                                    PartMaxHeightDynamic2 = 
-                                        (maxDynamic - PartMaxHeightDynamic - PartMaxHeightDynamic3) / 2;
-                                }
-                                if (PartMaxHeightDynamic1 > maxDynamic / 4)
-                                {
-                                    PartMaxHeightDynamic = 
-                                        (maxDynamic - PartMaxHeightDynamic1 - PartMaxHeightDynamic3) / 2;
-                                    PartMaxHeightDynamic2 = 
-                                        (maxDynamic - PartMaxHeightDynamic1 - PartMaxHeightDynamic3) / 2;
-                                }
-                                if (PartMaxHeightDynamic2 > maxDynamic / 4)
-                                {
-                                    PartMaxHeightDynamic = 
-                                        (maxDynamic - PartMaxHeightDynamic2 - PartMaxHeightDynamic3) / 2;
-                                    PartMaxHeightDynamic1 = 
-                                        (maxDynamic - PartMaxHeightDynamic2 - PartMaxHeightDynamic3) / 2;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            var middlePart = PartMaxHeightDynamic / 2;
-            var middlePart1 = PartMaxHeightDynamic1 / 2;
-            var middlePart2 = PartMaxHeightDynamic2 / 2;
-            var middlePart3 = PartMaxHeightDynamic3 / 2;
-            CreateDynamic(iPart, iDocument3D, 
-                ElementName.SpeakerCover1, 
-                result + PartMaxHeightDynamic1 + PartMaxHeightDynamic2 
-                + PartMaxHeightDynamic3 + middlePart);
-            CreateDynamic(iPart, iDocument3D, 
-                ElementName.SpeakerCover2, 
-                result + PartMaxHeightDynamic2 + PartMaxHeightDynamic3 + middlePart1 - 2);
-            CreateDynamic(iPart, iDocument3D, 
-                ElementName.SpeakerCover3, result + PartMaxHeightDynamic3 + middlePart2 - 4);
-            CreateDynamic(iPart, iDocument3D, 
-                ElementName.SpeakerCover4, result + middlePart3 - 6);
-    }
+            var indent = ((maxDynamic - heightDinamic1 - heightDinamic2
+                - heightDinamic3 - heightDinamic4) / 5);
+            CreateDynamic(iPart, iDocument3D,
+                ElementName.SpeakerCover1,
+                 result + (4*indent) + heightDinamic4 + heightDinamic3
+                 + heightDinamic2 + (heightDinamic1 / 2));
+            CreateDynamic(iPart, iDocument3D,
+                ElementName.SpeakerCover2, result + (3*indent) + heightDinamic4
+                + heightDinamic3 + (heightDinamic2 / 2));
+            CreateDynamic(iPart, iDocument3D,
+                ElementName.SpeakerCover3, result + (2*indent) + heightDinamic4
+                + (heightDinamic3 / 2));
+            CreateDynamic(iPart, iDocument3D,
+                ElementName.SpeakerCover4, result + indent + (heightDinamic4 / 2));
+        }
 
         /// <summary>
         /// Создание динамика
@@ -534,16 +337,16 @@ namespace Builder
         {
             var maxWidthCase = 
                 _modelelElements.Element(ElementName.Case).Parameter(ParametersName.Width).Value;
-            var Width = 
+            var width = 
                 _modelelElements.Element(name).Parameter(ParametersName.Width).Value;
-            var Height = 
+            var height = 
                 _modelelElements.Element(name).Parameter(ParametersName.Height).Value;
             if (_modelelElements.Element(name).FormKey() == ElementFormKey.Rectangle)
             {
-                var pointMaxHeightDinamic = Y + (Height / 2);
-                var pointMinHeightDinamic = Y - (Height / 2);
-                var pointMaxWidthDinamic = (maxWidthCase / 2) + (Width / 2);
-                var pointMinWidthDinamic = (maxWidthCase / 2) - (Width / 2);
+                var pointMaxHeightDinamic = Y + (height / 2);
+                var pointMinHeightDinamic = Y - (height / 2);
+                var pointMaxWidthDinamic = (maxWidthCase / 2) + (width / 2);
+                var pointMinWidthDinamic = (maxWidthCase / 2) - (width / 2);
                 CreateRectanglSpeaker(iDocument3D, iPart, pointMaxHeightDinamic, 
                     pointMinHeightDinamic, pointMaxWidthDinamic, pointMinWidthDinamic,
                     _modelelElements.Element(name));
@@ -553,7 +356,7 @@ namespace Builder
             else
             {
                 var X = (maxWidthCase / 2);
-                var radius = Height / 2;
+                var radius = height / 2;
                 CreateCirсleSpeaker(iPart, X, Y, radius,
                     _modelelElements.Element(name));
             }
