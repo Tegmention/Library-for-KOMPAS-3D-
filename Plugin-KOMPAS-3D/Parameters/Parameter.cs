@@ -87,7 +87,7 @@ namespace Parameters
         /// <param name="value">Текущее значение параметра</param>
         /// <param name="name">Название параметра</param>
         public Parameter(T minValue, T maxValue, T value, string name)
-        {
+        {                                                                  
             MinValue = minValue;
             MaxValue = maxValue;
             _value = value;

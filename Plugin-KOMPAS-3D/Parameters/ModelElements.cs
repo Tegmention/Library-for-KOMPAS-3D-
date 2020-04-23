@@ -85,7 +85,7 @@ namespace Parameters
                     }
                 }
             }
-            CalculationMaxHDynamics();
+            CalculationMaxHeightDynamics();
             CalculationMaxWidthDynamic();
         }
 
@@ -112,7 +112,7 @@ namespace Parameters
                     }
                 }
             }
-            CalculationMaxHDynamics();
+            CalculationMaxHeightDynamics();
             CalculationMaxWidthDynamic();
         }
 
@@ -176,7 +176,7 @@ namespace Parameters
         /// Метод расчитывает и присваивает 
         /// максимальное значение высот динамиков
         /// </summary>
-        public void CalculationMaxHDynamics()
+        public void CalculationMaxHeightDynamics()
         {
             CalculationMaxHeightDynamic(ElementName.SpeakerCover1);
             if (_elements.ContainsKey(ElementName.SpeakerCover2))
@@ -201,7 +201,7 @@ namespace Parameters
         {
             var element = Element(name);
             element.ChangeForm();
-            CalculationMaxHDynamics();
+            CalculationMaxHeightDynamics();
             CalculationMaxWidthDynamic();
         }
 

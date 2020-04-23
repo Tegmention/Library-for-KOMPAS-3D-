@@ -1,6 +1,7 @@
 ﻿using Kompas6API5;
 using Parameters;
 using Kompas6Constants3D;
+using System;
 
 namespace Builder
 {
@@ -29,6 +30,19 @@ namespace Builder
         {
             _modelelElements = elements;
             _kompasObject = kompas;
+            //var i = 0;
+            //while (i != 2000)
+            //{
+            //    DateTime Start;
+            //    DateTime Stoped;
+            //    TimeSpan Elapsed = new TimeSpan();
+            //    Start = DateTime.Now;
+            //    CreateModel();
+            //    Stoped = DateTime.Now;
+            //    Elapsed = Stoped.Subtract(Start);
+            //    Console.WriteLine(Elapsed);
+            //    i++;
+            //}
             CreateModel();
         }
 
@@ -105,7 +119,8 @@ namespace Builder
             var partLength = 
                 _modelelElements.Element(ElementName.Case).
                 Parameter(ParametersName.Width).Value / 5;
-            var height = 2.5 + radius;
+            var indent = 2.5;
+            var height = indent + radius;
 
             iDocument2D.ksCircle(partLength * 4, height, radius, 1);
             iDocument2D.ksCircle(partLength * 3, height, radius, 1);

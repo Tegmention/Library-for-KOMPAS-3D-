@@ -196,7 +196,7 @@ namespace Plugin_KOMPAS_3D.UnitTests
         [TestCase(2, 75, TestName = "Удаление 2 динамика")]
         [TestCase(3, 65, TestName = "Удаление 3 динамика")]
         [TestCase(4, 55, TestName = "Удаление 4 динамика")]
-        public void Test_AddDinamic_More4Dynamic(int numberDynamic, double maxHeight)
+        public void Test_DeleteDynamic(int numberDynamic, double maxHeight)
         {
             var elements = new List<ModelElement> { };
             elements.Add(_modelElements.Element(ElementName.SpeakerCover1));
@@ -294,7 +294,7 @@ namespace Plugin_KOMPAS_3D.UnitTests
         [TestCase(ElementName.SpeakerCover1,
            TestName = "Позитивный тест метода CalculationMaxHeightDynamic для расчета " +
             "высоты динамика 1 при существовании 1 динамика")]
-        public void Test_CalculationMaxHDynamic_Dynamic1(ElementName name)
+        public void Test_CalculationMaxHeightDynamic_Dynamic1(ElementName name)
         {
             _modelElements.CalculationMaxHeightDynamic(name);
             var actual = _modelElements.Element(name).

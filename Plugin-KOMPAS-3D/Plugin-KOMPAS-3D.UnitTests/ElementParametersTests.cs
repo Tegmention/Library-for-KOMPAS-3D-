@@ -60,8 +60,8 @@ namespace Plugin_KOMPAS_3D.UnitTests
         }
 
         [Test(Description = 
-            "Позитивный тест метода CalculationCircleParameter при maxW > maxH")]
-        public void Test_CalculationCircleParameterWMoreH()
+            "Позитивный тест метода CalculationCircleParameter при maxWidth > maxHeight")]
+        public void Test_CalculationCircleParameterWidthMoreHeight()
         {
             var elementParameters = new ElementParameters(_values);
             elementParameters.CalculationCircleParameter();
@@ -72,8 +72,8 @@ namespace Plugin_KOMPAS_3D.UnitTests
         }
 
         [Test(Description = 
-            "Позитивный тест метода CalculationCircleParameter при maxH > maxW")]
-        public void Test_CalculationCircleParameterHMoreW()
+            "Позитивный тест метода CalculationCircleParameter при maxHeight > maxWidth")]
+        public void Test_CalculationCircleParameterHeightMoreWidth()
         {
             var elementParameters = new ElementParameters(_values);
             elementParameters.Parameter(ParametersName.Height).MaxValue = 700;
