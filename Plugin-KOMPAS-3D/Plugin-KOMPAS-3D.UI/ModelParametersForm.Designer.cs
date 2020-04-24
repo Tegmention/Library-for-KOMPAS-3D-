@@ -33,49 +33,16 @@
             this.CaseHeightTextBox = new System.Windows.Forms.TextBox();
             this.CaseWidthTextBox = new System.Windows.Forms.TextBox();
             this.SpeakerHeightTextBox = new System.Windows.Forms.TextBox();
-            this.SpeakerWidthTextBox = new System.Windows.Forms.TextBox();
             this.SpeakerTTextBox = new System.Windows.Forms.TextBox();
             this.RelayDiameterTextBox = new System.Windows.Forms.TextBox();
             this.CaseHeightlLabel = new System.Windows.Forms.Label();
             this.CaseLengthLabel = new System.Windows.Forms.Label();
             this.CaseWidthLabel = new System.Windows.Forms.Label();
-            this.SpeakerHeightLabel = new System.Windows.Forms.Label();
-            this.SpeakerLengthLabel = new System.Windows.Forms.Label();
-            this.SpeakerWidthLabel = new System.Windows.Forms.Label();
             this.RelayDiameterLabel = new System.Windows.Forms.Label();
             this.СaseDimensionsGroupBox = new System.Windows.Forms.GroupBox();
             this.BoundaryValueHLabel = new System.Windows.Forms.Label();
             this.BoundaryValueWLabel = new System.Windows.Forms.Label();
             this.BoundaryValueLLabel = new System.Windows.Forms.Label();
-            this.SpeakerDimensions1GroupBox = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.SpeakerDimensions3GroupBox = new System.Windows.Forms.GroupBox();
-            this.BoundaryValueTS2Label = new System.Windows.Forms.Label();
-            this.BoundaryValueHS2Label = new System.Windows.Forms.Label();
-            this.BoundaryValueWS2Label = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.SpeakerLength2Label = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.SpeakerHeight2Label = new System.Windows.Forms.Label();
-            this.SpeakerDimensions4GroupBox = new System.Windows.Forms.GroupBox();
-            this.BoundaryValueHS3Label = new System.Windows.Forms.Label();
-            this.BoundaryValueWS3Label = new System.Windows.Forms.Label();
-            this.BoundaryValueTS3Label = new System.Windows.Forms.Label();
-            this.SpeakerLength3Label = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.SpeakerHeight3Label = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.BoundaryValueWSLabel = new System.Windows.Forms.Label();
-            this.BoundaryValueTSLabel = new System.Windows.Forms.Label();
-            this.BoundaryValueHSLabel = new System.Windows.Forms.Label();
-            this.SpeakerDimensions2GroupBox = new System.Windows.Forms.GroupBox();
-            this.BoundaryValueHS1Label = new System.Windows.Forms.Label();
-            this.BoundaryValueWS1Label = new System.Windows.Forms.Label();
-            this.BoundaryValueTS1Label = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.SpeakerHeight1Label = new System.Windows.Forms.Label();
-            this.SpeakerLength1Label = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.FormComboBox = new System.Windows.Forms.ComboBox();
             this.ReleDimensionsGroupBox = new System.Windows.Forms.GroupBox();
             this.BoundaryValueDLabel = new System.Windows.Forms.Label();
@@ -98,28 +65,33 @@
             this.SpeakerT3TextBox = new System.Windows.Forms.TextBox();
             this.SpeakerHeight3TextBox = new System.Windows.Forms.TextBox();
             this.Form3ComboBox = new System.Windows.Forms.ComboBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label10 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.label16 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.SpeakerWidthTextBox = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.СaseDimensionsGroupBox.SuspendLayout();
-            this.SpeakerDimensions1GroupBox.SuspendLayout();
-            this.SpeakerDimensions3GroupBox.SuspendLayout();
-            this.SpeakerDimensions4GroupBox.SuspendLayout();
-            this.SpeakerDimensions2GroupBox.SuspendLayout();
             this.ReleDimensionsGroupBox.SuspendLayout();
             this.Кол.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // CaseLengthTextBox
@@ -165,7 +137,7 @@
             // 
             this.SpeakerHeightTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerHeightTextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.SpeakerHeightTextBox.Location = new System.Drawing.Point(237, 24);
+            this.SpeakerHeightTextBox.Location = new System.Drawing.Point(237, 4);
             this.SpeakerHeightTextBox.Name = "SpeakerHeightTextBox";
             this.SpeakerHeightTextBox.Size = new System.Drawing.Size(129, 20);
             this.SpeakerHeightTextBox.TabIndex = 1;
@@ -175,27 +147,13 @@
             this.SpeakerHeightTextBox.TextChanged += new System.EventHandler(this.TextBoxChanged);
             this.SpeakerHeightTextBox.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
-            // SpeakerWidthTextBox
-            // 
-            this.SpeakerWidthTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.SpeakerWidthTextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.SpeakerWidthTextBox.Location = new System.Drawing.Point(500, 24);
-            this.SpeakerWidthTextBox.Name = "SpeakerWidthTextBox";
-            this.SpeakerWidthTextBox.Size = new System.Drawing.Size(137, 20);
-            this.SpeakerWidthTextBox.TabIndex = 3;
-            this.SpeakerWidthTextBox.Text = "150";
-            this.SpeakerWidthTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip1.SetToolTip(this.SpeakerWidthTextBox, "(от 150 до 195) мм");
-            this.SpeakerWidthTextBox.TextChanged += new System.EventHandler(this.TextBoxChanged);
-            this.SpeakerWidthTextBox.Leave += new System.EventHandler(this.TextBox_Leave);
-            // 
             // SpeakerTTextBox
             // 
             this.SpeakerTTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerTTextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.SpeakerTTextBox.Location = new System.Drawing.Point(372, 24);
+            this.SpeakerTTextBox.Location = new System.Drawing.Point(372, 4);
             this.SpeakerTTextBox.Name = "SpeakerTTextBox";
-            this.SpeakerTTextBox.Size = new System.Drawing.Size(122, 20);
+            this.SpeakerTTextBox.Size = new System.Drawing.Size(123, 20);
             this.SpeakerTTextBox.TabIndex = 2;
             this.SpeakerTTextBox.Text = "5";
             this.SpeakerTTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -220,7 +178,7 @@
             // 
             this.CaseHeightlLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CaseHeightlLabel.AutoSize = true;
-            this.CaseHeightlLabel.Location = new System.Drawing.Point(15, 28);
+            this.CaseHeightlLabel.Location = new System.Drawing.Point(6, 28);
             this.CaseHeightlLabel.Name = "CaseHeightlLabel";
             this.CaseHeightlLabel.Size = new System.Drawing.Size(65, 13);
             this.CaseHeightlLabel.TabIndex = 7;
@@ -230,7 +188,7 @@
             // 
             this.CaseLengthLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CaseLengthLabel.AutoSize = true;
-            this.CaseLengthLabel.Location = new System.Drawing.Point(15, 54);
+            this.CaseLengthLabel.Location = new System.Drawing.Point(6, 54);
             this.CaseLengthLabel.Name = "CaseLengthLabel";
             this.CaseLengthLabel.Size = new System.Drawing.Size(69, 13);
             this.CaseLengthLabel.TabIndex = 8;
@@ -240,38 +198,11 @@
             // 
             this.CaseWidthLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CaseWidthLabel.AutoSize = true;
-            this.CaseWidthLabel.Location = new System.Drawing.Point(15, 80);
+            this.CaseWidthLabel.Location = new System.Drawing.Point(6, 80);
             this.CaseWidthLabel.Name = "CaseWidthLabel";
             this.CaseWidthLabel.Size = new System.Drawing.Size(58, 13);
             this.CaseWidthLabel.TabIndex = 9;
             this.CaseWidthLabel.Text = "Длина (L):";
-            // 
-            // SpeakerHeightLabel
-            // 
-            this.SpeakerHeightLabel.AutoSize = true;
-            this.SpeakerHeightLabel.Location = new System.Drawing.Point(3, 56);
-            this.SpeakerHeightLabel.Name = "SpeakerHeightLabel";
-            this.SpeakerHeightLabel.Size = new System.Drawing.Size(72, 13);
-            this.SpeakerHeightLabel.TabIndex = 10;
-            this.SpeakerHeightLabel.Text = "Высота (HS):";
-            // 
-            // SpeakerLengthLabel
-            // 
-            this.SpeakerLengthLabel.AutoSize = true;
-            this.SpeakerLengthLabel.Location = new System.Drawing.Point(3, 108);
-            this.SpeakerLengthLabel.Name = "SpeakerLengthLabel";
-            this.SpeakerLengthLabel.Size = new System.Drawing.Size(76, 13);
-            this.SpeakerLengthLabel.TabIndex = 11;
-            this.SpeakerLengthLabel.Text = "Ширина (WS):";
-            // 
-            // SpeakerWidthLabel
-            // 
-            this.SpeakerWidthLabel.AutoSize = true;
-            this.SpeakerWidthLabel.Location = new System.Drawing.Point(3, 82);
-            this.SpeakerWidthLabel.Name = "SpeakerWidthLabel";
-            this.SpeakerWidthLabel.Size = new System.Drawing.Size(79, 13);
-            this.SpeakerWidthLabel.TabIndex = 12;
-            this.SpeakerWidthLabel.Text = "Толщина (TS):";
             // 
             // RelayDiameterLabel
             // 
@@ -330,313 +261,6 @@
             this.BoundaryValueLLabel.TabIndex = 19;
             this.BoundaryValueLLabel.Text = "(от 200 до 300) мм";
             // 
-            // SpeakerDimensions1GroupBox
-            // 
-            this.SpeakerDimensions1GroupBox.Controls.Add(this.label1);
-            this.SpeakerDimensions1GroupBox.Controls.Add(this.SpeakerDimensions3GroupBox);
-            this.SpeakerDimensions1GroupBox.Controls.Add(this.SpeakerDimensions4GroupBox);
-            this.SpeakerDimensions1GroupBox.Controls.Add(this.BoundaryValueWSLabel);
-            this.SpeakerDimensions1GroupBox.Controls.Add(this.BoundaryValueTSLabel);
-            this.SpeakerDimensions1GroupBox.Controls.Add(this.BoundaryValueHSLabel);
-            this.SpeakerDimensions1GroupBox.Controls.Add(this.SpeakerLengthLabel);
-            this.SpeakerDimensions1GroupBox.Controls.Add(this.SpeakerWidthLabel);
-            this.SpeakerDimensions1GroupBox.Controls.Add(this.SpeakerHeightLabel);
-            this.SpeakerDimensions1GroupBox.Location = new System.Drawing.Point(60, 210);
-            this.SpeakerDimensions1GroupBox.Name = "SpeakerDimensions1GroupBox";
-            this.SpeakerDimensions1GroupBox.Size = new System.Drawing.Size(324, 140);
-            this.SpeakerDimensions1GroupBox.TabIndex = 3;
-            this.SpeakerDimensions1GroupBox.TabStop = false;
-            this.SpeakerDimensions1GroupBox.Text = "Габариты крышки динамика 1";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
-            this.label1.TabIndex = 25;
-            this.label1.Text = "Форма:";
-            // 
-            // SpeakerDimensions3GroupBox
-            // 
-            this.SpeakerDimensions3GroupBox.Controls.Add(this.BoundaryValueTS2Label);
-            this.SpeakerDimensions3GroupBox.Controls.Add(this.BoundaryValueHS2Label);
-            this.SpeakerDimensions3GroupBox.Controls.Add(this.BoundaryValueWS2Label);
-            this.SpeakerDimensions3GroupBox.Controls.Add(this.label12);
-            this.SpeakerDimensions3GroupBox.Controls.Add(this.SpeakerLength2Label);
-            this.SpeakerDimensions3GroupBox.Controls.Add(this.label4);
-            this.SpeakerDimensions3GroupBox.Controls.Add(this.SpeakerHeight2Label);
-            this.SpeakerDimensions3GroupBox.Location = new System.Drawing.Point(200, 0);
-            this.SpeakerDimensions3GroupBox.Name = "SpeakerDimensions3GroupBox";
-            this.SpeakerDimensions3GroupBox.Size = new System.Drawing.Size(324, 140);
-            this.SpeakerDimensions3GroupBox.TabIndex = 5;
-            this.SpeakerDimensions3GroupBox.TabStop = false;
-            this.SpeakerDimensions3GroupBox.Text = "Габариты крышки динамика 3";
-            this.SpeakerDimensions3GroupBox.Visible = false;
-            // 
-            // BoundaryValueTS2Label
-            // 
-            this.BoundaryValueTS2Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BoundaryValueTS2Label.AutoSize = true;
-            this.BoundaryValueTS2Label.Location = new System.Drawing.Point(195, 82);
-            this.BoundaryValueTS2Label.Name = "BoundaryValueTS2Label";
-            this.BoundaryValueTS2Label.Size = new System.Drawing.Size(82, 13);
-            this.BoundaryValueTS2Label.TabIndex = 30;
-            this.BoundaryValueTS2Label.Text = "(от 5 до 20) мм";
-            // 
-            // BoundaryValueHS2Label
-            // 
-            this.BoundaryValueHS2Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BoundaryValueHS2Label.AutoSize = true;
-            this.BoundaryValueHS2Label.Location = new System.Drawing.Point(195, 56);
-            this.BoundaryValueHS2Label.Name = "BoundaryValueHS2Label";
-            this.BoundaryValueHS2Label.Size = new System.Drawing.Size(88, 13);
-            this.BoundaryValueHS2Label.TabIndex = 32;
-            this.BoundaryValueHS2Label.Text = "(от 10 до 75) мм";
-            // 
-            // BoundaryValueWS2Label
-            // 
-            this.BoundaryValueWS2Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BoundaryValueWS2Label.AutoSize = true;
-            this.BoundaryValueWS2Label.Location = new System.Drawing.Point(195, 108);
-            this.BoundaryValueWS2Label.Name = "BoundaryValueWS2Label";
-            this.BoundaryValueWS2Label.Size = new System.Drawing.Size(100, 13);
-            this.BoundaryValueWS2Label.TabIndex = 31;
-            this.BoundaryValueWS2Label.Text = "(от 150 до 195) мм";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(3, 29);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(47, 13);
-            this.label12.TabIndex = 29;
-            this.label12.Text = "Форма:";
-            // 
-            // SpeakerLength2Label
-            // 
-            this.SpeakerLength2Label.AutoSize = true;
-            this.SpeakerLength2Label.Location = new System.Drawing.Point(3, 107);
-            this.SpeakerLength2Label.Name = "SpeakerLength2Label";
-            this.SpeakerLength2Label.Size = new System.Drawing.Size(76, 13);
-            this.SpeakerLength2Label.TabIndex = 27;
-            this.SpeakerLength2Label.Text = "Ширина (WS):";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 81);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 13);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "Толщина (TS):";
-            // 
-            // SpeakerHeight2Label
-            // 
-            this.SpeakerHeight2Label.AutoSize = true;
-            this.SpeakerHeight2Label.Location = new System.Drawing.Point(3, 55);
-            this.SpeakerHeight2Label.Name = "SpeakerHeight2Label";
-            this.SpeakerHeight2Label.Size = new System.Drawing.Size(72, 13);
-            this.SpeakerHeight2Label.TabIndex = 28;
-            this.SpeakerHeight2Label.Text = "Высота (HS):";
-            // 
-            // SpeakerDimensions4GroupBox
-            // 
-            this.SpeakerDimensions4GroupBox.Controls.Add(this.BoundaryValueHS3Label);
-            this.SpeakerDimensions4GroupBox.Controls.Add(this.BoundaryValueWS3Label);
-            this.SpeakerDimensions4GroupBox.Controls.Add(this.BoundaryValueTS3Label);
-            this.SpeakerDimensions4GroupBox.Controls.Add(this.SpeakerLength3Label);
-            this.SpeakerDimensions4GroupBox.Controls.Add(this.label3);
-            this.SpeakerDimensions4GroupBox.Controls.Add(this.SpeakerHeight3Label);
-            this.SpeakerDimensions4GroupBox.Controls.Add(this.label13);
-            this.SpeakerDimensions4GroupBox.Location = new System.Drawing.Point(156, 19);
-            this.SpeakerDimensions4GroupBox.Name = "SpeakerDimensions4GroupBox";
-            this.SpeakerDimensions4GroupBox.Size = new System.Drawing.Size(324, 140);
-            this.SpeakerDimensions4GroupBox.TabIndex = 6;
-            this.SpeakerDimensions4GroupBox.TabStop = false;
-            this.SpeakerDimensions4GroupBox.Text = "Габариты крышки динамика 4";
-            this.SpeakerDimensions4GroupBox.Visible = false;
-            // 
-            // BoundaryValueHS3Label
-            // 
-            this.BoundaryValueHS3Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BoundaryValueHS3Label.AutoSize = true;
-            this.BoundaryValueHS3Label.Location = new System.Drawing.Point(197, 55);
-            this.BoundaryValueHS3Label.Name = "BoundaryValueHS3Label";
-            this.BoundaryValueHS3Label.Size = new System.Drawing.Size(88, 13);
-            this.BoundaryValueHS3Label.TabIndex = 32;
-            this.BoundaryValueHS3Label.Text = "(от 10 до 75) мм";
-            // 
-            // BoundaryValueWS3Label
-            // 
-            this.BoundaryValueWS3Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BoundaryValueWS3Label.AutoSize = true;
-            this.BoundaryValueWS3Label.Location = new System.Drawing.Point(197, 106);
-            this.BoundaryValueWS3Label.Name = "BoundaryValueWS3Label";
-            this.BoundaryValueWS3Label.Size = new System.Drawing.Size(100, 13);
-            this.BoundaryValueWS3Label.TabIndex = 31;
-            this.BoundaryValueWS3Label.Text = "(от 150 до 195) мм";
-            // 
-            // BoundaryValueTS3Label
-            // 
-            this.BoundaryValueTS3Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BoundaryValueTS3Label.AutoSize = true;
-            this.BoundaryValueTS3Label.Location = new System.Drawing.Point(197, 80);
-            this.BoundaryValueTS3Label.Name = "BoundaryValueTS3Label";
-            this.BoundaryValueTS3Label.Size = new System.Drawing.Size(82, 13);
-            this.BoundaryValueTS3Label.TabIndex = 30;
-            this.BoundaryValueTS3Label.Text = "(от 5 до 20) мм";
-            // 
-            // SpeakerLength3Label
-            // 
-            this.SpeakerLength3Label.AutoSize = true;
-            this.SpeakerLength3Label.Location = new System.Drawing.Point(3, 106);
-            this.SpeakerLength3Label.Name = "SpeakerLength3Label";
-            this.SpeakerLength3Label.Size = new System.Drawing.Size(76, 13);
-            this.SpeakerLength3Label.TabIndex = 27;
-            this.SpeakerLength3Label.Text = "Ширина (WS):";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 80);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 13);
-            this.label3.TabIndex = 26;
-            this.label3.Text = "Толщина (TS):";
-            // 
-            // SpeakerHeight3Label
-            // 
-            this.SpeakerHeight3Label.AutoSize = true;
-            this.SpeakerHeight3Label.Location = new System.Drawing.Point(3, 55);
-            this.SpeakerHeight3Label.Name = "SpeakerHeight3Label";
-            this.SpeakerHeight3Label.Size = new System.Drawing.Size(72, 13);
-            this.SpeakerHeight3Label.TabIndex = 28;
-            this.SpeakerHeight3Label.Text = "Высота (HS):";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 29);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(47, 13);
-            this.label13.TabIndex = 29;
-            this.label13.Text = "Форма:";
-            // 
-            // BoundaryValueWSLabel
-            // 
-            this.BoundaryValueWSLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BoundaryValueWSLabel.AutoSize = true;
-            this.BoundaryValueWSLabel.Location = new System.Drawing.Point(196, 106);
-            this.BoundaryValueWSLabel.Name = "BoundaryValueWSLabel";
-            this.BoundaryValueWSLabel.Size = new System.Drawing.Size(100, 13);
-            this.BoundaryValueWSLabel.TabIndex = 20;
-            this.BoundaryValueWSLabel.Text = "(от 150 до 195) мм";
-            // 
-            // BoundaryValueTSLabel
-            // 
-            this.BoundaryValueTSLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BoundaryValueTSLabel.AutoSize = true;
-            this.BoundaryValueTSLabel.Location = new System.Drawing.Point(197, 80);
-            this.BoundaryValueTSLabel.Name = "BoundaryValueTSLabel";
-            this.BoundaryValueTSLabel.Size = new System.Drawing.Size(82, 13);
-            this.BoundaryValueTSLabel.TabIndex = 23;
-            this.BoundaryValueTSLabel.Text = "(от 5 до 20) мм";
-            // 
-            // BoundaryValueHSLabel
-            // 
-            this.BoundaryValueHSLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BoundaryValueHSLabel.AutoSize = true;
-            this.BoundaryValueHSLabel.Location = new System.Drawing.Point(196, 54);
-            this.BoundaryValueHSLabel.Name = "BoundaryValueHSLabel";
-            this.BoundaryValueHSLabel.Size = new System.Drawing.Size(88, 13);
-            this.BoundaryValueHSLabel.TabIndex = 19;
-            this.BoundaryValueHSLabel.Text = "(от 10 до 75) мм";
-            // 
-            // SpeakerDimensions2GroupBox
-            // 
-            this.SpeakerDimensions2GroupBox.Controls.Add(this.BoundaryValueHS1Label);
-            this.SpeakerDimensions2GroupBox.Controls.Add(this.BoundaryValueWS1Label);
-            this.SpeakerDimensions2GroupBox.Controls.Add(this.BoundaryValueTS1Label);
-            this.SpeakerDimensions2GroupBox.Controls.Add(this.label11);
-            this.SpeakerDimensions2GroupBox.Controls.Add(this.SpeakerHeight1Label);
-            this.SpeakerDimensions2GroupBox.Controls.Add(this.SpeakerLength1Label);
-            this.SpeakerDimensions2GroupBox.Controls.Add(this.label2);
-            this.SpeakerDimensions2GroupBox.Location = new System.Drawing.Point(390, 189);
-            this.SpeakerDimensions2GroupBox.Name = "SpeakerDimensions2GroupBox";
-            this.SpeakerDimensions2GroupBox.Size = new System.Drawing.Size(324, 140);
-            this.SpeakerDimensions2GroupBox.TabIndex = 4;
-            this.SpeakerDimensions2GroupBox.TabStop = false;
-            this.SpeakerDimensions2GroupBox.Text = "Габариты крышки динамика 2";
-            this.SpeakerDimensions2GroupBox.Visible = false;
-            // 
-            // BoundaryValueHS1Label
-            // 
-            this.BoundaryValueHS1Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BoundaryValueHS1Label.AutoSize = true;
-            this.BoundaryValueHS1Label.Location = new System.Drawing.Point(195, 52);
-            this.BoundaryValueHS1Label.Name = "BoundaryValueHS1Label";
-            this.BoundaryValueHS1Label.Size = new System.Drawing.Size(88, 13);
-            this.BoundaryValueHS1Label.TabIndex = 32;
-            this.BoundaryValueHS1Label.Text = "(от 10 до 75) мм";
-            this.toolTip1.SetToolTip(this.BoundaryValueHS1Label, "(от 10 до 75) мм");
-            // 
-            // BoundaryValueWS1Label
-            // 
-            this.BoundaryValueWS1Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BoundaryValueWS1Label.AutoSize = true;
-            this.BoundaryValueWS1Label.Location = new System.Drawing.Point(196, 106);
-            this.BoundaryValueWS1Label.Name = "BoundaryValueWS1Label";
-            this.BoundaryValueWS1Label.Size = new System.Drawing.Size(100, 13);
-            this.BoundaryValueWS1Label.TabIndex = 31;
-            this.BoundaryValueWS1Label.Text = "(от 150 до 195) мм";
-            // 
-            // BoundaryValueTS1Label
-            // 
-            this.BoundaryValueTS1Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BoundaryValueTS1Label.AutoSize = true;
-            this.BoundaryValueTS1Label.Location = new System.Drawing.Point(196, 80);
-            this.BoundaryValueTS1Label.Name = "BoundaryValueTS1Label";
-            this.BoundaryValueTS1Label.Size = new System.Drawing.Size(82, 13);
-            this.BoundaryValueTS1Label.TabIndex = 30;
-            this.BoundaryValueTS1Label.Text = "(от 5 до 20) мм";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 30);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(47, 13);
-            this.label11.TabIndex = 29;
-            this.label11.Text = "Форма:";
-            // 
-            // SpeakerHeight1Label
-            // 
-            this.SpeakerHeight1Label.AutoSize = true;
-            this.SpeakerHeight1Label.Location = new System.Drawing.Point(3, 55);
-            this.SpeakerHeight1Label.Name = "SpeakerHeight1Label";
-            this.SpeakerHeight1Label.Size = new System.Drawing.Size(72, 13);
-            this.SpeakerHeight1Label.TabIndex = 28;
-            this.SpeakerHeight1Label.Text = "Высота (HS):";
-            // 
-            // SpeakerLength1Label
-            // 
-            this.SpeakerLength1Label.AutoSize = true;
-            this.SpeakerLength1Label.Location = new System.Drawing.Point(3, 108);
-            this.SpeakerLength1Label.Name = "SpeakerLength1Label";
-            this.SpeakerLength1Label.Size = new System.Drawing.Size(76, 13);
-            this.SpeakerLength1Label.TabIndex = 27;
-            this.SpeakerLength1Label.Text = "Ширина (WS):";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 82);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 13);
-            this.label2.TabIndex = 26;
-            this.label2.Text = "Толщина (TS):";
-            // 
             // FormComboBox
             // 
             this.FormComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -644,7 +268,7 @@
             this.FormComboBox.Items.AddRange(new object[] {
             "Прямоугольник",
             "Круг"});
-            this.FormComboBox.Location = new System.Drawing.Point(130, 23);
+            this.FormComboBox.Location = new System.Drawing.Point(130, 4);
             this.FormComboBox.Name = "FormComboBox";
             this.FormComboBox.Size = new System.Drawing.Size(101, 21);
             this.FormComboBox.TabIndex = 0;
@@ -676,10 +300,10 @@
             // BuildModelButton
             // 
             this.BuildModelButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BuildModelButton.Location = new System.Drawing.Point(587, 287);
+            this.BuildModelButton.Location = new System.Drawing.Point(587, 292);
             this.BuildModelButton.Name = "BuildModelButton";
             this.BuildModelButton.Size = new System.Drawing.Size(72, 23);
-            this.BuildModelButton.TabIndex = 8;
+            this.BuildModelButton.TabIndex = 5;
             this.BuildModelButton.Text = "Построить";
             this.BuildModelButton.UseVisualStyleBackColor = true;
             this.BuildModelButton.Click += new System.EventHandler(this.BuildModelButton_Click);
@@ -688,10 +312,10 @@
             // DeleteParametersButton
             // 
             this.DeleteParametersButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.DeleteParametersButton.Location = new System.Drawing.Point(510, 287);
+            this.DeleteParametersButton.Location = new System.Drawing.Point(510, 292);
             this.DeleteParametersButton.Name = "DeleteParametersButton";
             this.DeleteParametersButton.Size = new System.Drawing.Size(71, 23);
-            this.DeleteParametersButton.TabIndex = 7;
+            this.DeleteParametersButton.TabIndex = 4;
             this.DeleteParametersButton.Text = "Сбросить";
             this.DeleteParametersButton.UseVisualStyleBackColor = true;
             this.DeleteParametersButton.Click += new System.EventHandler(this.ReturnInitialValueButton_Click);
@@ -752,10 +376,10 @@
             // 
             this.SpeakerHeight1TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerHeight1TextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.SpeakerHeight1TextBox.Location = new System.Drawing.Point(237, 52);
+            this.SpeakerHeight1TextBox.Location = new System.Drawing.Point(237, 4);
             this.SpeakerHeight1TextBox.Name = "SpeakerHeight1TextBox";
             this.SpeakerHeight1TextBox.Size = new System.Drawing.Size(129, 20);
-            this.SpeakerHeight1TextBox.TabIndex = 1;
+            this.SpeakerHeight1TextBox.TabIndex = 5;
             this.SpeakerHeight1TextBox.Text = "10";
             this.SpeakerHeight1TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.SpeakerHeight1TextBox, "(от 10 до 65) мм");
@@ -766,10 +390,10 @@
             // 
             this.SpeakerWidth1TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerWidth1TextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.SpeakerWidth1TextBox.Location = new System.Drawing.Point(500, 52);
+            this.SpeakerWidth1TextBox.Location = new System.Drawing.Point(501, 4);
             this.SpeakerWidth1TextBox.Name = "SpeakerWidth1TextBox";
-            this.SpeakerWidth1TextBox.Size = new System.Drawing.Size(137, 20);
-            this.SpeakerWidth1TextBox.TabIndex = 3;
+            this.SpeakerWidth1TextBox.Size = new System.Drawing.Size(136, 20);
+            this.SpeakerWidth1TextBox.TabIndex = 7;
             this.SpeakerWidth1TextBox.Text = "150";
             this.SpeakerWidth1TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.SpeakerWidth1TextBox, "(от 150 до 195) мм");
@@ -783,10 +407,10 @@
             this.Form1ComboBox.Items.AddRange(new object[] {
             "Прямоугольник",
             "Круг"});
-            this.Form1ComboBox.Location = new System.Drawing.Point(130, 51);
+            this.Form1ComboBox.Location = new System.Drawing.Point(130, 4);
             this.Form1ComboBox.Name = "Form1ComboBox";
             this.Form1ComboBox.Size = new System.Drawing.Size(101, 21);
-            this.Form1ComboBox.TabIndex = 0;
+            this.Form1ComboBox.TabIndex = 4;
             this.Form1ComboBox.Text = "Прямоугольник";
             this.Form1ComboBox.TextChanged += new System.EventHandler(this.ChangeForm);
             // 
@@ -794,10 +418,10 @@
             // 
             this.SpeakerT1TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerT1TextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.SpeakerT1TextBox.Location = new System.Drawing.Point(372, 52);
+            this.SpeakerT1TextBox.Location = new System.Drawing.Point(372, 4);
             this.SpeakerT1TextBox.Name = "SpeakerT1TextBox";
-            this.SpeakerT1TextBox.Size = new System.Drawing.Size(122, 20);
-            this.SpeakerT1TextBox.TabIndex = 2;
+            this.SpeakerT1TextBox.Size = new System.Drawing.Size(123, 20);
+            this.SpeakerT1TextBox.TabIndex = 6;
             this.SpeakerT1TextBox.Text = "5";
             this.SpeakerT1TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.SpeakerT1TextBox, "(от 5 до 20) мм");
@@ -808,10 +432,10 @@
             // 
             this.SpeakerWidth2TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerWidth2TextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.SpeakerWidth2TextBox.Location = new System.Drawing.Point(500, 80);
+            this.SpeakerWidth2TextBox.Location = new System.Drawing.Point(501, 4);
             this.SpeakerWidth2TextBox.Name = "SpeakerWidth2TextBox";
-            this.SpeakerWidth2TextBox.Size = new System.Drawing.Size(137, 20);
-            this.SpeakerWidth2TextBox.TabIndex = 3;
+            this.SpeakerWidth2TextBox.Size = new System.Drawing.Size(136, 20);
+            this.SpeakerWidth2TextBox.TabIndex = 11;
             this.SpeakerWidth2TextBox.Text = "150";
             this.SpeakerWidth2TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.SpeakerWidth2TextBox, "(от 150 до 195) мм");
@@ -825,10 +449,10 @@
             this.Form2ComboBox.Items.AddRange(new object[] {
             "Прямоугольник",
             "Круг"});
-            this.Form2ComboBox.Location = new System.Drawing.Point(130, 79);
+            this.Form2ComboBox.Location = new System.Drawing.Point(130, 4);
             this.Form2ComboBox.Name = "Form2ComboBox";
             this.Form2ComboBox.Size = new System.Drawing.Size(101, 21);
-            this.Form2ComboBox.TabIndex = 0;
+            this.Form2ComboBox.TabIndex = 8;
             this.Form2ComboBox.Text = "Прямоугольник";
             this.Form2ComboBox.TextChanged += new System.EventHandler(this.ChangeForm);
             // 
@@ -836,10 +460,10 @@
             // 
             this.SpeakerT2TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerT2TextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.SpeakerT2TextBox.Location = new System.Drawing.Point(372, 80);
+            this.SpeakerT2TextBox.Location = new System.Drawing.Point(372, 4);
             this.SpeakerT2TextBox.Name = "SpeakerT2TextBox";
-            this.SpeakerT2TextBox.Size = new System.Drawing.Size(122, 20);
-            this.SpeakerT2TextBox.TabIndex = 2;
+            this.SpeakerT2TextBox.Size = new System.Drawing.Size(123, 20);
+            this.SpeakerT2TextBox.TabIndex = 10;
             this.SpeakerT2TextBox.Text = "5";
             this.SpeakerT2TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.SpeakerT2TextBox, "(от 5 до 20) мм");
@@ -850,10 +474,10 @@
             // 
             this.SpeakerHeight2TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerHeight2TextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.SpeakerHeight2TextBox.Location = new System.Drawing.Point(237, 80);
+            this.SpeakerHeight2TextBox.Location = new System.Drawing.Point(237, 4);
             this.SpeakerHeight2TextBox.Name = "SpeakerHeight2TextBox";
             this.SpeakerHeight2TextBox.Size = new System.Drawing.Size(129, 20);
-            this.SpeakerHeight2TextBox.TabIndex = 1;
+            this.SpeakerHeight2TextBox.TabIndex = 9;
             this.SpeakerHeight2TextBox.Text = "10";
             this.SpeakerHeight2TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.SpeakerHeight2TextBox, "(от 10 до 55) мм");
@@ -864,10 +488,10 @@
             // 
             this.SpeakerWidth3TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerWidth3TextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.SpeakerWidth3TextBox.Location = new System.Drawing.Point(500, 109);
+            this.SpeakerWidth3TextBox.Location = new System.Drawing.Point(501, 4);
             this.SpeakerWidth3TextBox.Name = "SpeakerWidth3TextBox";
-            this.SpeakerWidth3TextBox.Size = new System.Drawing.Size(137, 20);
-            this.SpeakerWidth3TextBox.TabIndex = 3;
+            this.SpeakerWidth3TextBox.Size = new System.Drawing.Size(136, 20);
+            this.SpeakerWidth3TextBox.TabIndex = 15;
             this.SpeakerWidth3TextBox.Text = "150";
             this.SpeakerWidth3TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.SpeakerWidth3TextBox, "(от 150 до 195) мм");
@@ -878,10 +502,10 @@
             // 
             this.SpeakerT3TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerT3TextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.SpeakerT3TextBox.Location = new System.Drawing.Point(372, 109);
+            this.SpeakerT3TextBox.Location = new System.Drawing.Point(372, 4);
             this.SpeakerT3TextBox.Name = "SpeakerT3TextBox";
-            this.SpeakerT3TextBox.Size = new System.Drawing.Size(122, 20);
-            this.SpeakerT3TextBox.TabIndex = 2;
+            this.SpeakerT3TextBox.Size = new System.Drawing.Size(123, 20);
+            this.SpeakerT3TextBox.TabIndex = 14;
             this.SpeakerT3TextBox.Text = "5";
             this.SpeakerT3TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.SpeakerT3TextBox, "(от 5 до 20) мм");
@@ -892,10 +516,10 @@
             // 
             this.SpeakerHeight3TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerHeight3TextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.SpeakerHeight3TextBox.Location = new System.Drawing.Point(237, 109);
+            this.SpeakerHeight3TextBox.Location = new System.Drawing.Point(237, 4);
             this.SpeakerHeight3TextBox.Name = "SpeakerHeight3TextBox";
             this.SpeakerHeight3TextBox.Size = new System.Drawing.Size(129, 20);
-            this.SpeakerHeight3TextBox.TabIndex = 1;
+            this.SpeakerHeight3TextBox.TabIndex = 13;
             this.SpeakerHeight3TextBox.Text = "10";
             this.SpeakerHeight3TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.SpeakerHeight3TextBox, "(от 10 до 45) мм");
@@ -909,73 +533,39 @@
             this.Form3ComboBox.Items.AddRange(new object[] {
             "Прямоугольник",
             "Круг"});
-            this.Form3ComboBox.Location = new System.Drawing.Point(130, 108);
+            this.Form3ComboBox.Location = new System.Drawing.Point(130, 4);
             this.Form3ComboBox.Name = "Form3ComboBox";
             this.Form3ComboBox.Size = new System.Drawing.Size(101, 21);
-            this.Form3ComboBox.TabIndex = 0;
+            this.Form3ComboBox.TabIndex = 12;
             this.Form3ComboBox.Text = "Прямоугольник";
             this.Form3ComboBox.TextChanged += new System.EventHandler(this.ChangeForm);
             // 
-            // tableLayoutPanel1
+            // tableLayoutPanel
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.91512F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.87465F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.22615F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.13363F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.85044F));
-            this.tableLayoutPanel1.Controls.Add(this.label10, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label16, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label9, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.Form1ComboBox, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.SpeakerWidth3TextBox, 4, 4);
-            this.tableLayoutPanel1.Controls.Add(this.SpeakerHeightTextBox, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.SpeakerWidth2TextBox, 4, 3);
-            this.tableLayoutPanel1.Controls.Add(this.SpeakerT3TextBox, 3, 4);
-            this.tableLayoutPanel1.Controls.Add(this.SpeakerHeight1TextBox, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.SpeakerHeight3TextBox, 2, 4);
-            this.tableLayoutPanel1.Controls.Add(this.SpeakerT2TextBox, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.Form3ComboBox, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.SpeakerHeight2TextBox, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label15, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.SpeakerWidthTextBox, 4, 1);
-            this.tableLayoutPanel1.Controls.Add(this.SpeakerT1TextBox, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.SpeakerWidth1TextBox, 4, 2);
-            this.tableLayoutPanel1.Controls.Add(this.Form2ComboBox, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.SpeakerTTextBox, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.FormComboBox, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label8, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label14, 0, 4);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(5, 13);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(640, 134);
-            this.tableLayoutPanel1.TabIndex = 9;
-            // 
-            // label10
-            // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(8, 83);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(110, 13);
-            this.label10.TabIndex = 13;
-            this.label10.Text = "Крышка динамика 3";
+            this.tableLayoutPanel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tableLayoutPanel.ColumnCount = 5;
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.91512F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.87465F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.22615F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.13363F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.85044F));
+            this.tableLayoutPanel.Controls.Add(this.label16, 4, 0);
+            this.tableLayoutPanel.Controls.Add(this.label5, 0, 0);
+            this.tableLayoutPanel.Controls.Add(this.label7, 1, 0);
+            this.tableLayoutPanel.Controls.Add(this.label9, 3, 0);
+            this.tableLayoutPanel.Controls.Add(this.label8, 2, 0);
+            this.tableLayoutPanel.Location = new System.Drawing.Point(5, 13);
+            this.tableLayoutPanel.Name = "tableLayoutPanel";
+            this.tableLayoutPanel.RowCount = 1;
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel.Size = new System.Drawing.Size(640, 21);
+            this.tableLayoutPanel.TabIndex = 9;
             // 
             // label16
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(545, 3);
+            this.label16.Location = new System.Drawing.Point(545, 4);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(46, 13);
             this.label16.TabIndex = 10;
@@ -985,7 +575,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 3);
+            this.label5.Location = new System.Drawing.Point(9, 4);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(109, 13);
             this.label5.TabIndex = 0;
@@ -995,7 +585,7 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(158, 3);
+            this.label7.Location = new System.Drawing.Point(158, 4);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 13);
             this.label7.TabIndex = 2;
@@ -1006,18 +596,38 @@
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(406, 3);
+            this.label9.Location = new System.Drawing.Point(406, 4);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 13);
             this.label9.TabIndex = 11;
             this.label9.Text = "Толщина";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(279, 4);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(45, 13);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Высота";
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(8, 8);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(110, 13);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "Крышка динамика 3";
+            // 
             // label15
             // 
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(8, 27);
+            this.label15.Location = new System.Drawing.Point(8, 8);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(110, 13);
             this.label15.TabIndex = 10;
@@ -1027,27 +637,17 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 55);
+            this.label6.Location = new System.Drawing.Point(8, 8);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(110, 13);
             this.label6.TabIndex = 12;
             this.label6.Text = "Крышка динамика 2";
             // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(279, 3);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(45, 13);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "Высота";
-            // 
             // label14
             // 
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(8, 112);
+            this.label14.Location = new System.Drawing.Point(8, 8);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(110, 13);
             this.label14.TabIndex = 14;
@@ -1057,14 +657,118 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
-            this.groupBox1.Controls.Add(this.SpeakerDimensions1GroupBox);
-            this.groupBox1.Controls.Add(this.SpeakerDimensions2GroupBox);
+            this.groupBox1.Controls.Add(this.tableLayoutPanel2);
+            this.groupBox1.Controls.Add(this.tableLayoutPanel3);
+            this.groupBox1.Controls.Add(this.tableLayoutPanel4);
+            this.groupBox1.Controls.Add(this.tableLayoutPanel);
             this.groupBox1.Location = new System.Drawing.Point(5, 129);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(654, 155);
-            this.groupBox1.TabIndex = 10;
+            this.groupBox1.Size = new System.Drawing.Size(654, 157);
+            this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Параметры динамиков";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tableLayoutPanel1.ColumnCount = 5;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.07725F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.92275F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 129F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 141F));
+            this.tableLayoutPanel1.Controls.Add(this.label15, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.FormComboBox, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.SpeakerHeightTextBox, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.SpeakerTTextBox, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.SpeakerWidthTextBox, 4, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(5, 33);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(640, 29);
+            this.tableLayoutPanel1.TabIndex = 10;
+            this.tableLayoutPanel1.TabStop = true;
+            // 
+            // SpeakerWidthTextBox
+            // 
+            this.SpeakerWidthTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SpeakerWidthTextBox.BackColor = System.Drawing.Color.LightGreen;
+            this.SpeakerWidthTextBox.Location = new System.Drawing.Point(501, 4);
+            this.SpeakerWidthTextBox.Name = "SpeakerWidthTextBox";
+            this.SpeakerWidthTextBox.Size = new System.Drawing.Size(136, 20);
+            this.SpeakerWidthTextBox.TabIndex = 3;
+            this.SpeakerWidthTextBox.Text = "150";
+            this.SpeakerWidthTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip1.SetToolTip(this.SpeakerWidthTextBox, "(от 150 до 195) мм");
+            this.SpeakerWidthTextBox.TextChanged += new System.EventHandler(this.TextBoxChanged);
+            this.SpeakerWidthTextBox.Leave += new System.EventHandler(this.TextBox_Leave);
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tableLayoutPanel2.ColumnCount = 5;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.07725F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.92275F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 129F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 141F));
+            this.tableLayoutPanel2.Controls.Add(this.label6, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.Form1ComboBox, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.SpeakerT1TextBox, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.SpeakerWidth1TextBox, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(this.SpeakerHeight1TextBox, 2, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(5, 62);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(640, 29);
+            this.tableLayoutPanel2.TabIndex = 11;
+            this.tableLayoutPanel2.Visible = false;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tableLayoutPanel3.ColumnCount = 5;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.07725F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.92275F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 129F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 141F));
+            this.tableLayoutPanel3.Controls.Add(this.label10, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.Form2ComboBox, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.SpeakerHeight2TextBox, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.SpeakerT2TextBox, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.SpeakerWidth2TextBox, 4, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(5, 91);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(640, 29);
+            this.tableLayoutPanel3.TabIndex = 12;
+            this.tableLayoutPanel3.Visible = false;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tableLayoutPanel4.ColumnCount = 5;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.07725F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.92275F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 129F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 141F));
+            this.tableLayoutPanel4.Controls.Add(this.SpeakerHeight3TextBox, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.SpeakerT3TextBox, 3, 0);
+            this.tableLayoutPanel4.Controls.Add(this.SpeakerWidth3TextBox, 4, 0);
+            this.tableLayoutPanel4.Controls.Add(this.Form3ComboBox, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label14, 0, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(5, 120);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(640, 29);
+            this.tableLayoutPanel4.TabIndex = 13;
+            this.tableLayoutPanel4.Visible = false;
             // 
             // toolTip2
             // 
@@ -1074,7 +778,7 @@
             // ModelParametersForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(666, 315);
+            this.ClientSize = new System.Drawing.Size(666, 320);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Кол);
             this.Controls.Add(this.DeleteParametersButton);
@@ -1088,21 +792,21 @@
             this.Text = "Параметры модели";
             this.СaseDimensionsGroupBox.ResumeLayout(false);
             this.СaseDimensionsGroupBox.PerformLayout();
-            this.SpeakerDimensions1GroupBox.ResumeLayout(false);
-            this.SpeakerDimensions1GroupBox.PerformLayout();
-            this.SpeakerDimensions3GroupBox.ResumeLayout(false);
-            this.SpeakerDimensions3GroupBox.PerformLayout();
-            this.SpeakerDimensions4GroupBox.ResumeLayout(false);
-            this.SpeakerDimensions4GroupBox.PerformLayout();
-            this.SpeakerDimensions2GroupBox.ResumeLayout(false);
-            this.SpeakerDimensions2GroupBox.PerformLayout();
             this.ReleDimensionsGroupBox.ResumeLayout(false);
             this.ReleDimensionsGroupBox.PerformLayout();
             this.Кол.ResumeLayout(false);
             this.Кол.PerformLayout();
+            this.tableLayoutPanel.ResumeLayout(false);
+            this.tableLayoutPanel.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1113,27 +817,19 @@
         private System.Windows.Forms.TextBox CaseHeightTextBox;
         private System.Windows.Forms.TextBox CaseWidthTextBox;
         private System.Windows.Forms.TextBox SpeakerHeightTextBox;
-        private System.Windows.Forms.TextBox SpeakerWidthTextBox;
         private System.Windows.Forms.TextBox SpeakerTTextBox;
         private System.Windows.Forms.TextBox RelayDiameterTextBox;
         private System.Windows.Forms.Label CaseHeightlLabel;
         private System.Windows.Forms.Label CaseLengthLabel;
         private System.Windows.Forms.Label CaseWidthLabel;
-        private System.Windows.Forms.Label SpeakerHeightLabel;
-        private System.Windows.Forms.Label SpeakerLengthLabel;
-        private System.Windows.Forms.Label SpeakerWidthLabel;
         private System.Windows.Forms.Label RelayDiameterLabel;
         private System.Windows.Forms.GroupBox СaseDimensionsGroupBox;
-        private System.Windows.Forms.GroupBox SpeakerDimensions1GroupBox;
         private System.Windows.Forms.GroupBox ReleDimensionsGroupBox;
         private System.Windows.Forms.Button BuildModelButton;
         private System.Windows.Forms.Label BoundaryValueHLabel;
         private System.Windows.Forms.Label BoundaryValueLLabel;
         private System.Windows.Forms.Label BoundaryValueWLabel;
-        private System.Windows.Forms.Label BoundaryValueTSLabel;
         private System.Windows.Forms.Label BoundaryValueDLabel;
-        private System.Windows.Forms.Label BoundaryValueWSLabel;
-        private System.Windows.Forms.Label BoundaryValueHSLabel;
         private System.Windows.Forms.Button DeleteParametersButton;
         private System.Windows.Forms.GroupBox Кол;
         private System.Windows.Forms.Button AddDinamicButton;
@@ -1141,44 +837,19 @@
         private System.Windows.Forms.TextBox NumberDinamicTextBox;
         private System.Windows.Forms.Label Количество;
         private System.Windows.Forms.ComboBox FormComboBox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox SpeakerDimensions2GroupBox;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label SpeakerHeight1Label;
-        private System.Windows.Forms.Label SpeakerLength1Label;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox Form1ComboBox;
         private System.Windows.Forms.TextBox SpeakerHeight1TextBox;
         private System.Windows.Forms.TextBox SpeakerWidth1TextBox;
         private System.Windows.Forms.TextBox SpeakerT1TextBox;
-        private System.Windows.Forms.GroupBox SpeakerDimensions3GroupBox;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label SpeakerHeight2Label;
-        private System.Windows.Forms.Label SpeakerLength2Label;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox Form2ComboBox;
         private System.Windows.Forms.TextBox SpeakerHeight2TextBox;
         private System.Windows.Forms.TextBox SpeakerWidth2TextBox;
         private System.Windows.Forms.TextBox SpeakerT2TextBox;
-        private System.Windows.Forms.GroupBox SpeakerDimensions4GroupBox;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label SpeakerHeight3Label;
-        private System.Windows.Forms.Label SpeakerLength3Label;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox Form3ComboBox;
         private System.Windows.Forms.TextBox SpeakerHeight3TextBox;
         private System.Windows.Forms.TextBox SpeakerWidth3TextBox;
         private System.Windows.Forms.TextBox SpeakerT3TextBox;
-        private System.Windows.Forms.Label BoundaryValueTS1Label;
-        private System.Windows.Forms.Label BoundaryValueTS2Label;
-        private System.Windows.Forms.Label BoundaryValueTS3Label;
-        private System.Windows.Forms.Label BoundaryValueHS1Label;
-        private System.Windows.Forms.Label BoundaryValueWS1Label;
-        private System.Windows.Forms.Label BoundaryValueHS2Label;
-        private System.Windows.Forms.Label BoundaryValueWS2Label;
-        private System.Windows.Forms.Label BoundaryValueHS3Label;
-        private System.Windows.Forms.Label BoundaryValueWS3Label;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -1187,10 +858,15 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TextBox SpeakerWidthTextBox;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
     }
 }
 

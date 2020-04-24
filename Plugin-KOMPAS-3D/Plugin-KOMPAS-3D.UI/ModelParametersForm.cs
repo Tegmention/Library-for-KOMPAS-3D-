@@ -38,13 +38,13 @@ namespace Plugin_KOMPAS_3D.UI
             //Создание списка элементов TextBox
             var elements = new List<(TextBox textBox,ElementName element, ParametersName parameter)>
                   {
+                    (SpeakerHeightTextBox,ElementName.SpeakerCover1, ParametersName.Height),
                      (SpeakerWidthTextBox, ElementName.SpeakerCover1, ParametersName.Width),
                      (CaseHeightTextBox, ElementName.Case, ParametersName.Height),
                      (CaseLengthTextBox, ElementName.Case, ParametersName.Width),
                      (CaseWidthTextBox, ElementName.Case, ParametersName.Length),
                      (RelayDiameterTextBox, ElementName.Rele, ParametersName.Diameter),
                      (SpeakerTTextBox, ElementName.SpeakerCover1, ParametersName.Length),
-                     (SpeakerHeightTextBox,ElementName.SpeakerCover1, ParametersName.Height),
                      (SpeakerT1TextBox, ElementName.SpeakerCover2, ParametersName.Length),
                      (SpeakerWidth1TextBox, ElementName.SpeakerCover2, ParametersName.Width),
                      (SpeakerHeight1TextBox,ElementName.SpeakerCover2, ParametersName.Height),
@@ -148,14 +148,17 @@ namespace Plugin_KOMPAS_3D.UI
                 if (NumberDinamicTextBox.Text == "2")
                 {
                     ChangeSize(297);
+                    tableLayoutPanel2.Visible = true;
                 }
                 if (NumberDinamicTextBox.Text == "3")
                 {
                     ChangeSize(325);
+                    tableLayoutPanel3.Visible = true;
                 }
                 if (NumberDinamicTextBox.Text == "4")
                 {
                     ChangeSize(354);
+                    tableLayoutPanel4.Visible = true;
                 }
                 DisplayingParameters();
                 DisplayingBoundary(SpeakerHeightTextBox);
@@ -177,6 +180,7 @@ namespace Plugin_KOMPAS_3D.UI
                 if (NumberDinamicTextBox.Text == "4")
                 {
                     ChangeSize(325);
+                    tableLayoutPanel4.Visible = false;
                     if (SpeakerWidth3TextBox.Visible == false)
                     {
                         ChangeForm(Form3ComboBox, EventArgs.Empty);
@@ -185,6 +189,7 @@ namespace Plugin_KOMPAS_3D.UI
                 if (NumberDinamicTextBox.Text == "3")
                 {
                     ChangeSize(297);
+                    tableLayoutPanel3.Visible = false;
                     if (SpeakerWidth2TextBox.Visible == false)
                     {
                         ChangeForm(Form2ComboBox, EventArgs.Empty);
@@ -193,6 +198,7 @@ namespace Plugin_KOMPAS_3D.UI
                 if (NumberDinamicTextBox.Text == "2")
                 {
                     ChangeSize(268);
+                    tableLayoutPanel2.Visible = false;
                     if (SpeakerWidth1TextBox.Visible == false)
                     {
                         ChangeForm(Form1ComboBox, EventArgs.Empty);
