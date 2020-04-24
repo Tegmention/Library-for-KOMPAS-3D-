@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using Parameters;
 using System.Drawing;
 using Builder;
-using System.ComponentModel;
 
 
 namespace Plugin_KOMPAS_3D.UI
@@ -35,7 +34,7 @@ namespace Plugin_KOMPAS_3D.UI
         {
             //Инициализация формы
             InitializeComponent();
-            ChangeSize(266);
+            ChangeSize(268);
             //Создание списка элементов TextBox
             var elements = new List<(TextBox textBox,ElementName element, ParametersName parameter)>
                   {
@@ -148,19 +147,17 @@ namespace Plugin_KOMPAS_3D.UI
                 _modelElements.AddDynamic();
                 if (NumberDinamicTextBox.Text == "2")
                 {
-                    DisplayingParameters();
-                    ChangeSize(293);
+                    ChangeSize(297);
                 }
                 if (NumberDinamicTextBox.Text == "3")
                 {
-                    ChangeSize(318);
-                    DisplayingParameters();
+                    ChangeSize(325);
                 }
                 if (NumberDinamicTextBox.Text == "4")
                 {
-                    ChangeSize(344);
-                    DisplayingParameters();
+                    ChangeSize(354);
                 }
+                DisplayingParameters();
                 DisplayingBoundary(SpeakerHeightTextBox);
                 DisplayingBoundary(SpeakerHeight1TextBox);
                 DisplayingBoundary(SpeakerHeight2TextBox);
@@ -179,37 +176,30 @@ namespace Plugin_KOMPAS_3D.UI
             {               
                 if (NumberDinamicTextBox.Text == "4")
                 {
-                    ChangeSize(318);
-                    if (SpeakerLength3Label.Visible != true)
+                    ChangeSize(325);
+                    if (SpeakerWidth3TextBox.Visible == false)
                     {
                         ChangeForm(Form3ComboBox, EventArgs.Empty);
                     }
-                    _modelElements.DeleteDynamic();
-                    SpeakerDimensions4GroupBox.Visible = false;
-                    DisplayingParameters();
                 }
                 if (NumberDinamicTextBox.Text == "3")
                 {
-                    ChangeSize(293);
-                    if (SpeakerLength2Label.Visible != true)
+                    ChangeSize(297);
+                    if (SpeakerWidth2TextBox.Visible == false)
                     {
                         ChangeForm(Form2ComboBox, EventArgs.Empty);
                     }
-                    _modelElements.DeleteDynamic();
-                    SpeakerDimensions3GroupBox.Visible = false;
-                    DisplayingParameters();
                 }
                 if (NumberDinamicTextBox.Text == "2")
                 {
-                    ChangeSize(266);
-                    if (SpeakerLength1Label.Visible != true)
+                    ChangeSize(268);
+                    if (SpeakerWidth1TextBox.Visible == false)
                     {
                         ChangeForm(Form1ComboBox, EventArgs.Empty);
                     }
-                    _modelElements.DeleteDynamic();
-                    SpeakerDimensions2GroupBox.Visible = false;
-                    DisplayingParameters();
                 }
+                _modelElements.DeleteDynamic();
+                DisplayingParameters();
                 NumberDinamicTextBox.Text =
                       (double.Parse(NumberDinamicTextBox.Text) - 1).ToString();
             }  
@@ -313,21 +303,9 @@ namespace Plugin_KOMPAS_3D.UI
         /// <param name="e">Действие</param>
         private void ReturnInitialValueButton_Click(object sender, EventArgs e)
         {
-            if(SpeakerLengthLabel.Visible != true)
+            if(SpeakerWidthTextBox.Visible == false)
             {
                 ChangeForm(FormComboBox, EventArgs.Empty);
-            }
-            if (SpeakerLength1Label.Visible != true)
-            {
-                ChangeForm(Form1ComboBox, EventArgs.Empty);
-            }
-            if (SpeakerLength2Label.Visible != true)
-            {
-                ChangeForm(Form2ComboBox, EventArgs.Empty);
-            }
-            if (SpeakerLength3Label.Visible != true)
-            {
-                ChangeForm(Form3ComboBox, EventArgs.Empty);
             }
             DeleteDynamicButton_Click(DeleteParametersButton, EventArgs.Empty);
             DeleteDynamicButton_Click(DeleteParametersButton, EventArgs.Empty);
@@ -365,9 +343,8 @@ namespace Plugin_KOMPAS_3D.UI
                 if (_modelElements.IsElement(ElementName.SpeakerCover1))
                 {
                     _modelElements.ChangeForm(ElementName.SpeakerCover1);
-                    if (SpeakerLengthLabel.Visible == true)
+                    if (SpeakerWidthTextBox.Visible == true)
                     {
-                        SpeakerLengthLabel.Visible = false;
                         SpeakerWidthTextBox.Visible = false;
                     }
                     else
@@ -384,9 +361,8 @@ namespace Plugin_KOMPAS_3D.UI
                 if (_modelElements.IsElement(ElementName.SpeakerCover2))
                 {
                     _modelElements.ChangeForm(ElementName.SpeakerCover2);
-                    if (SpeakerLength1Label.Visible == true)
+                    if (SpeakerWidth1TextBox.Visible == true)
                     {
-                        SpeakerLength1Label.Visible = false;
                         SpeakerWidth1TextBox.Visible = false;
                     }
                     else
@@ -403,9 +379,8 @@ namespace Plugin_KOMPAS_3D.UI
                 if (_modelElements.IsElement(ElementName.SpeakerCover3))
                 {
                     _modelElements.ChangeForm(ElementName.SpeakerCover3);
-                    if (SpeakerLength2Label.Visible == true)
+                    if (SpeakerWidth2TextBox.Visible == true)
                     {
-                        SpeakerLength2Label.Visible = false;
                         SpeakerWidth2TextBox.Visible = false;
                     }
                     else
@@ -422,9 +397,8 @@ namespace Plugin_KOMPAS_3D.UI
                 if (_modelElements.IsElement(ElementName.SpeakerCover4))
                 {
                     _modelElements.ChangeForm(ElementName.SpeakerCover4);
-                    if (SpeakerLength3Label.Visible == true)
+                    if (SpeakerWidth3TextBox.Visible == true)
                     {
-                        SpeakerLength3Label.Visible = false;
                         SpeakerWidth3TextBox.Visible = false;
                     }
                     else

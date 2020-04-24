@@ -126,7 +126,7 @@
             // 
             this.CaseLengthTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CaseLengthTextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.CaseLengthTextBox.Location = new System.Drawing.Point(78, 53);
+            this.CaseLengthTextBox.Location = new System.Drawing.Point(95, 51);
             this.CaseLengthTextBox.Name = "CaseLengthTextBox";
             this.CaseLengthTextBox.Size = new System.Drawing.Size(111, 20);
             this.CaseLengthTextBox.TabIndex = 1;
@@ -139,7 +139,7 @@
             // 
             this.CaseHeightTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CaseHeightTextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.CaseHeightTextBox.Location = new System.Drawing.Point(78, 27);
+            this.CaseHeightTextBox.Location = new System.Drawing.Point(95, 25);
             this.CaseHeightTextBox.Name = "CaseHeightTextBox";
             this.CaseHeightTextBox.Size = new System.Drawing.Size(111, 20);
             this.CaseHeightTextBox.TabIndex = 0;
@@ -152,7 +152,7 @@
             // 
             this.CaseWidthTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CaseWidthTextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.CaseWidthTextBox.Location = new System.Drawing.Point(78, 80);
+            this.CaseWidthTextBox.Location = new System.Drawing.Point(95, 78);
             this.CaseWidthTextBox.Name = "CaseWidthTextBox";
             this.CaseWidthTextBox.Size = new System.Drawing.Size(111, 20);
             this.CaseWidthTextBox.TabIndex = 2;
@@ -165,9 +165,9 @@
             // 
             this.SpeakerHeightTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerHeightTextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.SpeakerHeightTextBox.Location = new System.Drawing.Point(243, 22);
+            this.SpeakerHeightTextBox.Location = new System.Drawing.Point(237, 24);
             this.SpeakerHeightTextBox.Name = "SpeakerHeightTextBox";
-            this.SpeakerHeightTextBox.Size = new System.Drawing.Size(121, 20);
+            this.SpeakerHeightTextBox.Size = new System.Drawing.Size(129, 20);
             this.SpeakerHeightTextBox.TabIndex = 1;
             this.SpeakerHeightTextBox.Text = "10";
             this.SpeakerHeightTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -179,9 +179,9 @@
             // 
             this.SpeakerWidthTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerWidthTextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.SpeakerWidthTextBox.Location = new System.Drawing.Point(499, 22);
+            this.SpeakerWidthTextBox.Location = new System.Drawing.Point(500, 24);
             this.SpeakerWidthTextBox.Name = "SpeakerWidthTextBox";
-            this.SpeakerWidthTextBox.Size = new System.Drawing.Size(153, 20);
+            this.SpeakerWidthTextBox.Size = new System.Drawing.Size(137, 20);
             this.SpeakerWidthTextBox.TabIndex = 3;
             this.SpeakerWidthTextBox.Text = "150";
             this.SpeakerWidthTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -193,9 +193,9 @@
             // 
             this.SpeakerTTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerTTextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.SpeakerTTextBox.Location = new System.Drawing.Point(370, 22);
+            this.SpeakerTTextBox.Location = new System.Drawing.Point(372, 24);
             this.SpeakerTTextBox.Name = "SpeakerTTextBox";
-            this.SpeakerTTextBox.Size = new System.Drawing.Size(123, 20);
+            this.SpeakerTTextBox.Size = new System.Drawing.Size(122, 20);
             this.SpeakerTTextBox.TabIndex = 2;
             this.SpeakerTTextBox.Text = "5";
             this.SpeakerTTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -220,7 +220,7 @@
             // 
             this.CaseHeightlLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CaseHeightlLabel.AutoSize = true;
-            this.CaseHeightlLabel.Location = new System.Drawing.Point(-2, 30);
+            this.CaseHeightlLabel.Location = new System.Drawing.Point(15, 28);
             this.CaseHeightlLabel.Name = "CaseHeightlLabel";
             this.CaseHeightlLabel.Size = new System.Drawing.Size(65, 13);
             this.CaseHeightlLabel.TabIndex = 7;
@@ -230,7 +230,7 @@
             // 
             this.CaseLengthLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CaseLengthLabel.AutoSize = true;
-            this.CaseLengthLabel.Location = new System.Drawing.Point(-2, 56);
+            this.CaseLengthLabel.Location = new System.Drawing.Point(15, 54);
             this.CaseLengthLabel.Name = "CaseLengthLabel";
             this.CaseLengthLabel.Size = new System.Drawing.Size(69, 13);
             this.CaseLengthLabel.TabIndex = 8;
@@ -240,7 +240,7 @@
             // 
             this.CaseWidthLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CaseWidthLabel.AutoSize = true;
-            this.CaseWidthLabel.Location = new System.Drawing.Point(-2, 82);
+            this.CaseWidthLabel.Location = new System.Drawing.Point(15, 80);
             this.CaseWidthLabel.Name = "CaseWidthLabel";
             this.CaseWidthLabel.Size = new System.Drawing.Size(58, 13);
             this.CaseWidthLabel.TabIndex = 9;
@@ -304,7 +304,7 @@
             // 
             this.BoundaryValueHLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.BoundaryValueHLabel.AutoSize = true;
-            this.BoundaryValueHLabel.Location = new System.Drawing.Point(198, 31);
+            this.BoundaryValueHLabel.Location = new System.Drawing.Point(215, 29);
             this.BoundaryValueHLabel.Name = "BoundaryValueHLabel";
             this.BoundaryValueHLabel.Size = new System.Drawing.Size(100, 13);
             this.BoundaryValueHLabel.TabIndex = 18;
@@ -314,7 +314,7 @@
             // 
             this.BoundaryValueWLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.BoundaryValueWLabel.AutoSize = true;
-            this.BoundaryValueWLabel.Location = new System.Drawing.Point(198, 83);
+            this.BoundaryValueWLabel.Location = new System.Drawing.Point(215, 81);
             this.BoundaryValueWLabel.Name = "BoundaryValueWLabel";
             this.BoundaryValueWLabel.Size = new System.Drawing.Size(100, 13);
             this.BoundaryValueWLabel.TabIndex = 20;
@@ -324,7 +324,7 @@
             // 
             this.BoundaryValueLLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.BoundaryValueLLabel.AutoSize = true;
-            this.BoundaryValueLLabel.Location = new System.Drawing.Point(198, 57);
+            this.BoundaryValueLLabel.Location = new System.Drawing.Point(215, 55);
             this.BoundaryValueLLabel.Name = "BoundaryValueLLabel";
             this.BoundaryValueLLabel.Size = new System.Drawing.Size(100, 13);
             this.BoundaryValueLLabel.TabIndex = 19;
@@ -639,13 +639,14 @@
             // 
             // FormComboBox
             // 
+            this.FormComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.FormComboBox.FormattingEnabled = true;
             this.FormComboBox.Items.AddRange(new object[] {
             "Прямоугольник",
             "Круг"});
-            this.FormComboBox.Location = new System.Drawing.Point(133, 22);
+            this.FormComboBox.Location = new System.Drawing.Point(130, 23);
             this.FormComboBox.Name = "FormComboBox";
-            this.FormComboBox.Size = new System.Drawing.Size(104, 21);
+            this.FormComboBox.Size = new System.Drawing.Size(101, 21);
             this.FormComboBox.TabIndex = 0;
             this.FormComboBox.Text = "Прямоугольник";
             this.FormComboBox.TextChanged += new System.EventHandler(this.ChangeForm);
@@ -675,7 +676,7 @@
             // BuildModelButton
             // 
             this.BuildModelButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BuildModelButton.Location = new System.Drawing.Point(591, 279);
+            this.BuildModelButton.Location = new System.Drawing.Point(587, 287);
             this.BuildModelButton.Name = "BuildModelButton";
             this.BuildModelButton.Size = new System.Drawing.Size(72, 23);
             this.BuildModelButton.TabIndex = 8;
@@ -687,9 +688,9 @@
             // DeleteParametersButton
             // 
             this.DeleteParametersButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.DeleteParametersButton.Location = new System.Drawing.Point(510, 279);
+            this.DeleteParametersButton.Location = new System.Drawing.Point(510, 287);
             this.DeleteParametersButton.Name = "DeleteParametersButton";
-            this.DeleteParametersButton.Size = new System.Drawing.Size(75, 23);
+            this.DeleteParametersButton.Size = new System.Drawing.Size(71, 23);
             this.DeleteParametersButton.TabIndex = 7;
             this.DeleteParametersButton.Text = "Сбросить";
             this.DeleteParametersButton.UseVisualStyleBackColor = true;
@@ -751,9 +752,9 @@
             // 
             this.SpeakerHeight1TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerHeight1TextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.SpeakerHeight1TextBox.Location = new System.Drawing.Point(243, 48);
+            this.SpeakerHeight1TextBox.Location = new System.Drawing.Point(237, 52);
             this.SpeakerHeight1TextBox.Name = "SpeakerHeight1TextBox";
-            this.SpeakerHeight1TextBox.Size = new System.Drawing.Size(121, 20);
+            this.SpeakerHeight1TextBox.Size = new System.Drawing.Size(129, 20);
             this.SpeakerHeight1TextBox.TabIndex = 1;
             this.SpeakerHeight1TextBox.Text = "10";
             this.SpeakerHeight1TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -765,9 +766,9 @@
             // 
             this.SpeakerWidth1TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerWidth1TextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.SpeakerWidth1TextBox.Location = new System.Drawing.Point(499, 48);
+            this.SpeakerWidth1TextBox.Location = new System.Drawing.Point(500, 52);
             this.SpeakerWidth1TextBox.Name = "SpeakerWidth1TextBox";
-            this.SpeakerWidth1TextBox.Size = new System.Drawing.Size(153, 20);
+            this.SpeakerWidth1TextBox.Size = new System.Drawing.Size(137, 20);
             this.SpeakerWidth1TextBox.TabIndex = 3;
             this.SpeakerWidth1TextBox.Text = "150";
             this.SpeakerWidth1TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -777,13 +778,14 @@
             // 
             // Form1ComboBox
             // 
+            this.Form1ComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Form1ComboBox.FormattingEnabled = true;
             this.Form1ComboBox.Items.AddRange(new object[] {
             "Прямоугольник",
             "Круг"});
-            this.Form1ComboBox.Location = new System.Drawing.Point(133, 48);
+            this.Form1ComboBox.Location = new System.Drawing.Point(130, 51);
             this.Form1ComboBox.Name = "Form1ComboBox";
-            this.Form1ComboBox.Size = new System.Drawing.Size(104, 21);
+            this.Form1ComboBox.Size = new System.Drawing.Size(101, 21);
             this.Form1ComboBox.TabIndex = 0;
             this.Form1ComboBox.Text = "Прямоугольник";
             this.Form1ComboBox.TextChanged += new System.EventHandler(this.ChangeForm);
@@ -792,9 +794,9 @@
             // 
             this.SpeakerT1TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerT1TextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.SpeakerT1TextBox.Location = new System.Drawing.Point(370, 48);
+            this.SpeakerT1TextBox.Location = new System.Drawing.Point(372, 52);
             this.SpeakerT1TextBox.Name = "SpeakerT1TextBox";
-            this.SpeakerT1TextBox.Size = new System.Drawing.Size(123, 20);
+            this.SpeakerT1TextBox.Size = new System.Drawing.Size(122, 20);
             this.SpeakerT1TextBox.TabIndex = 2;
             this.SpeakerT1TextBox.Text = "5";
             this.SpeakerT1TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -806,9 +808,9 @@
             // 
             this.SpeakerWidth2TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerWidth2TextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.SpeakerWidth2TextBox.Location = new System.Drawing.Point(499, 75);
+            this.SpeakerWidth2TextBox.Location = new System.Drawing.Point(500, 80);
             this.SpeakerWidth2TextBox.Name = "SpeakerWidth2TextBox";
-            this.SpeakerWidth2TextBox.Size = new System.Drawing.Size(153, 20);
+            this.SpeakerWidth2TextBox.Size = new System.Drawing.Size(137, 20);
             this.SpeakerWidth2TextBox.TabIndex = 3;
             this.SpeakerWidth2TextBox.Text = "150";
             this.SpeakerWidth2TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -818,13 +820,14 @@
             // 
             // Form2ComboBox
             // 
+            this.Form2ComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Form2ComboBox.FormattingEnabled = true;
             this.Form2ComboBox.Items.AddRange(new object[] {
             "Прямоугольник",
             "Круг"});
-            this.Form2ComboBox.Location = new System.Drawing.Point(133, 75);
+            this.Form2ComboBox.Location = new System.Drawing.Point(130, 79);
             this.Form2ComboBox.Name = "Form2ComboBox";
-            this.Form2ComboBox.Size = new System.Drawing.Size(104, 21);
+            this.Form2ComboBox.Size = new System.Drawing.Size(101, 21);
             this.Form2ComboBox.TabIndex = 0;
             this.Form2ComboBox.Text = "Прямоугольник";
             this.Form2ComboBox.TextChanged += new System.EventHandler(this.ChangeForm);
@@ -833,9 +836,9 @@
             // 
             this.SpeakerT2TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerT2TextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.SpeakerT2TextBox.Location = new System.Drawing.Point(370, 75);
+            this.SpeakerT2TextBox.Location = new System.Drawing.Point(372, 80);
             this.SpeakerT2TextBox.Name = "SpeakerT2TextBox";
-            this.SpeakerT2TextBox.Size = new System.Drawing.Size(123, 20);
+            this.SpeakerT2TextBox.Size = new System.Drawing.Size(122, 20);
             this.SpeakerT2TextBox.TabIndex = 2;
             this.SpeakerT2TextBox.Text = "5";
             this.SpeakerT2TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -847,9 +850,9 @@
             // 
             this.SpeakerHeight2TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerHeight2TextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.SpeakerHeight2TextBox.Location = new System.Drawing.Point(243, 75);
+            this.SpeakerHeight2TextBox.Location = new System.Drawing.Point(237, 80);
             this.SpeakerHeight2TextBox.Name = "SpeakerHeight2TextBox";
-            this.SpeakerHeight2TextBox.Size = new System.Drawing.Size(121, 20);
+            this.SpeakerHeight2TextBox.Size = new System.Drawing.Size(129, 20);
             this.SpeakerHeight2TextBox.TabIndex = 1;
             this.SpeakerHeight2TextBox.Text = "10";
             this.SpeakerHeight2TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -861,9 +864,9 @@
             // 
             this.SpeakerWidth3TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerWidth3TextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.SpeakerWidth3TextBox.Location = new System.Drawing.Point(499, 101);
+            this.SpeakerWidth3TextBox.Location = new System.Drawing.Point(500, 109);
             this.SpeakerWidth3TextBox.Name = "SpeakerWidth3TextBox";
-            this.SpeakerWidth3TextBox.Size = new System.Drawing.Size(153, 20);
+            this.SpeakerWidth3TextBox.Size = new System.Drawing.Size(137, 20);
             this.SpeakerWidth3TextBox.TabIndex = 3;
             this.SpeakerWidth3TextBox.Text = "150";
             this.SpeakerWidth3TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -875,9 +878,9 @@
             // 
             this.SpeakerT3TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerT3TextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.SpeakerT3TextBox.Location = new System.Drawing.Point(370, 101);
+            this.SpeakerT3TextBox.Location = new System.Drawing.Point(372, 109);
             this.SpeakerT3TextBox.Name = "SpeakerT3TextBox";
-            this.SpeakerT3TextBox.Size = new System.Drawing.Size(123, 20);
+            this.SpeakerT3TextBox.Size = new System.Drawing.Size(122, 20);
             this.SpeakerT3TextBox.TabIndex = 2;
             this.SpeakerT3TextBox.Text = "5";
             this.SpeakerT3TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -889,9 +892,9 @@
             // 
             this.SpeakerHeight3TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakerHeight3TextBox.BackColor = System.Drawing.Color.LightGreen;
-            this.SpeakerHeight3TextBox.Location = new System.Drawing.Point(243, 101);
+            this.SpeakerHeight3TextBox.Location = new System.Drawing.Point(237, 109);
             this.SpeakerHeight3TextBox.Name = "SpeakerHeight3TextBox";
-            this.SpeakerHeight3TextBox.Size = new System.Drawing.Size(121, 20);
+            this.SpeakerHeight3TextBox.Size = new System.Drawing.Size(129, 20);
             this.SpeakerHeight3TextBox.TabIndex = 1;
             this.SpeakerHeight3TextBox.Text = "10";
             this.SpeakerHeight3TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -901,25 +904,27 @@
             // 
             // Form3ComboBox
             // 
+            this.Form3ComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Form3ComboBox.FormattingEnabled = true;
             this.Form3ComboBox.Items.AddRange(new object[] {
             "Прямоугольник",
             "Круг"});
-            this.Form3ComboBox.Location = new System.Drawing.Point(133, 101);
+            this.Form3ComboBox.Location = new System.Drawing.Point(130, 108);
             this.Form3ComboBox.Name = "Form3ComboBox";
-            this.Form3ComboBox.Size = new System.Drawing.Size(104, 21);
+            this.Form3ComboBox.Size = new System.Drawing.Size(101, 21);
             this.Form3ComboBox.TabIndex = 0;
             this.Form3ComboBox.Text = "Прямоугольник";
             this.Form3ComboBox.TextChanged += new System.EventHandler(this.ChangeForm);
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.94657F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.54198F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.84733F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.12214F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.91512F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.87465F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.22615F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.13363F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.85044F));
             this.tableLayoutPanel1.Controls.Add(this.label10, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label16, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 0);
@@ -945,22 +950,22 @@
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label8, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.label14, 0, 4);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 19);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(5, 13);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.22222F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.77778F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(655, 125);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(640, 134);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
             // label10
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(10, 78);
+            this.label10.Location = new System.Drawing.Point(8, 83);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(110, 13);
             this.label10.TabIndex = 13;
@@ -970,7 +975,7 @@
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(552, 3);
+            this.label16.Location = new System.Drawing.Point(545, 3);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(46, 13);
             this.label16.TabIndex = 10;
@@ -980,7 +985,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 3);
+            this.label5.Location = new System.Drawing.Point(9, 3);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(109, 13);
             this.label5.TabIndex = 0;
@@ -990,7 +995,7 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(163, 3);
+            this.label7.Location = new System.Drawing.Point(158, 3);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 13);
             this.label7.TabIndex = 2;
@@ -1001,7 +1006,7 @@
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(405, 3);
+            this.label9.Location = new System.Drawing.Point(406, 3);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 13);
             this.label9.TabIndex = 11;
@@ -1012,7 +1017,7 @@
             // 
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(10, 25);
+            this.label15.Location = new System.Drawing.Point(8, 27);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(110, 13);
             this.label15.TabIndex = 10;
@@ -1022,7 +1027,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 52);
+            this.label6.Location = new System.Drawing.Point(8, 55);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(110, 13);
             this.label6.TabIndex = 12;
@@ -1032,7 +1037,7 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(281, 3);
+            this.label8.Location = new System.Drawing.Point(279, 3);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 13);
             this.label8.TabIndex = 10;
@@ -1042,7 +1047,7 @@
             // 
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(10, 105);
+            this.label14.Location = new System.Drawing.Point(8, 112);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(110, 13);
             this.label14.TabIndex = 14;
@@ -1050,14 +1055,13 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
             this.groupBox1.Controls.Add(this.SpeakerDimensions1GroupBox);
             this.groupBox1.Controls.Add(this.SpeakerDimensions2GroupBox);
-            this.groupBox1.Location = new System.Drawing.Point(7, 129);
+            this.groupBox1.Location = new System.Drawing.Point(5, 129);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(660, 144);
+            this.groupBox1.Size = new System.Drawing.Size(654, 155);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Параметры динамиков";
@@ -1070,7 +1074,7 @@
             // ModelParametersForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(670, 307);
+            this.ClientSize = new System.Drawing.Size(666, 315);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Кол);
             this.Controls.Add(this.DeleteParametersButton);
