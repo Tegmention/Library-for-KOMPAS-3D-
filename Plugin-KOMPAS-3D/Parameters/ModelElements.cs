@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System;
 
 namespace Parameters
 {
@@ -243,6 +244,42 @@ namespace Parameters
                 Element(ElementName.SpeakerCover4).CircleParameter();
             }
         }
+
+        /// <summary>
+        /// Метод сравнивает
+        /// полученный элемент
+        /// с текущим
+        /// </summary>
+        /// <param name="obj">Объект сравнения</param>
+        /// <returns>
+        /// Результат сравнения
+        /// true - объекты различны 
+        /// false - объекты аналогичны
+        /// </returns>
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+            ModelElements modelElements = obj as ModelElements;
+            if (modelElements as ModelElements == null)
+                return false;
+            var result = true;
+            foreach (var elementName in Enum.GetValues(typeof(ElementName)))
+            {
+                try
+                {
+                    if (!this.Element((ElementName)elementName).
+                          Equals(modelElements.Element((ElementName)elementName)))
+                        result = false;
+                }
+                catch
+                {
+                    continue;
+                }
+            }
+            return result;
+        }
+
 
         /// <summary>
         /// Метод возвращает максимальную

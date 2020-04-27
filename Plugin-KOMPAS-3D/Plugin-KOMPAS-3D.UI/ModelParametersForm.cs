@@ -349,15 +349,7 @@ namespace Plugin_KOMPAS_3D.UI
                 if (_modelElements.IsElement(ElementName.SpeakerCover1))
                 {
                     _modelElements.ChangeForm(ElementName.SpeakerCover1);
-                    if (SpeakerWidthTextBox.Visible == true)
-                    {
-                        SpeakerWidthTextBox.Visible = false;
-                    }
-                    else
-                    {
-                        FormComboBox.Text = "Прямоугольник";
-                        SpeakerWidthTextBox.Visible = true;
-                    }
+                    DisplayChangingForm(SpeakerWidthTextBox, FormComboBox);
                     DisplayingBoundary(SpeakerHeightTextBox);
                     DisplayingParameters();
                 }
@@ -367,15 +359,7 @@ namespace Plugin_KOMPAS_3D.UI
                 if (_modelElements.IsElement(ElementName.SpeakerCover2))
                 {
                     _modelElements.ChangeForm(ElementName.SpeakerCover2);
-                    if (SpeakerWidth1TextBox.Visible == true)
-                    {
-                        SpeakerWidth1TextBox.Visible = false;
-                    }
-                    else
-                    {
-                        Form1ComboBox.Text = "Прямоугольник";
-                        SpeakerWidth1TextBox.Visible = true;
-                    }
+                    DisplayChangingForm(SpeakerWidth1TextBox, Form1ComboBox);
                     DisplayingBoundary(SpeakerHeight1TextBox);
                     DisplayingParameters();
                 }
@@ -385,15 +369,7 @@ namespace Plugin_KOMPAS_3D.UI
                 if (_modelElements.IsElement(ElementName.SpeakerCover3))
                 {
                     _modelElements.ChangeForm(ElementName.SpeakerCover3);
-                    if (SpeakerWidth2TextBox.Visible == true)
-                    {
-                        SpeakerWidth2TextBox.Visible = false;
-                    }
-                    else
-                    {
-                        Form2ComboBox.Text = "Прямоугольник"; 
-                        SpeakerWidth2TextBox.Visible = true;
-                    }
+                    DisplayChangingForm(SpeakerWidth2TextBox, Form2ComboBox);
                     DisplayingBoundary(SpeakerHeight2TextBox);
                     DisplayingParameters();
                 }
@@ -403,18 +379,33 @@ namespace Plugin_KOMPAS_3D.UI
                 if (_modelElements.IsElement(ElementName.SpeakerCover4))
                 {
                     _modelElements.ChangeForm(ElementName.SpeakerCover4);
-                    if (SpeakerWidth3TextBox.Visible == true)
-                    {
-                        SpeakerWidth3TextBox.Visible = false;
-                    }
-                    else
-                    {
-                        Form3ComboBox.Text = "Прямоугольник";
-                        SpeakerWidth3TextBox.Visible = true;
-                    }
+                    DisplayChangingForm(SpeakerWidth3TextBox, Form3ComboBox);
                     DisplayingBoundary(SpeakerHeight3TextBox);
                     DisplayingParameters();
                 }
+            }
+        }
+
+        /// <summary>
+        /// Отображает изменение формы ====
+        /// в зависимости от видимости 
+        /// содержания comboBox и 
+        /// видимости textBox
+        /// </summary>
+        /// <param name="textBox">
+        /// Поле для введения 
+        /// ширины крышки динамика</param>
+        /// <param name="comboBox">Элемент изменения формы</param>
+        private void DisplayChangingForm(TextBox textBox, ComboBox comboBox)
+        {
+            if (textBox.Visible == true)
+            {
+                textBox.Visible = false;
+            }
+            else
+            {
+                comboBox.Text = "Прямоугольник";
+                textBox.Visible = true;
             }
         }
 

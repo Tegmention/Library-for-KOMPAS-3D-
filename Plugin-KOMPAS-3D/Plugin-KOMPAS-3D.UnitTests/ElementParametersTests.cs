@@ -12,42 +12,45 @@ namespace Plugin_KOMPAS_3D.UnitTests
         /// </summary>
         private List<(double min, double max, ParametersName name)> _values;
 
+        /// <summary>
+        /// Поле хранит параметры
+        /// элемента модели
+        /// </summary>
+        private ElementParameters _elementParameters;
+
+        /// <summary>
+        /// Хранит данные параметра
+        /// </summary>
+        private Parameter<double> _parameter;
+
         [SetUp]
         public void CreateParameters()
         {
             _values = new List<(double min, double max, ParametersName name)>
             {
                 (100, 500, ParametersName.Height),
-                (200, 600, ParametersName.Width),
+                (100, 500, ParametersName.Width),
                 (150, 200, ParametersName.Length)
             };
+            _elementParameters = new ElementParameters(_values);
+            _parameter = new Parameter<double>(100, 500, 100, "name");
         }
 
         [Test(Description = "Позитивный тест метода Parameter")]
         public void Test_Parameter()
         {
-            var elementParameters = new ElementParameters(_values);
-            var result = true;
-            string message = "";
-            if (elementParameters.Parameter(ParametersName.Height).MinValue != 100)
-            {
-                result = false;
-                message = "Ошибка при создании минимальной " +
-                   "высоты элемента";
-            }
-            if (elementParameters.Parameter(ParametersName.Height).MaxValue != 500)
-            {
-                result = false;
-                message = "Ошибка при создании максимальной " +
-                    "высоты элемента";
-            }
-            if (elementParameters.Parameter(ParametersName.Height).Value != 100)
-            {
-                result = false;
-                message = "Ошибка при создании текущей " +
-                    "высоты элемента";
-            }
-            Assert.IsTrue(result, message);
+            Assert.IsTrue(_elementParameters.
+                Parameter(ParametersName.Height).Equals(_parameter),
+                "Был возвращен некорректный элемент");
+        }
+
+        [Test(Description = "Запрос отсутствующего параметра" +
+            "в методе Parameter")]
+        public void Test_Parameter_NotParameter()
+        {
+            Assert.Throws<KeyNotFoundException>(() =>
+            { _elementParameters.Parameter(ParametersName.Diameter); },
+                    "Должно возникать исключение если, в словаре нет параметра с запрашиваемым именем");
         }
 
         [Test(Description = "Позитивный тест метода перечисления ToString")]
@@ -63,11 +66,9 @@ namespace Plugin_KOMPAS_3D.UnitTests
             "Позитивный тест метода CalculationCircleParameter при maxWidth > maxHeight")]
         public void Test_CalculationCircleParameterWidthMoreHeight()
         {
-            var elementParameters = new ElementParameters(_values);
-            elementParameters.CalculationCircleParameter();
-            var expected = 500;
-            var actual = elementParameters.Parameter(ParametersName.Width).MaxValue;
-            Assert.AreEqual(expected, actual, 
+            _elementParameters.CalculationCircleParameter();
+            Assert.IsTrue(_elementParameters.
+                Parameter(ParametersName.Width).Equals(_parameter),
                 "Метод CalculationCircleParameter работает некорректно");
         }
 
@@ -75,27 +76,36 @@ namespace Plugin_KOMPAS_3D.UnitTests
             "Позитивный тест метода CalculationCircleParameter при maxHeight > maxWidth")]
         public void Test_CalculationCircleParameterHeightMoreWidth()
         {
-            var elementParameters = new ElementParameters(_values);
-            elementParameters.Parameter(ParametersName.Height).MaxValue = 700;
-            elementParameters.CalculationCircleParameter();
-            var expected = 600;
-            var actual = 
-                elementParameters.Parameter(ParametersName.Height).MaxValue;
-            Assert.AreEqual(expected, actual, 
+            _elementParameters.Parameter(ParametersName.Height).MaxValue = 700;
+            _elementParameters.CalculationCircleParameter();
+            Assert.IsTrue(_elementParameters.
+                Parameter(ParametersName.Height).Equals(_parameter),
                 "Метод CalculationCircleParameter работает некорректно");
+        }
+
+        [Test(Description = "Позитивный тест метода Equals")]
+        public void Test_Equals()
+        {
+            var expected = new ElementParameters(_values);
+            Assert.IsTrue(expected.Equals(_elementParameters),
+                "Метод Equal некорректно сравнивает элементы");
+        }
+
+        [Test(Description = "Эквивалентность разных элементов")]
+        public void Test_Equals_NotEqual()
+        {
+            var expected = new ElementParameters(_values);
+            _elementParameters.Parameter(ParametersName.Height).MaxValue
+                = 800;
+            Assert.IsFalse(expected.Equals(_elementParameters),
+                "Метод Equal некорректно сравнивает элементы");
         }
 
         [Test(Description = "Позитивный тест конструктора ElementParameters")]
         public void Test_ElementParameters()
         {
-            var elementParameters = new ElementParameters(_values);
-            var values = new List<(double min, double max, ParametersName name)>
-            {
-                (100, 500, ParametersName.Height),
-                (200, 600, ParametersName.Width),
-                (150, 200, ParametersName.Length)
-            };
-            Assert.AreEqual(_values, values, 
+            var expected = new ElementParameters(_values);
+            Assert.IsTrue(expected.Equals(_elementParameters), 
                 "Конструктор ElementParameters не создает корректный экземпляр класса");
         }
     }

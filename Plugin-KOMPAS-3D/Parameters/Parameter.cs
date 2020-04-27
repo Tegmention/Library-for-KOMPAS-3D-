@@ -80,6 +80,29 @@ namespace Parameters
         }
 
         /// <summary>
+        /// Метод сравнивает
+        /// полученный параметер
+        /// с текущим
+        /// </summary>
+        /// <param name="obj">Объект сравнения</param>
+        /// <returns>
+        /// Результат сравнения
+        /// true - объекты различны 
+        /// false - объекты аналогичны
+        /// </returns>
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+            Parameter<double> parameter = obj as Parameter<double>;
+            if (parameter as Parameter<double> == null)
+                return false;
+            return parameter.MaxValue == Convert.ToDouble(this.MaxValue) 
+                && parameter.MinValue == Convert.ToDouble(this.MinValue)
+                && parameter.Value == Convert.ToDouble(this.Value); 
+        }
+
+        /// <summary>
         /// Коструктор класса Parameter
         /// </summary>
         /// <param name="minValue">Минимальное значение параметра</param>

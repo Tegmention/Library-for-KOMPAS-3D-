@@ -16,13 +16,42 @@ namespace Parameters
             new Dictionary<ParametersName, Parameter<double>>();
 
         /// <summary>
-        /// Возвращает параметер элемента
+        /// Возвращает параметер элемента ==
         /// </summary>
         /// <param name="name">Имя возвращаемого параметра</param>
         /// <returns>Параметер элемента</returns>
         public Parameter<double> Parameter(ParametersName name)
         {
             return _parameters[name];
+        }
+
+        /// <summary>
+        /// Метод сравнивает
+        /// полученные параметеры
+        /// с текущими
+        /// </summary>
+        /// <param name="obj">Объект сравнения</param>
+        /// <returns>
+        /// Результат сравнения
+        /// true - объекты различны 
+        /// false - объекты аналогичны
+        /// </returns>
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+            ElementParameters elementParameter = obj as ElementParameters;
+            if (elementParameter as ElementParameters == null)
+                return false;
+            var result = true;
+            var names = _parameters.Keys;
+            foreach (var parameterName in names)
+            {
+                if (!this.Parameter(parameterName).
+                    Equals(elementParameter.Parameter(parameterName)))
+                    result = false;
+            }
+            return result;
         }
 
         /// <summary>

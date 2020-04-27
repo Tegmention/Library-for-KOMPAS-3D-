@@ -30,19 +30,6 @@ namespace Builder
         {
             _modelelElements = elements;
             _kompasObject = kompas;
-            //var i = 0;
-            //while (i != 2000)
-            //{
-            //    DateTime Start;
-            //    DateTime Stoped;
-            //    TimeSpan Elapsed = new TimeSpan();
-            //    Start = DateTime.Now;
-            //    CreateModel();
-            //    Stoped = DateTime.Now;
-            //    Elapsed = Stoped.Subtract(Start);
-            //    Console.WriteLine(Elapsed);
-            //    i++;
-            //}
             CreateModel();
         }
 

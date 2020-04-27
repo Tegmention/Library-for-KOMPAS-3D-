@@ -82,32 +82,28 @@ namespace Plugin_KOMPAS_3D.UnitTests
                 "Геттер Value некорректно возвращает значение");
         }
 
+        [Test(Description = "Тест метода Equal")]
+        public void Test_Equal()
+        {
+            var expected = new Parameter<double>(10, 20, 10, "name");
+            Assert.IsTrue(expected.Equals(_parameter),
+                "Метод Equal некорректно сравнивает элементы");
+        }
+
+        [Test(Description = "Тест метода Equal")]
+        public void Test_Equal_NotEqual()
+        {
+            var expected = new Parameter<double>(10, 50, 10, "name");
+            Assert.IsFalse(expected.Equals(_parameter),
+                "Метод Equal некорректно сравнивает элементы");
+        }
+
         [Test(Description = "Тест конструктора Parameter")]
         public void Test_Parameter_Designer()
         {
-            string messege = "";
-            var result = true;
-            if(_parameter.MinValue != 10)
-            {
-                result = false;
-                messege = "Ошибка при создании минимального " +
-                    "значение параметра";
-            }
-
-            if (_parameter.MaxValue != 20)
-            {
-                result = false;
-                messege = "Ошибка при создании максимального " +
-                    "значение параметра";
-            }
-
-            if (_parameter.Value != 10)
-            {
-                result = false;
-                messege = "Ошибка при создании текущего " +
-                    "значение параметра";
-            }
-            Assert.IsTrue(result, messege);
+            var expected = new Parameter<double>(10, 20, 10, "name");
+            Assert.IsTrue(expected.Equals(_parameter), 
+                "Ошибка при создании параметра");
         }
 
         [TestCase("-100", 

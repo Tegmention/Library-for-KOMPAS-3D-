@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System;
 
 namespace Parameters
 {
@@ -48,6 +49,41 @@ namespace Parameters
             {
                 _elementParameters.CalculationCircleParameter();
             }
+        }
+
+        /// <summary>
+        /// Метод сравнивает
+        /// полученный элемент
+        /// с текущим
+        /// </summary>
+        /// <param name="obj">Объект сравнения</param>
+        /// <returns>
+        /// Результат сравнения
+        /// true - объекты различны 
+        /// false - объекты аналогичны
+        /// </returns>
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+            ModelElement modelElement = obj as ModelElement;
+            if (modelElement as ModelElement == null)
+                return false;
+            var result = true;
+            foreach (var parameterName in Enum.GetValues(typeof(ParametersName)))
+            {
+                try
+                {
+                    if (!this.Parameter((ParametersName)parameterName).
+                          Equals(modelElement.Parameter((ParametersName)parameterName)))
+                        result = false;
+                }
+                catch 
+                {
+                    continue;
+                }
+            }
+            return result && this.FormKey() == modelElement.FormKey();
         }
 
         /// <summary>
