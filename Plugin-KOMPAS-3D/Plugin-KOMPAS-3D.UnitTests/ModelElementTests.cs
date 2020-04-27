@@ -12,6 +12,10 @@ namespace Plugin_KOMPAS_3D.UnitTests
         /// </summary>
         private List<(double min, double max, ParametersName name)> _values;
 
+        /// <summary>
+        /// Поле хранит данные 
+        /// элемента модели
+        /// </summary>
         private ModelElement _modelElement;
 
         [SetUp]
